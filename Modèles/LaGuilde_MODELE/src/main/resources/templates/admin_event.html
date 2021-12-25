@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+  <title>Administration : Événements</title>
+  <link rel="icon" href="img/icon.png">
+
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="Content-Language" content="fr" />
+  <meta name="Description" content="" />
+  <meta name="Keywords" content="Page accueil de La Guilde" />
+  <meta name="Subject" content="" />
+  <meta name="Content-Type" content="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Boostrap -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+  <!-- Insertion Header -->
+  
+  <header th:insert="elements/header.html"></header>
+
+  <section>
+      <p>Page de l'event :<span th:text="${event.getTitre}"></span></p>
+    <table>
+        <tr>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Supprimer</th>
+        </tr>
+        <th:block th:each="inscrit:${inscrits}">
+            <tr>
+                <td th:text="${inscrit.getNom}"></td>
+                <td th:text="${inscrit.getPrenom}"></td>
+                <td>
+                    <form th:action="@{/admin_event/}+${event.getId}" method="POST">
+                        <input type="hidden" th:value="${inscrit.getId}" name="supprimer">
+                        <input type="submit" th:value="supprimer">
+                    </form>
+                </td>
+            </tr>
+        </th:block>
+    </table>
+  </section>
+
+  <!-- Insertion Footer -->
+
+  <footer th:insert="elements/footer.html"></footer>
+
+</body>
+
+</html>

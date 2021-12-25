@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+    <title>Administration : Événements</title>
+    <link rel="icon" href="img/icon.png">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="Content-Language" content="fr" />
+    <meta name="Description" content="" />
+    <meta name="Keywords" content="Page accueil de La Guilde" />
+    <meta name="Subject" content="" />
+    <meta name="Content-Type" content="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Boostrap -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+    <!-- Insertion Header -->
+
+    <header th:insert="elements/header.html"></header>
+
+    <section>
+
+        <div>Nouvel événement :</div>
+
+        <div class="row" style="width: 99.5vw">
+
+            <div class="col-2"></div>
+
+            <div class="col-8">
+                <span th:text="${res}"></span>
+                <form method="POST" th:action=@{/creerEvent} th:object=${evenement}>
+                    <div>
+                        <input placeholder="Titre" id="titre" name="titre" style="width:80%"></input>
+                        <p style="float:right;">Publié le : 00/00/0000</p>
+                    </div>
+
+                    <textarea placeholder="Desription" id="Description" name="Description" style="width:100%"></textarea>
+
+                    <div>
+                        <input type="date" placeholder="Date de l’événement" id="date" name="date" style="width:47%"></input>
+                        <input type="number" placeholder="Nombre de places" id="nbParticipant" name="nombrePlaces" style="width:47%; float:right;"></input>
+                    </div>
+
+                    <div>
+                        <label for="image" class="btn btn-primary">Ajouter une image</label>
+                        <input type=file id="image" name="image" style="visibility: hidden">
+                    </div>
+                    <div>
+                        <label for="visible">cotisants uniquement</label>
+                        <input type="checkbox" name="visible" id="visible" value=1>
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary" style="float: right;">Publier</button>
+                    </div>
+                </form>
+                <button class="btn btn-primary" onclick="preview()" id="previewButton">Preview</button><!--à reprendre-->
+            </div>
+
+        </div>
+
+        <!-- Preview -->
+
+        <div class="row" style="width: 99.5vw; margin-top: 100px">
+  
+            <div class="col-2"></div>
+        
+            <div class="col-8" style="margin-bottom: 40px;">
+      
+              <div>
+                <h3 style="display: inline-block; max-width: calc(100% - 120px);" id="previewTitre"></h3>
+                <p style="float:right;" id="previewDate"></p>
+              </div>
+      
+              <div>
+                <img id="previewImage" src="" alt="" style="float:right; width:35%; margin-left: 1%;">
+                <p id="previewMessage"></p>
+              </div>
+
+              <div>
+                  <p id="previewDateEvent" style="position: absolute; left: 15px; bottom: -40px;"></p>
+                  <p id="previewNombrePlaces" style="position: absolute; right: 15px; bottom: -40px;"></p>
+              </div>
+
+              <div id="previewInscrire" style="position: absolute; right: 15px; bottom: -70px; visibility:hidden;">
+                <div class="btn btn-primary" >S'inscrire</div>
+              </div>
+      
+            </div>
+        
+          </div>
+
+    </section>
+
+    <script>
+    function preview() {
+        document.getElementById("previewInscrire").style.visibility = "visible";
+
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        document.getElementById("previewDate").innerHTML = "Publié le : " + dd + "/" + mm + "/" + yyyy;
+        
+        var titre = document.getElementById("titre").value;
+        var message = document.getElementById("message").value;
+        var image = document.getElementById("image").files[0];
+        var dateEvent = document.getElementById("dateEvent").value;
+        var nombrePlaces = document.getElementById("nombrePlaces").value;
+        document.getElementById("previewTitre").innerHTML = titre;
+        document.getElementById("previewMessage").innerHTML = message;
+        document.getElementById("previewDateEvent").innerHTML = "Évenement le : " + dateEvent;
+        document.getElementById("previewNombrePlaces").innerHTML = "Nombre de places :" + nombrePlaces;
+        document.getElementById("previewImage").src = window.URL.createObjectURL(image);
+        
+
+    }
+    </script>
+
+    <!-- Insertion Footer -->
+
+    <footer th:insert="elements/footer.html"></footer>
+
+</body>
+
+</html>

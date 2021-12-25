@@ -1,0 +1,91 @@
+<div class="collapse" id="collapseLogin"
+    style="position: fixed; width: 500px; z-index: 10; top: 60px; right: 0; border: solid; border-color: black; border-width: 1px; border-radius: 10px; padding: 10px">
+    <div class="row">
+        <div class="col-12">
+            <div class="list-group" id="list-tab" role="tablist" style="display: block">
+                <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list"
+                    href="#list-home" role="tab" aria-controls="home" style="width: 50%; float: left;">Connexion</a>
+                <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                    href="#list-profile" role="tab" aria-controls="profile"
+                    style="width: 50%; float: right;">Inscription</a>
+            </div>
+        </div>
+    </div>
+    <div row>
+        <div class="col-12">
+            <div class="tab-content" id="nav-tabContent">
+
+                <!-- Formulaire Connexion -->
+
+                <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">
+
+                    <form method="post" th:action=@{/se-connecter}>
+
+                        <div class="form-group">
+                            <label for="connexionEmail">Adresse Email</label>
+                            <input type="email" class="form-control" id="connexionEmail" name="connexionEmail" placeholder="email@exemple.com">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['emailCo']}"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="connexionPassword">Mot de passe</label>
+                            <input type="password" class="form-control" id="connexionPassword" name="connexionPassword" placeholder="Mot de passe">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['passwordCo']}"></span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary" style="float: left;">Se connecter</button>
+                            <span></span>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <!-- Formulaire Inscription -->
+
+                <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">
+                    
+                    <form method="post" th:action=@{/ajouter-membre} th:object=${membre}>
+
+                        <div class="form-group">
+                            <label for="nom">Nom</label>
+                            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['nom']}"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="prenom">Prénom</label>
+                            <input type="text" class="form-control" id="prenom" name="prenom" placeholder="Prénom">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['prenom']}"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Adresse Email</label>
+                            <input type="email" class="form-control" id="email" name="email" placeholder="email@exemple.com">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['email']}"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Mot de passe</label>
+                            <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['password']}"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="confirmation">Confirmer le mot de passe</label>
+                            <input type="password" class="form-control" id="confirmation" name="confirmation" placeholder="Confirmer le mot de passe">
+                            <span th:if="${erreurs!=null}" th:text="${erreurs['password']}"></span>
+                        </div>
+
+                        <div>
+                            <button type="submit" class="btn btn-primary">S'inscrire</button>
+                        </div>
+
+                    </form>
+               
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

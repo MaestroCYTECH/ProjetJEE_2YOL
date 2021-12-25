@@ -1,0 +1,245 @@
+/* ------------------- Barre supérieure ----------------- */
+/* Mise en page de la barre supérieure (titre et barre de navigation) */
+#titre {
+    text-align: center;
+    color: #303030;
+    font-family: Arial, Helvetica, sans-serif;
+	background: radial-gradient(circle, rgba(190,190,190,1) 0%, #888888 100%); 
+    opacity: 1;
+}
+#titre img{
+    display: inline-block;
+    height: 2em;
+    padding: 1em;
+}
+/* Barre de navigation supérieure */
+.navbar {
+    z-index: 3;
+    position: sticky;
+    text-align: center;
+    color:white;
+    font-family: 'Roboto', sans-serif;
+    top: 0;
+    width: 100%;
+    box-shadow: 0 -5px 5px -5px #333;
+    background-color: #303030;
+    overflow: auto;
+}
+/* Bouton de barre de navigation supérieure */
+.navbar a {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    font-size: 0.8em;
+    padding-left: 1.75em;
+    padding-right: 1.75em;
+    text-decoration: none;
+    background-color: #303030;
+    
+}
+/* Hover de bouton de barre de navigation supérieure */
+.navbar a:hover {
+    background-color: #444444;
+}
+
+/* --------------- Barre de gauche ------------------ */
+/* Barre de navigation secondaire */
+.navbar2 a {
+    vertical-align: center;
+    background-color: #444444;
+    font-size:0.75vw;
+    font-family: Arial, Helvetica, sans-serif;
+    color: black;
+    text-align: center;
+    display: inline-block;
+    width: 60%;
+    height: 60%;
+    margin: auto;
+    padding-top: 17%;
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 13%;
+}
+
+/* Bouton de barre de navigation secondaire */
+.navbar2 a:hover {
+   box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+
+}
+/* Bouton cliqué */
+.btnclick {
+    -moz-box-shadow:    inset 0 0 10px #00000066;
+    -webkit-box-shadow: inset 0 0 10px #00000066;
+    box-shadow:         inset 0 0 10px #00000066;
+}
+
+.icon {
+    width: 70%;
+}
+
+.icon2 {
+    height: 1em;
+}
+
+/* ------------- Compartimentation de la page ------------- */
+/* Partie principale */
+.box {
+    display: flex;
+}
+
+/* Partie gauche */
+.pagegauche {
+    position: relative;
+    background-color: #444444;
+    z-index: 1;
+    flex: 1 1 0;
+    text-align: center;
+    padding-top: 1em;;
+    box-shadow: 5px 0 5px -5px #333;
+}
+
+/* Partie droite */
+.pagedroite {
+    flex: 20 1 0;
+    vertical-align: middle;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* ----------------- Bas de page ------------------------- */
+footer {
+    overflow: hidden;
+    text-align: center;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1em;
+    padding-top: 1%;
+	background-color: #303030;
+
+}
+
+footer a{
+	color: white;
+	font-weight: bold;
+    text-decoration: none;
+}
+footer a:hover{
+    text-decoration:underline;
+}
+#footerAdresses img{
+    width:30%;
+}
+
+#container{
+    display: flex;
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: 1em;
+    padding-bottom: 1em;
+}
+
+#container a{
+    font-size: 0.75em;
+}
+
+.colonneFooter{
+    flex: 1 1 0;
+    font-size: 1em;
+    text-align: left;
+    margin-left: 2em;
+    margin-right: 2em;
+}
+
+#footerLinks ul{
+    text-align: left;
+    list-style: none;
+}
+#footerLinks li{
+    padding-right: 0.25%;
+    padding-left: 0.25%;
+}
+
+#footerConditions ul{
+    text-align: center;
+    list-style: none;
+}
+#footerConditions li{
+
+    padding-right: 0.25%;
+    padding-left: 0.25%;
+}
+
+#mentions{
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+    background-color: #444444;
+    width: 100%;
+}
+
+/* ----------------------- Contenu de la page ------------ */
+/* Organisation des logos de la page d'accueil */
+.colonnelogo {
+    flex: 1 1 0;
+}
+
+.imageLogo {
+    height: 25px;
+    top: 50%;
+    left: 50%;
+}
+
+.boxlogo {
+    display: flex;
+    padding: 2em;
+    border-radius: 1em;
+    background-color: #30303050;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #00000030;
+}
+
+/* Section texte + titre */
+.bloc {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #00000030;
+    border-radius: 0.5em;
+    margin: 2em;
+}
+
+/* Titre d'une section texte */
+.titresection {
+    text-align: center;
+    display: block;
+    color : white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 0.8em;
+    background-color:#2dcc70;
+    padding: 0.2em;
+    border-radius: 0.5em 0.5em 0em 0em;
+}
+
+/* Section texte */
+.texte {
+    padding: 2em;
+    font-size: 0.8em;
+    margin: auto;
+}
+.texte p{
+    text-align:justify;
+}
+
+body{
+    margin:0%;
+}
+
+.backgroundimage {
+    background-image: url("/ING1GI1-AGOUSSAL-CLIPET/LeCoinPhoto/img/background4.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.centered {
+    backdrop-filter: blur(5px);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1em;
+    padding: 3em;
+    color: white;
+}

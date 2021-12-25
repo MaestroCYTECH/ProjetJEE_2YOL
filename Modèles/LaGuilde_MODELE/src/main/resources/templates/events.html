@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+  <title>La Guilde : Événements</title>
+  <link rel="icon" href="img/icon.png">
+
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="Content-Language" content="fr" />
+  <meta name="Description" content="" />
+  <meta name="Keywords" content="Page accueil de La Guilde" />
+  <meta name="Subject" content="" />
+  <meta name="Content-Type" content="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Boostrap -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+  <!-- Insertion Header -->
+  
+    <header th:insert="elements/header.html"></header>
+    <span th:text="${resultat}"></span>
+    
+    <th:block th:each="event:${events}">
+        <section>
+            <div>Événements :</div>
+        
+            <div class="row" style="width: 99.5vw">
+        
+                <div class="col-8">
+        
+                    <div class="col-8" style="margin-bottom: 40px;">
+                        <div>
+                            <h3 style="display: inline-block; max-width: calc(100% - 120px);" th:text="${event.getTitre}"></h3>
+                            <p style="float:right;">Evenement le:<span th:text="${event.getDate}"></span> </p>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p th:text="${event.getDescription}"></p>
+                    </div>
+
+                    <div th:if="${event.getNbParticipant}!=null">
+                        <p style="position: absolute; right: 15px; bottom: -40px;">Nombre de places maximum :<span th:text="${event.getNbParticipant}"></span></p>
+                    </div>
+
+                    <div style="position: absolute; right: 15px; bottom: -70px">
+                        <th:block th:if="${session.id != null and participe.element==0}">
+                            <form method="POST"  th.action="/Events" th:object=${participants}>
+                                <input type="hidden" readonly name="idmembre" th:value="${session.id}"><!-- à verifier avec tom-->
+                                <input type="hidden" readonly name="idevent" th:value="${event.getId}">
+                                <button type="submit">S'inscrire</button>
+                            </form>
+                        </th:block>
+                        <th:block th:if="${session.id != null and participe.element==1}">
+                            <p> Vous êtes déjà inscrit</p>
+                        </th:block>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <br>
+        <br>
+        <div style="display:none">
+            <th:block  th:text="${participe.poll}"></th:block>
+        </div>
+    </th:block>         
+
+  <!-- Insertion Footer -->
+
+  <footer th:insert="elements/footer.html"></footer>
+
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+fr/eisti/cergy/jee/model/Commande.class
+fr/eisti/cergy/jee/service/ProduitService.class
+fr/eisti/cergy/jee/model/Client.class
+fr/eisti/cergy/jee/model/Produit.class
+fr/eisti/cergy/jee/service/ProduitRepository.class
+fr/eisti/cergy/jee/contoller/IndexController.class
+fr/eisti/cergy/jee/service/ProduitServiceImpl.class
+fr/eisti/cergy/jee/model/Categorie.class
+fr/eisti/cergy/jee/Application.class
+fr/eisti/cergy/jee/contoller/ProduitController.class

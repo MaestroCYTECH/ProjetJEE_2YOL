@@ -1,0 +1,43 @@
+<!--------------------------- Header --------------------------------->
+<!-- <jsp:include page="/WEB-INF/jsp/common/header.jsp"/> -->
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light" style="position: fixed; top: 0; width: 100vw; z-index: 10;">
+    <a class="navbar-brand" href="/">
+        <img src="img/logo_mail.png" width="35" height="" alt="">
+        La Guilde
+    </a>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="/Actualité">
+                    Actualités
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/events">
+                    Événements
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">
+                    Le Bureau
+                </a>
+            </li>
+            <li th:if="${session.statutCo!=null and session.statutCo &lt; 3}" th:insert="elements/subelements/admin_dropdown.html" class="nav-item dropdown">
+            </li>
+        </ul>
+
+        
+        <div th:if="${session.statutCo==null}" th:insert="elements/subelements/login_navbar.html"></div>
+        <div th:if="${session.statutCo!=null}" th:insert="elements/subelements/deconnection.html"></div>
+    </div>
+</nav>
+
+<div th:insert="elements/subelements/login_collapse.html"></div>
+
+
+<!-- Division de tampon sous la navbar -->
+<div style="height: 68px;"></div>
+
+<!------------------------- Fin Header ------------------------------->

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestion Actu</title>
+</head>
+<body>
+    <span th:text="${id}"></span>
+    <th:block th:each="actu : ${news}">
+        <form method="post" th:action=@{/Management-Actualité}>
+            <input type="hidden" id="id" th:value="${actu.id}" name="id"/>
+            <span id="titre" name="titre" th:text="${actu.titre}"></span>
+            <br/>
+            <button type="submit">Supprimer</button>
+            <br/>
+            <br/>
+        </form>
+    </th:block>
+
+</body>
+</html>

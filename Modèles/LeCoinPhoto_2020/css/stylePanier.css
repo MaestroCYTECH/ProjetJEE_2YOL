@@ -1,0 +1,204 @@
+@import url("style.css"); /* CSS pour les éléments "fixes" de la page */
+
+/* ----------------------- Contenu de la page ------------ */
+/* Organisation des colonnes du tableau */
+.col1 {
+    flex: 1 1 0;
+}
+.col2 {
+    flex: 3 1 0;
+}
+.col3 {
+    flex: 3 1 0;
+}
+.col4 {
+    flex: 1 1 0;
+}
+
+.imageAppareil {
+    flex: 1 1 0;
+    text-align: left;
+    padding-left: 1em;
+}
+
+.imageAppareil2 {
+    height: 5em;
+}
+
+.icon {
+    width: 70%;
+}
+
+.bloc{
+    text-align: center;
+}
+
+.panier {
+    display: flex;
+    padding: 0.5em;
+    margin: 1em;
+    border: 1px solid #cccccc;
+    border-radius: 0.5em;
+    text-align: center;
+}
+
+.panier:hover {
+    display: flex;
+    padding-top: 1em;
+    transform: scale(1.01);
+    z-index: 2;
+    opacity: 1;
+    margin: 1em;
+    border: 1px solid #cccccc;
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow:         inset 0 0 10px #00000066;
+}
+
+.nomProduit{
+    flex: 3 1 0;
+}
+.nomProduit1{
+    flex: 3 1 0;
+    margin-top: 2em;
+}
+
+
+.nomProduit2{
+    flex: 3 1 0;
+    margin-top: 1em;
+}
+
+.prixProduit {
+    flex: 3 1 0;
+    font-size: 1em;
+    height: 2em;
+    padding-top: 2em;
+
+}
+
+.prixProduit2 {
+    flex: 3 1 0;
+    font-size: 1em;
+    height: 2em;
+    padding-top: 1em;
+
+}
+
+.boutonSupprimer {
+    font-family: 'Roboto', sans-serif;
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+    margin-top: 2.3em;
+    border-radius: 0.75em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #666666;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.boutonSupprimer:hover {
+    background-color: #e73232;
+}
+
+.boutonPayer {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 2em;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #666666;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.boutonPayer:hover {
+    background-color: #444444;
+}
+
+/*Pour la page liste de la section admin*/
+.boutonVert {
+    font-family: 'Roboto', sans-serif;
+    padding: 1%;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #2dcc70;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.boutonVert:hover {
+    font-family: 'Roboto', sans-serif;
+    
+    padding: 1%;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #32e77e;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.midCenter{
+    flex: 3 1 0;
+    margin-top: 0.6em;
+}
+
+.grandBoutonSuppr {
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    padding-top: 0.5em;
+
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-top: 1em;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #666666;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.grandBoutonSuppr:hover {
+    background-color: #444444;
+}
+
+.boutonSupprCategorie {
+    font-family: 'Roboto', sans-serif;
+    height: 1.5em;
+    width: 1.5em;
+    margin-right: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 1.4em;
+    border-radius: 0.75em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #666666;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.boutonSupprCategorie:hover {
+    background-color: #e73232;
+}

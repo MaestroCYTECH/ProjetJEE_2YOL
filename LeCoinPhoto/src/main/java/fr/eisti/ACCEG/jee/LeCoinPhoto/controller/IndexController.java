@@ -1,0 +1,57 @@
+package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
+
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class IndexController { //Controleur gerant l'accès aux pages principales
+
+	@GetMapping(value = "/")
+	public String index() {
+		return "index"; //Cherche par défaut dans /WEB-INF/jsp (changeable dans application.properties)
+	}
+	
+	@GetMapping(value = "/contact")
+	public String pageContact() {
+		return "/contact/contact";
+	}
+	
+	@GetMapping(value = "/appareils")
+	public String pageAppareils() {
+		return "/produit/appareils";
+	}
+	
+	@GetMapping(value = "/objectifs")
+	public String pageObjectifs() {
+		return "/produit/objectifs";
+	}
+	
+	@GetMapping(value = "/accessoires")
+	public String pageAccessoires() {
+		return "/produit/accessoires";
+	}
+	
+	
+	@GetMapping(value = "/connexion")
+	public String pageConnexion() {
+		return "/utilisateur/connexion";
+	}
+	
+	@GetMapping(value = "/inscription")
+	public String pageInscription() {
+		return "/utilisateur/inscription";
+	}
+	
+	@GetMapping(value = "/panier")
+	public String pagePanier() {
+		return "/utilisateur/panier";
+	}
+	
+	@GetMapping(value = "/profil")
+	public String pageProfil() {
+		return "/utilisateur/profil";
+	}
+	
+}

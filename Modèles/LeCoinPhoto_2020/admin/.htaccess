@@ -1,0 +1,4 @@
+AuthName "Vous êtes sur une page d'administration protégée"
+AuthType Basic
+AuthUserFile "/wampserver/www/ING1GI1-AGOUSSAL-CLIPET/LeCoinPhoto/admin/.htpasswd"
+Require valid-user

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<div class="container">
+
+    <div class="formCo">
+
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <h3>Inscrivez-vous à La Guilde, la meilleure association de l'histoire !</h3>
+
+                <form method="post" enctype="multipart/form-data" th:action=@{/CreationActualité} th:object=${news}>
+
+                    <div class=”form-group”>
+                        <label for="nom">Titre</label>
+                        <input class="form-control" id="titre" name="titre">
+                        <span th:text="${erreurs['erreurNom']}"></span>
+                    </div>
+
+                    <br>
+
+                    <div class=”form-group ”>
+                        <label for="description">Description</label>
+                        <textarea class="form-control" id="description" name="description"></textarea>
+                        <span th:text="${erreurs['erreurPrenom']}"></span>
+                    </div>
+
+                    <br>
+
+                    <table>
+                        <div class="input-group mb-3">
+                            <label for="file">Image</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="file" name="file">
+                                <label class="custom-file-label" for="file">Choose file</label>
+                            </div>
+                            <span th:text="${erreurs[erreurPrenom]}"></span>
+                        </div>
+                    </table>
+
+                    <br>
+
+                    <button type="submit" class="btn btn-primary">S'inscrire</button>
+
+            </div>
+            </form>
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+</html>

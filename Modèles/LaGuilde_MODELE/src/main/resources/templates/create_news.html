@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org" th:if="${session.statutCo!=null and session.statutCo &lt; 3}">
+
+<head>
+    <title>Administration : Actualités</title>
+    <link rel="icon" href="img/icon.png">
+
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="Content-Language" content="fr" />
+    <meta name="Description" content="" />
+    <meta name="Keywords" content="Page accueil de La Guilde" />
+    <meta name="Subject" content="" />
+    <meta name="Content-Type" content="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Boostrap -->
+    <!-- CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+    <!-- Insertion Header -->
+
+    <header th:insert="elements/header.html"></header>
+
+    <section>
+
+        <div>Nouvelle actualité :</div>
+
+        <div class="row" style="width: 99.5vw">
+
+            <div class="col-2"></div>
+
+            <div class="col-8">
+                <form>
+                    <div>
+                        <input placeholder="Titre" id="titre" name="titre" style="width:80%"></input>
+                        <p style="float:right;">Publié le : 00/00/0000</p>
+                    </div>
+
+                    <div>
+                        <textarea placeholder="Message" id="message" name="message" style="width:100%"></textarea>
+
+                        <label for="image" class="btn btn-primary">Ajouter une image</label>
+                        <input type=file id="image" name="image" style="visibility: hidden">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="btn btn-primary" style="float: right;">Publier</button>
+                    </div>
+                </form>
+                <button class="btn btn-primary" onclick="preview()" id="previewButton">Preview</button>
+            </div>
+
+        </div>
+
+        <!-- preview -->
+
+        <div class="row" style="width: 99.5vw; margin-top: 100px">
+  
+            <div class="col-2"></div>
+        
+            <div class="col-8">
+      
+              <div>
+                <h3 style="display: inline-block; max-width: calc(100% - 120px);" id="previewTitre"></h3>
+                <p style="float:right;" id="previewDate"></p>
+              </div>
+      
+              <div>
+                <img id="previewImage" src="" alt="" style="float:right; width:35%; margin-left: 1%;">
+                <p id="previewMessage"></p>
+              </div>
+      
+            </div>
+        
+          </div>
+
+    </section>
+
+    <script>
+    function preview() {
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+        document.getElementById("previewDate").innerHTML = "le : " + dd + "/" + mm + "/" + yyyy;
+        
+        var titre = document.getElementById("titre").value;
+        var message = document.getElementById("message").value;
+        var image = document.getElementById("image").files[0];
+        document.getElementById("previewTitre").innerHTML = titre;
+        document.getElementById("previewMessage").innerHTML = message;
+        document.getElementById("previewImage").src = window.URL.createObjectURL(image);
+    }
+    </script>
+
+    <!-- Insertion Footer -->
+
+    <footer th:insert="elements/footer.html"></footer>
+
+</body>
+
+</html>

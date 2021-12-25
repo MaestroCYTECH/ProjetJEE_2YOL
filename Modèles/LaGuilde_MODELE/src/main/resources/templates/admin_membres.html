@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org" th:if="${session.statutCo!=null and session.statutCo &lt; 3}">
+
+<head>
+  <title>Administration : Membres</title>
+  <link rel="icon" href="img/icon.png">
+
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="Content-Language" content="fr" />
+  <meta name="Description" content="" />
+  <meta name="Keywords" content="Page accueil de La Guilde" />
+  <meta name="Subject" content="" />
+  <meta name="Content-Type" content="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Boostrap -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+  <!-- Insertion Header -->
+  
+  <header th:insert="elements/header.html"></header>
+
+  <section>
+    <div> La/Le président :
+      <th:block th:each="president : ${ListePresidents}">
+          <form method="post" th:action=@{/promouvoir}>
+
+              <span th:text="${president.getNom()}"></span>
+              <span th:text="${president.getPrenom()}"></span>
+              <span th:text="${president.getEmail()}"></span>
+
+              <button th:if="${session.statutCo==0 and ListePresidents.size() &gt; 1}" type="submit" th:formaction=@{/degrader} name="membre" th:value="${president.getEmail()}">Enlever son rang de président</button>
+
+          </form>
+      </th:block>
+    </div>
+    
+    <br>
+
+    <div> Les autres élus du bureau :
+      <th:block th:each="elus : ${ListeElus}">
+        <form method="post" th:action=@{/promouvoir}>
+
+              <span th:text="${elus.getNom()}"></span>
+              <span th:text="${elus.getPrenom()}"></span>
+              <span th:text="${elus.getEmail()}"></span>
+
+              <button th:if="${session.statutCo==0}" type="submit" name="membre" th:value="${elus.getEmail()}">En faire un président</button>
+              <button th:if="${session.statutCo==0}" type="submit" th:formaction=@{/degrader} name="membre" th:value="${elus.getEmail()}">Enlever son rang d'élu(e) du bureau</button>
+
+        </form>
+      </th:block>
+    </div>
+    
+    <br>
+
+    <div> Les autres membres du bureau :
+      <th:block th:each="bureaux : ${ListeBureaux}">
+          <form method="post" th:action=@{/promouvoir}>
+
+              <span th:text="${bureaux.getNom()}"></span>
+              <span th:text="${bureaux.getPrenom()}"></span>
+              <span th:text="${bureaux.getEmail()}"></span>
+
+              <button th:if="${session.statutCo==0}" type="submit" name="membre" th:value="${bureaux.getEmail()}">En faire un/une élu(e) du bureau</button>
+              <button th:if="${session.statutCo==0}" type="submit" th:formaction=@{/degrader} name="membre" th:value="${bureaux.getEmail()}">Enlever son rang de membre du bureau</button>
+
+
+          </form>
+      </th:block>
+    </div>
+    
+    <br>
+
+    <div> Les adhérants :
+      <th:block th:each="adherants : ${ListeAdherants}">
+          <form method="post" th:action=@{/promouvoir}>
+
+              <span th:text="${adherants.getNom()}"></span>
+              <span th:text="${adherants.getPrenom()}"></span>
+              <span th:text="${adherants.getEmail()}"></span>
+
+              <button th:if="${session.statutCo==0}" type="submit" name="membre" th:value="${adherants.getEmail()}">En faire un membre du bureau</button>
+              <button th:if="${session.statutCo &lt; 2}" type="submit" th:formaction=@{/degrader} name="membre" th:value="${adherants.getEmail()}">Enlever son rang d'adhérant</button>
+              <button th:if="${session.statutCo &lt; 2}" type="submit" th:formaction=@{/supprimer} name="membre" th:value="${adherants.getEmail()}">Supprimer ce compte </button>
+
+          </form>
+      </th:block>
+    </div>
+    
+    <br>
+
+    <div> Les autres membres :
+      <th:block th:each="membres : ${ListeMembres}">
+          <form method="post" th:action=@{/promouvoir}>
+
+              <span th:text="${membres.getNom()}"></span>
+              <span th:text="${membres.getPrenom()}"></span>
+              <span th:text="${membres.getEmail()}"></span>
+              
+              <button th:if="${session.statutCo &lt; 2}" type="submit" name="membre" th:value="${membres.getEmail()}">En faire un adhérant</button>
+              <button th:if="${session.statutCo &lt; 3}" type="submit" th:formaction=@{/degrader} name="membre" th:value="${membres.getEmail()}">Enlever son rang de membre</button>
+              <button th:if="${session.statutCo &lt; 2}" type="submit" th:formaction=@{/supprimer} name="membre" th:value="${membres.getEmail()}">Supprimer ce compte </button>
+
+          </form>
+      </th:block>
+    </div>
+    
+    <br>
+
+    <div> Les personnes en attente de validation :
+      <th:block th:each="attentes : ${ListeAttente}">
+          <form method="post" th:action=@{/promouvoir}>
+
+              <span th:text="${attentes.getNom()}"></span>
+              <span th:text="${attentes.getPrenom()}"></span>
+              <span th:text="${attentes.getEmail()}"></span>
+              
+              <button th:if="${session.statutCo &lt; 3}" type="submit" name="membre" th:value="${attentes.getEmail()}">Valider ce membre</button>
+              <button th:if="${session.statutCo &lt; 3}" type="submit" th:formaction=@{/supprimer} name="membre" th:value="${attentes.getEmail()}">Supprimer ce compte </button>
+              <button th:if="${session.statutCo &lt; 3}" type="submit" th:formaction=@{/bloquer} name="membre" th:value="${attentes.getEmail()}">Bloquer cette adresse mail </button>
+
+
+          </form>
+      </th:block>
+    </div>
+  </section>
+
+
+  <!-- Insertion Footer -->
+
+  <footer th:insert="elements/footer.html"></footer>
+
+</body>
+
+</html>

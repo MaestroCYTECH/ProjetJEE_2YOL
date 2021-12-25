@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="https://www.thymeleaf.org">
+
+<head>
+  <title>La Guilde : Actualités</title>
+  <link rel="icon" href="img/icon.png">
+
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+  <meta name="Content-Language" content="fr" />
+  <meta name="Description" content="" />
+  <meta name="Keywords" content="Page accueil de La Guilde" />
+  <meta name="Subject" content="" />
+  <meta name="Content-Type" content="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Boostrap -->
+  <!-- CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+
+</head>
+
+
+<body>
+
+  <!-- Insertion Header -->
+  
+  <header th:insert="elements/header.html"></header>
+
+  <section>
+  
+    <div>Actualités :</div>
+  
+    <div class="row" style="width: 99.5vw">
+  
+      <div class="col-2"></div>
+  
+      <div class="col-8">
+
+        <div>
+          <h3 style="display: inline-block; max-width: calc(100% - 120px);">Titre</h3>
+          <p style="float:right;">Publié le : 00/00/0000</p>
+        </div>
+
+        <div>
+          <img src="img/car1.svg" alt="" style="float:right; width:35%; margin-left: 1%;">
+          <p>Sed varius luctus ultrices. Sed porta vestibulum faucibus. Cras condimentum lacus sit amet diam rhoncus, non eleifend orci cursus. Fusce lobortis, purus sit amet varius dapibus, ipsum ipsum sodales mi, vel sollicitudin ante felis eget felis. Vivamus eros arcu, cursus et varius ac, feugiat eu nibh. Quisque tempus ante tellus, a placerat justo elementum et. Etiam auctor tempor lorem, vel convallis orci vehicula eu. Fusce sit amet lorem orci. 
+          </p>
+        </div>
+
+      </div>
+  
+    </div>
+
+  </section>
+
+  <br>
+
+  <!-- Insertion Footer -->
+
+  <footer th:insert="elements/footer.html"></footer>
+
+</body>
+
+</html>

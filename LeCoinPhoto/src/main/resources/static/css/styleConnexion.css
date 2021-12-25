@@ -1,0 +1,106 @@
+@import url("style.css"); /* CSS pour les éléments "fixes" de la page */
+
+/* ----------------------- Contenu de la page ------------ */
+.forminput {
+    font-family: 'Roboto', sans-serif;
+    width: 50%;
+    height: 2.5em;
+    border-radius: 0.25em;
+    padding: 1em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: transparent;
+    color: black;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.forminput:placeholder-shown + .form__label {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(-4rem);
+  transform: translateY(-4rem);
+}
+
+.label {
+    font-family: 'Roboto', sans-serif;
+    text-align: center;
+    font-size: 1.2em;
+    color: black;
+}
+  
+.box select option {
+    padding: 30px;
+    color: #303030;
+    font-family: 'Roboto', sans-serif;
+}
+  
+::placeholder {
+    color: black;
+}
+
+fieldset {
+    border: none;
+    text-align: center;
+    padding-top: 7em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-bottom: 7em;
+    border-radius: 1em;
+}
+
+.boutonConnexion {
+    font-family: 'Roboto', sans-serif;
+    width: 10%;
+    padding: 1%;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #2dcc70;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.boutonConnexion:hover {
+    font-family: 'Roboto', sans-serif;
+    width: 10%;
+    padding: 1%;
+    border-radius: 0.25em;
+    box-sizing: border-box;
+    border:none;
+    overflow-wrap: break-word;
+    background-color: #32e77e;
+    color: white;
+    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
+    resize: none;
+}
+
+.icon {
+    width: 70%;
+}
+
+.centerAlign {
+    text-align: center;
+}
+
+.pagedroite {
+    height: 100%;
+    background-image: url("/ING1GI1-AGOUSSAL-CLIPET/LeCoinPhoto/img/background2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.texte {
+    padding: 2em;
+    font-size: 0.8em;
+    margin: auto;
+    border-radius: 1em;
+    backdrop-filter: blur(15px);
+}
+
+.error {
+    color: red;
+}
