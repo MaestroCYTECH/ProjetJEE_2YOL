@@ -3,7 +3,6 @@ package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class IndexController { //Controleur gerant l'accès aux pages principales
@@ -48,6 +47,12 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 	public String pagePanier() {
 		return "/utilisateur/panier";
 	}
+	
+	@GetMapping(value = "/paiement")
+	public String pagePaiement() {
+		return "/utilisateur/paiement";
+	}
+	
 	
 	@GetMapping(value = "/profil")
 	public String pageProfil() {

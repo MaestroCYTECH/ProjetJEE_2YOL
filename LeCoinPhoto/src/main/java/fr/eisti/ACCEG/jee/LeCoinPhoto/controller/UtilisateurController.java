@@ -28,8 +28,15 @@ public class UtilisateurController {
 		return "/utilisateur/profil"; 
 	}
 	
-	@GetMapping(value = "/payer")
-	public String payer() {//PAYER, puis retourner au panier (ou autre, à decider)
+	@GetMapping(value = "/deleteProduitPanier")
+	public String deleteProduitPanier() {//PAYER, puis retourner au panier (ou autre, à decider)
+		
+		//...
+		return "index"; 
+	}
+	
+	@GetMapping(value = "/payerPanier")
+	public String payerPanier() {//VIDER PANIER + MAJ Stocks, puis retourner au panier (ou autre, à decider)
 		
 		//...
 		return "/utilisateur/panier"; 

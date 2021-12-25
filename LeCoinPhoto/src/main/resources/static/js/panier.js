@@ -33,7 +33,7 @@ function ajaxDeleteProduit(ref){ //Ajax quand l'utilisateur supprime un article 
             }
         };
 
-        xmlhttp.open("POST","/ING1GI1-AGOUSSAL-CLIPET/LeCoinPhoto/php/deleteProduitPanier.php",true); //Supprime le produit de la BDD
+        xmlhttp.open("POST","deleteProduitPanier",true); //Supprime le produit de la BDD
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
         xmlhttp.send("ref="+ref);
         }

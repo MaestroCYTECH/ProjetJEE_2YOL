@@ -1,4 +1,5 @@
-Faire diagrammes de classes (pas très dur en regardant la BDD comme elle est déjà crée). La BDD se trouve dans Modeles/LeCoinPhoto2020/sql
+Faire diagrammes de classes (pas très dur en regardant la BDD comme elle est déjà crée). La BDD se trouve à la racine du projet JEE
+
 Le 1er fichier sert à créer la BDD et la structure, et le 2eme "data" sert à la remplir avc des produits, utilisateurs, etc.
 
 Le diagramme de classe peut se faire sur StarUML, puis capture d'écran.

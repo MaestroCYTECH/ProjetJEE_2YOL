@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 25, 2021, 5:04:24 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="lecoinphoto" dynamic-insert="false" dynamic-update="false" mutable="true" name="fr.eisti.ACCEG.jee.LeCoinPhoto.hibernate.Utilisateurs" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="utilisateurs">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="nom" optimistic-lock="true" type="string" unique="false">
+            <column name="nom" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prenom" optimistic-lock="true" type="string" unique="false">
+            <column name="prenom" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="sexe" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="sexe" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="naissance" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="naissance" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
+            <column name="email" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="login" optimistic-lock="true" type="string" unique="false">
+            <column name="login" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="pwd" optimistic-lock="true" type="string" unique="false">
+            <column name="pwd" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="panier" optimistic-lock="true" type="string" unique="false">
+            <column length="6500" name="panier" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="statut" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="statut" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

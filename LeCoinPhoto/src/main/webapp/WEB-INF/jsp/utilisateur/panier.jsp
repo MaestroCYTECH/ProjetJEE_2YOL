@@ -22,7 +22,7 @@
                     
                 <div id="ajaxPanier">
 
-                    <a class="boutonPayer" href="payer"> PAYER </a>	<br>
+                    <a class="boutonPayer" href="paiement"> PAYER </a>	<br>
                     <p>Vous avez <label id="ajaxNbArticles">1</label> <label id="ajaxArticles">article</label></p>
                     <br>
                         
