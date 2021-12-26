@@ -15,9 +15,6 @@
         <property generated="never" lazy="false" name="sexe" optimistic-lock="true" type="string" unique="false">
             <column length="10" name="sexe" not-null="true"/>
         </property>
-        <property generated="never" lazy="false" name="naissance" optimistic-lock="true" type="date" unique="false">
-            <column length="10" name="naissance" not-null="true"/>
-        </property>
         <property generated="never" lazy="false" name="email" optimistic-lock="true" type="string" unique="false">
             <column name="email" not-null="true"/>
         </property>

@@ -4,8 +4,7 @@ function envoyer() {
 	var nom=document.Formulaire.nom.value.trim();//Cible la valeur rentree en saisie
 	var prenom=document.Formulaire.prenom.value.trim();
     var sexe=document.Formulaire.sexe.value.trim();
-    var date=document.Formulaire.dateNaissance.value.trim();
-	var mail=document.Formulaire.mailClient.value.trim();
+	var mail=document.Formulaire.email.value.trim();
     var login=document.Formulaire.login.value.trim();
     var pwd=document.Formulaire.pwd.value.trim();
 	var pwdConfirm=document.Formulaire.pwdConfirm.value.trim();
@@ -13,7 +12,6 @@ function envoyer() {
 	var compteurNom=0;//Compte les erreurs
 	var compteurPrenom=0;
     var compteurSexe=0;
-    var compteurDate=0;
 	var compteurMail=0;
     var compteurLogin=0;
     var compteurPwd=0;
@@ -39,11 +37,7 @@ function envoyer() {
 	element.style.border = null;
 	document.getElementById('labelSexe').innerText="Sexe :";
 
-	element = document.getElementById("dateNaissance");
-	element.style.border = null;
-	document.getElementById('labelDate').innerText="Date de naissance :";
-
-	element = document.getElementById("mailClient");
+	element = document.getElementById("email");
 	element.style.border = null;
 	document.getElementById('labelMail').innerText="Adresse email :";
 
@@ -84,14 +78,6 @@ function envoyer() {
 		document.getElementById('labelSexe').innerText="Sexe : *Sexe obligatoire";
 	}
 
-    if(date == "") 
-	{
-		compteur++;
-		element = document.getElementById("dateNaissance");//Cible la zone de saisie
-		element.style.border = "solid red";//Change sa bordure
-		document.getElementById('labelDate').innerText="Date de naissance : *Date obligatoire";
-	}
-
 
 	regexMail=/^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 	//Regex : verifie si l'email respecte un modele. Ici :autant de caracteres, puis un @, puis au moins 2 caracteres, puis . puis entre 2 et 4 lettres (entre a et z)
@@ -99,7 +85,7 @@ function envoyer() {
 	if( (mail == "") ) 
 	{
 		compteur++;
-		element = document.getElementById("mailClient");//Cible la zone de saisie
+		element = document.getElementById("email");//Cible la zone de saisie
 		element.style.border = "solid red";//Change sa bordure
 		document.getElementById('labelMail').innerText="Adresse email : *Mail obligatoire";
 	}
@@ -107,7 +93,7 @@ function envoyer() {
 	if ( mail!="" && regexMail.test(mail)==false)
 	{
 		compteur++;
-		element = document.getElementById("mailClient");//Cible la zone de saisie
+		element = document.getElementById("email");//Cible la zone de saisie
 		element.style.border = "solid red";//Change sa bordure
 		document.getElementById('labelMail').innerText="Adresse email : *Format de mail non valide";
 

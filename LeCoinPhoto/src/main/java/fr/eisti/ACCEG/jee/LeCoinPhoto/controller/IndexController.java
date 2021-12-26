@@ -16,11 +16,11 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 	public String pageContact() {
 		return "contact/contact";
 	}
-	
+	/* Géré par ProduitController
 	@GetMapping(value = "/appareils")
 	public String pageAppareils() {
 		return "produit/appareils";
-	}
+	}*/
 	
 	@GetMapping(value = "/objectifs")
 	public String pageObjectifs() {

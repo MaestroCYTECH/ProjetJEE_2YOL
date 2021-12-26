@@ -1,6 +1,7 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   
-    
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -115,13 +116,13 @@
 	            </div>
 	            
 	            <div class="blocProduit">
-	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>Produit BDD ID=2 ${prod}</b></p>
+	                <br><img class="imageProduit" src="img/${prod.image}" alt="${prod.nom}" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
+	                <p><b>ID=2 : ${prod.nom}</b></p>
 	                <div class="texteProduit">
-	                    <p>Description</p>
+	                    <p>${prod.description}</p>
 	                </div> 
 	             
-	             	<div class="prixProduit"><p>PRIX €</p></div>
+	             	<div class="prixProduit"><p>${prod.prix} €</p></div>
 	                <div class=stock>   
 	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(4)" action='addToCart'>
 	    
@@ -134,8 +135,17 @@
 	                                    
 	                    </form>                   
 	            </div>
-	            Liste de produits : 
-	            
+	            Liste de produits : (A fixer)
+	            <th:block th:each="produit: ${produits}">
+			        <span th:text="${produit.nom}"></span>
+			        <br/>
+			        <span th:text="${produit.description}"></span>
+			        <br/>
+			        <span th:text="${produit.prix}"></span>
+			        <br/>
+			        <img th:src="@{img/{path}(path=${produit.image})}"/>
+			    </th:block>
+    			<div th:if=${debug} style="color:green">Bien reçu en vert </div>
 	    
 	        </div><br>
 	        

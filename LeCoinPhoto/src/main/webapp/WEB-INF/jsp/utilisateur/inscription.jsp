@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
   
-    
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -24,7 +25,7 @@
 	            
 	            <div class="texte">	            	
 	       	
-	                <form name="Formulaire" method="POST" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs} onsubmit="return envoyer()">
+	                <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs} >
 	                    <div th:if=${success} style="color:green">Inscription réussie </div>
 	            		<div th:if=${fail} style="color:red">Erreur lors de l'inscription </div>
 	                    <fieldset>
@@ -46,15 +47,14 @@
 	                           <div class="droite">                           
 	                                <label class="label" id="labelPrenom">Prénom :</label><br><br>
 	                                <input type="text" id="prenom" name="prenom" class="forminput" placeholder="Ex: Prénom"/><br><br>
-	                                
-	                                <label class="label" id="labelDate">Date de naissance :</label><br><br>
-	                                <input type="date" name="dateNaissance" id="dateNaissance" max='<?=date("Y-m-d")?>' class="forminput" placeholder="jj/mm/aaaa"/><br><br>
+                 
+	                                <br><br>
 	                            </div>
 	                        </div>
 	
 	                        <div class="leftalign">
 	                            <label class="label" id="labelMail">Adresse email :</label><br><br>
-	                            <input type="email" id="mailClient" name="mailClient" class="forminput" placeholder="Ex: monmail@monsite.org"/><br><br>
+	                            <input type="email" id="email" name="email" class="forminput" placeholder="Ex: monmail@monsite.org"/><br><br>
 	
 	                            <label class="label" id="labelLogin">Login :</label><br><br>
 	                            <input type="text" id="login" name="login" class="forminput" placeholder="Ex: eisti95" /><br><br>
