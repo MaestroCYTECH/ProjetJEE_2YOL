@@ -14,49 +14,49 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 	
 	@GetMapping(value = "/contact")
 	public String pageContact() {
-		return "/contact/contact";
+		return "contact/contact";
 	}
 	
 	@GetMapping(value = "/appareils")
 	public String pageAppareils() {
-		return "/produit/appareils";
+		return "produit/appareils";
 	}
 	
 	@GetMapping(value = "/objectifs")
 	public String pageObjectifs() {
-		return "/produit/objectifs";
+		return "produit/objectifs";
 	}
 	
 	@GetMapping(value = "/accessoires")
 	public String pageAccessoires() {
-		return "/produit/accessoires";
+		return "produit/accessoires";
 	}
 	
 	
 	@GetMapping(value = "/connexion")
 	public String pageConnexion() {
-		return "/utilisateur/connexion";
+		return "utilisateur/connexion";
 	}
 	
 	@GetMapping(value = "/inscription")
 	public String pageInscription() {
-		return "/utilisateur/inscription";
+		return "utilisateur/inscription";
 	}
 	
 	@GetMapping(value = "/panier")
 	public String pagePanier() {
-		return "/utilisateur/panier";
+		return "utilisateur/panier";
 	}
 	
 	@GetMapping(value = "/paiement")
 	public String pagePaiement() {
-		return "/utilisateur/paiement";
+		return "utilisateur/paiement";
 	}
 	
 	
 	@GetMapping(value = "/profil")
 	public String pageProfil() {
-		return "/utilisateur/profil";
+		return "utilisateur/profil";
 	}
 	
 }

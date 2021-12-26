@@ -1,5 +1,5 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.dao;
-// Generated Dec 25, 2021, 5:02:26 PM by Hibernate Tools 5.4.14.Final
+// Generated Dec 26, 2021, 11:28:54 AM by Hibernate Tools 5.4.14.Final
 
 import java.util.List;
 import java.util.logging.Level;

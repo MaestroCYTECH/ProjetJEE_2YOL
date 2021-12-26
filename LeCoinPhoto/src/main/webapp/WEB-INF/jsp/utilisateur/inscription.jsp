@@ -22,8 +22,11 @@
 	        <div class="bloc">
 	            <div class="titresection"><p>S'INSCRIRE</p></div>
 	            
-	            <div class="texte">
-	                <form name="Formulaire" onsubmit="return envoyer()" method="POST" action="inscription">
+	            <div class="texte">	            	
+	       	
+	                <form name="Formulaire" method="POST" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs} onsubmit="return envoyer()">
+	                    <div th:if=${success} style="color:green">Inscription réussie </div>
+	            		<div th:if=${fail} style="color:red">Erreur lors de l'inscription </div>
 	                    <fieldset>
 	                        
 	                        <div class="box3">
@@ -63,6 +66,9 @@
 	                            <input type="password" id="pwdConfirm" name="pwdConfirm" class="forminput"/><br><br>
 	                        </div>
 	
+							<input type="hidden" id="panier" name="panier" value="Vide"/>
+							<input type="hidden" id="statut" name="statut" value="simple"/>
+							
 	                        <input class="boutonEnvoyer" type="submit" value="M'inscrire"/>
 	                        <input class="boutonEffacer" type="reset" value="Effacer" />
 	

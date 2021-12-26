@@ -1,17 +1,29 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
+import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.UtilisateursHome;
+import fr.eisti.ACCEG.jee.LeCoinPhoto.model.Utilisateurs;
 
-@Controller
+@Controller("utilisateursController")
 public class UtilisateurController {
 
-	@GetMapping(value = "/userConnect") //Pt etre besoin de faire une Servlet ici, pour recuperer les donnees du formulaire (voir le cours)
+	@Autowired
+	UtilisateursHome uH;
+	
+	@PostMapping(value = "/userConnect") //Pt etre besoin de faire une Servlet ici, pour recuperer les donnees du formulaire (voir le cours)
 	public String userConnect() {//CONNECTER l'utilisateur, puis l'envoyer à son profil (ou l'accueil, à decider)
 		
 		//...
-		return "/utilisateur/profil"; 
+		return "utilisateur/profil"; 
 	}
 	
 	@GetMapping(value = "/userDeconnect")
@@ -21,25 +33,37 @@ public class UtilisateurController {
 		return "index"; 
 	}
 	
-	@GetMapping(value = "/userInscription")
-	public String userInscription() {
+	@PostMapping(value = "/userInscription")
+	@RequestMapping(value = "/userInscription", method = RequestMethod.POST)
+	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model) { //Doit correspondre à th:object="${Utilisateurs}"
 		
-		//...
-		return "/utilisateur/profil"; 
+		System.out.println(u);
+		//uH.attachDirty(u);//On ajoute un user
+		
+		if (true==true) {
+			model.addAttribute("success", true);//On notifie à l'utilisateur que ça c'est bien passé
+		}
+		else {
+			model.addAttribute("fail", true);
+		}
+		
+		return "utilisateur/inscription"; 
 	}
 	
-	@GetMapping(value = "/deleteProduitPanier")
+	
+	
+	@PostMapping(value = "/deleteProduitPanier")
 	public String deleteProduitPanier() {//PAYER, puis retourner au panier (ou autre, à decider)
 		
 		//...
 		return "index"; 
 	}
 	
-	@GetMapping(value = "/payerPanier")
+	@PostMapping(value = "/payerPanier")
 	public String payerPanier() {//VIDER PANIER + MAJ Stocks, puis retourner au panier (ou autre, à decider)
 		
 		//...
-		return "/utilisateur/panier"; 
+		return "utilisateur/panier"; 
 	}
 	
 	//etc.

@@ -92,7 +92,7 @@
 	               
 	        </div><br> 
 	        
-	        <div class="BlocProduits">
+	        <div class="blocProduits">
 	        	
 	        	<div class="blocProduit">
 	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>

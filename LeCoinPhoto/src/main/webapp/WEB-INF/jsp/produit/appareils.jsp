@@ -91,7 +91,7 @@
 	               
 	        </div><br> 
 	        
-	        <div class="BlocProduits">
+	        <div class="blocProduits">
 	        	
 	        	<div class="blocProduit">
 	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
@@ -113,8 +113,31 @@
 	                                    
 	                    </form>                   
 	            </div>
+	            
+	            <div class="blocProduit">
+	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
+	                <p><b>Produit BDD ID=2 ${prod}</b></p>
+	                <div class="texteProduit">
+	                    <p>Description</p>
+	                </div> 
+	             
+	             	<div class="prixProduit"><p>PRIX €</p></div>
+	                <div class=stock>   
+	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(4)" action='addToCart'>
 	    
-	        </div>
+	                        <button class="moins" onclick="moins(4)" type="button"> - </button>
+	                        <input type="number" name="quantite" min="1" max="3" value="1" class="form-control" readonly>
+	                        <button class="plus" onclick="plus(4)" type="button"> + </button><br><br>
+	                        <input type="hidden" name="REF" value="REF">
+	                </div>
+	                        <input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
+	                                    
+	                    </form>                   
+	            </div>
+	            Liste de produits : 
+	            
+	    
+	        </div><br>
 	        
 	    </div>
 	</div>

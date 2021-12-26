@@ -1,6 +1,6 @@
 
 <!DOCTYPE html>
-<html>
+<html xmlns:th="https://www.thymeleaf.org">
     <head>
         <!-- Icone du site dans le navigateur -->
         <link rel="icon" type="image/png" href="img/lcpLogo.png"/>
