@@ -1,0 +1,5 @@
+Utiliser Spring session pour faire les sessions comme en Php (connexion d'un utilisateur). Voir la doc en ligne pour le configurer (faut rajouter du code dans les dépendances, dans pom.xml
+
+
+Supprimer Categories, et à la place mettre 3 tables Appareils Objectifs et Accessoires ? Plus simple, et la prof est pas aussi chiante que Verin l'année derniere
+

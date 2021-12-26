@@ -39,17 +39,18 @@ public class ProduitController {
 
 		model.addAttribute("erreurs", new HashMap<String, String>());
 
-		/*
-		 * Iterable<Produits> appareils = pR.findAll(); //Si on veut tous les produits
-		 * List listAppareils = new ArrayList<Produits>();
-		 * listAppareils.addAll((Collection) appareils);
-		 */
+		
+		 Iterable<Produits> appareils = pR.findAll(); //Si on veut tous les produits
+		 
 
-		Produits appareils = pR.findById(2);
+		//Produits appareils = pR.findById(2);
+		Produits produit1 = pR.findByReference("app4");
 
-		model.addAttribute("prod", appareils);
+		model.addAttribute("prod", produit1);
 		model.addAttribute("debug", "peu importe");//Teste la bonne liaison entre le controleur et la vue
-
+		
+		model.addAttribute("produits", appareils);
+		
 		return "produit/appareils";
 	}
 }

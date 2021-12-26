@@ -135,18 +135,19 @@
 	                                    
 	                    </form>                   
 	            </div>
-	            Liste de produits : (A fixer)
-	            <th:block th:each="produit: ${produits}">
-			        <span th:text="${produit.nom}"></span>
-			        <br/>
-			        <span th:text="${produit.description}"></span>
-			        <br/>
-			        <span th:text="${produit.prix}"></span>
-			        <br/>
-			        <img th:src="@{img/{path}(path=${produit.image})}"/>
-			    </th:block>
-    			<div th:if=${debug} style="color:green">Bien reçu en vert </div>
-	    
+	           <div> Liste de produits : (A fixer)
+		            <tr th:each="produit: ${produits}">
+				        <span th:text="${produit.nom}"></span>
+				        <br/>
+				        <span th:text="${produit.description}"></span>
+				        <br/>
+				        <span th:text="${produit.prix}"></span>
+				        <br/>
+				        <img th:src="@{img/{path}(path=${produit.image})}"/>
+				    </tr>
+	    			<div th:if=${debug} style="color:green">Bien reçu en vert </div>
+	    		</div>
+	    		
 	        </div><br>
 	        
 	    </div>

@@ -13,4 +13,6 @@ public interface ProduitsRepository extends CrudRepository<Produits,Integer> {
 	Produits findById(int id);
 
 	Produits findByNom(String nom);
+	
+	Produits findByReference(String ref);
 }
