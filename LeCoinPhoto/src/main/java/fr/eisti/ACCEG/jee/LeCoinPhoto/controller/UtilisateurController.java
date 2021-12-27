@@ -22,7 +22,7 @@ public class UtilisateurController {
 	UtilisateursRepository uR;
 	
 	
-	@PostMapping(value = "/userConnect") //Pt etre besoin de faire une Servlet ici, pour recuperer les donnees du formulaire (voir le cours)
+	@PostMapping(value = "/userConnect")
 	public String userConnect() {//CONNECTER l'utilisateur, puis l'envoyer à son profil (ou l'accueil, à decider)
 		
 		//... Créer Session 
@@ -45,16 +45,19 @@ public class UtilisateurController {
 		
 		//Rajouter un cryptage de son mdp. + verif que login pas deja pris
 		
-		
+		Utilisateurs uTest = uR.findByLogin(u.getLogin());
+		if (uTest==null) {
+			model.addAttribute("success", true);
+		}
 		
 		uR.save(u); //On ajoute un user
 		
-		if (true==true) {
+		/*if (true==true) {
 			model.addAttribute("success", true);//On notifie à l'utilisateur que ça c'est bien passé
 		}
 		else {
 			model.addAttribute("fail", true);
-		}
+		}*/
 	
 		return "utilisateur/inscription"; 
 	}
