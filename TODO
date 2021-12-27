@@ -8,7 +8,7 @@ Adapter en jsp tous les algos de php, qui servaient à factoriser le code.
 
 Adapter en JEE tous les endroits où on doit lire depuis la BDD (produits, page admin, connexion) : Yassine
 
-Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, ajouter un produit depuis la section admin, ) : Youssef
+Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, ajouter un produit depuis la section admin, ) : Youssef 
 
 
 
