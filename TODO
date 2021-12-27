@@ -3,3 +3,17 @@ Utiliser Spring session pour faire les sessions comme en Php (connexion d'un uti
 
 Supprimer Categories, et à la place mettre 3 tables Appareils Objectifs et Accessoires ? Plus simple, et la prof est pas aussi chiante que Verin l'année derniere
 
+
+Adapter en jsp tous les algos de php, qui servaient à factoriser le code.
+
+Adapter en JEE tous les endroits où on doit lire depuis la BDD (produits, page admin, connexion)
+
+Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, ajouter un produit depuis la section admin, )
+
+
+
+Design : Lucas Oscar
+
+Rapport et diagramme de classes : 1 personne
+
+Site : 2 personnes --> une sur les endroits où on doit lire la BDD, une autre sur ceux où faut écrire (comme c'est assez indépendant on peut travailler en parallèle)
