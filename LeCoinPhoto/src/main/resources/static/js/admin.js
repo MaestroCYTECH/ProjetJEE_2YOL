@@ -1,33 +1,17 @@
                                                                                 
                                                                                 /*Page LISTE */
 
-function deleteConfirm(type) /*Pour la suppression de catégorie ou produit */
+function deleteConfirm() /*Pour la suppression de produit */
 {
 
-    if(type=="categorie"){
-
-        var confirm = prompt("Supprimer cette CATEGORIE ainsi que TOUS SES PRODUITS ? Action IRREVERSIBLE. Rentrez 'OUI' pour continuer");
-        if(confirm=="OUI"){ /*2eme demande de confirmation */
-            var confirm2 = prompt("Supprimer cettte CATEGORIE, êtes-vous SÛR ? Action IRREVERSIBLE. Rentrez 'OUI' pour continuer");
-        }
-    }
-    else {
-        var confirm = prompt("Supprimer ce PRODUIT ? Action IRREVERSIBLE. Rentrez 'OUI' pour continuer");
-        var confirm2="OUI";/*Pour les produits on ne demande pas de 2eme validation*/
-    }
+    var confirm = prompt("Supprimer ce PRODUIT ? Action IRREVERSIBLE. Rentrez 'OUI' pour continuer");
+    var confirm2="OUI";/*Pour les produits on ne demande pas de 2eme validation*/
+   
     
     if (confirm=="OUI" && confirm2=="OUI")
     {	
-        if (type=="categorie"){
-            alert("Catégorie supprimée, ainsi que tous les produits qu'elle contenait");
-            return true;
-        }
-        else{
-
-            alert("Produit supprimé");
-            return true;
-        }
-
+        alert("Produit supprimé");
+        return true;     
     }
     else
     {
@@ -81,7 +65,8 @@ function confirmStock(i){
                                                                                 /*Page AJOUT */
 
 
-function confirmerAjout(){
+function confirmerAjout(){ //A FIXER, pas les bons name
+    alert('JS à fixer');
             
         var nom=document.Formulaire.nom.value.trim();//Cible la valeur rentree en saisie
         var prenom=document.Formulaire.prenom.value.trim();
@@ -186,9 +171,9 @@ function confirmerAjout(){
         }
         else
         {
-            if (confirm("Ajouter cette annonce ?"))
+            if (confirm("Ajouter ce produit ?"))
             {	
-                alert("Annonce ajouté");
+                alert("Produit ajouté");
                 return true;
             }
             else

@@ -5,7 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class IndexController { //Controleur gerant l'accès aux pages principales
+public class IndexController { //Controleur gerant l'accès aux pages principales. 
 
 	@GetMapping(value = "/")
 	public String index() {
@@ -16,11 +16,9 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 	public String pageContact() {
 		return "contact/contact";
 	}
-	/* Géré par ProduitController
-	@GetMapping(value = "/appareils")
-	public String pageAppareils() {
-		return "produit/appareils";
-	}*/
+	
+	/* Géré par ProduitController :
+	@GetMapping(value = "/appareils")*/
 	
 	@GetMapping(value = "/objectifs")
 	public String pageObjectifs() {
@@ -31,6 +29,7 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 	public String pageAccessoires() {
 		return "produit/accessoires";
 	}
+	//Les 2 du dessus devront etre géré par ProduitController aussi, plus logique
 	
 	
 	@GetMapping(value = "/connexion")

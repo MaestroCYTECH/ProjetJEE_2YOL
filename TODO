@@ -1,7 +1,7 @@
 Utiliser Spring session pour faire les sessions comme en Php (connexion d'un utilisateur). Voir la doc en ligne pour le configurer (faut rajouter du code dans les dépendances, dans pom.xml
 
 
-Supprimer Categories, et à la place mettre 3 tables Appareils Objectifs et Accessoires ? Plus simple, et la prof est pas aussi chiante que Verin l'année derniere
+Supprimer la table Produits et à la place mettre 3 tables Appareils Objectifs et Accessoires ? Plus simple, et la prof est pas aussi chiante que Verin l'année derniere
 
 
 Adapter en jsp tous les algos de php, qui servaient à factoriser le code.
@@ -12,7 +12,7 @@ Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, a
 
 
 
-Design : Lucas Oscar
+Design : Lucas Oscar. Comme design globalement déjà fait, vous pouvez aussi vous occuper des scripts JS des formulaires, qui doivent mettre en rouge si il manque des trucs
 
 Rapport et diagramme de classes : 1 personne
 

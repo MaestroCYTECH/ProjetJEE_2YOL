@@ -44,6 +44,7 @@
                                     <label class="label">Prénom :</label> <span class="error">*</span> <br><br>
                                     <input type="text" id="prenom" name="prenom" class="forminput" placeholder="Ex: Prénom" value=""/><br><br>
                                    
+                                   <!-- Pas utile ?? Si on supprime, penser à supprimer aussi ses références du fichier js sinon ça le casse-->
                                    <label class="label">Date de naissance :</label> <span class="error">*</span> <br><br>
                                    <input type="date" name="dateNaissance" id="date" max="2022-01-01" class="forminput" placeholder="jj/mm/aaaa" value=""/><br><br>
                                 </div>

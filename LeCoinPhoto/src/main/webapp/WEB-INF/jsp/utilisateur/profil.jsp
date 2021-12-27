@@ -35,9 +35,8 @@
                 Date de naissance : 2021-12-24<br>
             </div>
         </div>
-                <br>
-
-            <!--Si temps restant, faire ici l'accès à la section admin (voir le coin photo version php)-->
+        <br>
+        <br> <a class="boutonPayer" href="adminHome">Section ADMIN</a> <br><br> <br>   
 
     </div>
 </div>
