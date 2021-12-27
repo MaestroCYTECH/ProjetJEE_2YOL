@@ -35,12 +35,9 @@ public class ProduitController {
 	
 
 	@GetMapping(value = "/appareils")
-	public String displayAppareils(Model model) {
-
-		model.addAttribute("erreurs", new HashMap<String, String>());
-
+	public String displayAppareils(Model model) { //Doit envoyer à la vue la liste des appareils
 		
-		 Iterable<Produits> appareils = pR.findAll(); //Si on veut tous les produits
+		// Iterable<Produits> appareils = pR.findAll(); //Si on veut tous les produits
 		 
 
 		//Produits appareils = pR.findById(2);
@@ -49,7 +46,12 @@ public class ProduitController {
 		model.addAttribute("prod", produit1);
 		model.addAttribute("debug", "peu importe");//Teste la bonne liaison entre le controleur et la vue
 		
-		model.addAttribute("produits", appareils);
+		/*Iterable<Produits> news = pR.findAll();
+	    List listNews = new ArrayList();
+	    listNews.add(news);
+	    model.addAttribute("produits", listNews);*/
+		
+		//model.addAttribute("produits", pR.findAll());
 		
 		return "produit/appareils";
 	}

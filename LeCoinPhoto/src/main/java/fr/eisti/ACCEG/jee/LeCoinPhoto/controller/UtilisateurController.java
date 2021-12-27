@@ -49,7 +49,7 @@ public class UtilisateurController {
 		else {
 			model.addAttribute("fail", true);
 		}
-		
+	
 		return "utilisateur/inscription"; 
 	}
 	

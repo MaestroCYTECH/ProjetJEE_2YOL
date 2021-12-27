@@ -117,7 +117,7 @@
 	            
 	            <div class="blocProduit">
 	                <br><img class="imageProduit" src="img/${prod.image}" alt="${prod.nom}" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>ID=2 : ${prod.nom}</b></p>
+	                <p><b>ref=${prod.reference} : ${prod.nom}</b></p>
 	                <div class="texteProduit">
 	                    <p>${prod.description}</p>
 	                </div> 
@@ -135,7 +135,7 @@
 	                                    
 	                    </form>                   
 	            </div>
-	           <div> Liste de produits : (A fixer)
+	           <!--<div> Liste de produits : (A fixer)
 		            <tr th:each="produit: ${produits}">
 				        <span th:text="${produit.nom}"></span>
 				        <br/>
@@ -146,8 +146,28 @@
 				        <img th:src="@{img/{path}(path=${produit.image})}"/>
 				    </tr>
 	    			<div th:if=${debug} style="color:green">Bien reçu en vert </div>
-	    		</div>
+	    		</div>-->
 	    		
+	    		
+	    		<table>
+			
+				<thead>
+					<tr>
+						<th>Nom</th>
+						<th>Description</th>
+						<th>Prix</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="produit: ${produits}">
+						<td th:text="${produit.nom}" />
+						<td th:text="${produit.description}" />
+						<td th:text="${produit.prix}" />
+					</tr>
+				</tbody>
+				
+			</table>
+			
 	        </div><br>
 	        
 	    </div>
