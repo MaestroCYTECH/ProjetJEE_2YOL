@@ -25,7 +25,10 @@ public class UtilisateurController {
 	@PostMapping(value = "/userConnect") //Pt etre besoin de faire une Servlet ici, pour recuperer les donnees du formulaire (voir le cours)
 	public String userConnect() {//CONNECTER l'utilisateur, puis l'envoyer à son profil (ou l'accueil, à decider)
 		
-		//...
+		//... Créer Session 
+		
+		
+		
 		return "utilisateur/profil"; 
 	}
 	
@@ -41,6 +44,7 @@ public class UtilisateurController {
 	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model) { //Doit correspondre à th:object="${Utilisateurs}"
 		
 		//Rajouter un cryptage de son mdp. + verif que login pas deja pris
+		
 		
 		
 		uR.save(u); //On ajoute un user

@@ -6,14 +6,14 @@ Supprimer la table Produits et à la place mettre 3 tables Appareils Objectifs e
 
 Adapter en jsp tous les algos de php, qui servaient à factoriser le code.
 
-Adapter en JEE tous les endroits où on doit lire depuis la BDD (produits, page admin, connexion)
+Adapter en JEE tous les endroits où on doit lire depuis la BDD (produits, page admin, connexion) : Yassine
 
-Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, ajouter un produit depuis la section admin, )
+Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, ajouter un produit depuis la section admin, ) : Youssef
 
 
 
 Design : Lucas Oscar. Comme design globalement déjà fait, vous pouvez aussi vous occuper des scripts JS des formulaires, qui doivent mettre en rouge si il manque des trucs
 
-Rapport et diagramme de classes : 1 personne
+Rapport et diagramme de classes : Léo
 
-Site : 2 personnes --> une sur les endroits où on doit lire la BDD, une autre sur ceux où faut écrire (comme c'est assez indépendant on peut travailler en parallèle)
+Site : 2 personnes --> une sur les endroits où on doit lire la BDD (Yassine), une autre sur ceux où faut écrire (Youssef) (comme c'est assez indépendant on peut travailler en parallèle)
