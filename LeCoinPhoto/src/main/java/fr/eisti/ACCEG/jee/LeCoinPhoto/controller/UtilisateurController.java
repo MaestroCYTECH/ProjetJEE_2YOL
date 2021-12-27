@@ -37,10 +37,12 @@ public class UtilisateurController {
 	}
 	
 	
-	@PostMapping(value = "/userInscription")
+	@PostMapping(value = "/userInscription") 
 	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model) { //Doit correspondre à th:object="${Utilisateurs}"
 		
-		System.out.println(u);
+		//Rajouter un cryptage de son mdp. + verif que login pas deja pris
+		
+		
 		uR.save(u); //On ajoute un user
 		
 		if (true==true) {

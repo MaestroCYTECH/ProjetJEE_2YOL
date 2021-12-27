@@ -1,7 +1,9 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.model;
-// Generated Dec 25, 2021, 5:00:09 PM by Hibernate Tools 5.4.14.Final
+// Generated Dec 27, 2021, 3:37:26 PM by Hibernate Tools 5.4.14.Final
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 /**
@@ -11,6 +13,7 @@ import javax.persistence.Id;
 public class Categories implements java.io.Serializable {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer id;
 	private String categorie;
 	private String icone;

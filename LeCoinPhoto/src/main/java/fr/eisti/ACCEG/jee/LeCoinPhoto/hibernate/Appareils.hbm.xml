@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated Dec 27, 2021, 3:37:53 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="lecoinphoto" dynamic-insert="false" dynamic-update="false" mutable="true" name="fr.eisti.ACCEG.jee.LeCoinPhoto.hibernate.Appareils" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="appareils">
+        <id name="id" type="java.lang.Integer">
+            <column name="ID"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="reference" optimistic-lock="true" type="string" unique="false">
+            <column name="reference" not-null="true" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="image" optimistic-lock="true" type="string" unique="false">
+            <column name="image" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nom" optimistic-lock="true" type="string" unique="false">
+            <column name="nom" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="description" optimistic-lock="true" type="string" unique="false">
+            <column length="6500" name="description" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="prix" optimistic-lock="true" type="float" unique="false">
+            <column name="prix" not-null="true" precision="12" scale="0"/>
+        </property>
+        <property generated="never" lazy="false" name="stock" optimistic-lock="true" type="int" unique="false">
+            <column name="stock" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

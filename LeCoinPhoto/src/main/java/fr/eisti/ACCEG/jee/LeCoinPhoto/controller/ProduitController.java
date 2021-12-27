@@ -10,15 +10,22 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
-import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.ProduitsRepository;
-import fr.eisti.ACCEG.jee.LeCoinPhoto.model.Produits;
+import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.*;
+import fr.eisti.ACCEG.jee.LeCoinPhoto.model.*;
 
 
 @Controller
 public class ProduitController {
 
+	@Autowired //Sert à "lier" appR à la BDD
+	AppareilsRepository appR;
+	
 	@Autowired
-	ProduitsRepository pR;
+	ObjectifsRepository oR;
+	
+	@Autowired
+	AccessoiresRepository accR;
+	//En fct du type de produit qu'on veut, utiliser un de ces 3 repos
 	 
 	 
 	@GetMapping(value = "/addToCart")
@@ -36,22 +43,20 @@ public class ProduitController {
 
 	@GetMapping(value = "/appareils")
 	public String displayAppareils(Model model) { //Doit envoyer à la vue la liste des appareils
-		
-		// Iterable<Produits> appareils = pR.findAll(); //Si on veut tous les produits
 		 
 
-		//Produits appareils = pR.findById(2);
-		Produits produit1 = pR.findByReference("app4");
+		//Appareils appareil = appR.findById(2);
+		Appareils appareil1 = appR.findByReference("app4");
 
-		model.addAttribute("prod", produit1);
+		model.addAttribute("prod", appareil1);
 		model.addAttribute("debug", "peu importe");//Teste la bonne liaison entre le controleur et la vue
 		
-		/*Iterable<Produits> news = pR.findAll();
+		/*Iterable<Appareils> news = appR.findAll();
 	    List listNews = new ArrayList();
 	    listNews.add(news);
 	    model.addAttribute("produits", listNews);*/
 		
-		//model.addAttribute("produits", pR.findAll());
+		//model.addAttribute("produits", appR.findAll());
 		
 		return "produit/appareils";
 	}
