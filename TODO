@@ -14,6 +14,6 @@ Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, a
 
 Design : Lucas Oscar.  Comme design globalement déjà fait, vous pouvez aussi vous occuper des scripts JS des formulaires, qui doivent mettre en rouge si il manque des trucs
 
-Rapport et diagramme de classes : Léo
+Rapport et diagramme de classes : Léo 
 
 Site : 2 personnes --> une sur les endroits où on doit lire la BDD (Yassine), une autre sur ceux où faut écrire (Youssef) (comme c'est assez indépendant on peut travailler en parallèle)
