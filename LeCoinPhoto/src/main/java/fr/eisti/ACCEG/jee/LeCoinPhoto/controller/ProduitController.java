@@ -49,7 +49,7 @@ public class ProduitController {
 	    listNews.add(news);
 	    model.addAttribute("produits", listNews);*/
 		
-		//model.addAttribute("produits", appR.findAll());
+		model.addAttribute("produits", pR.findByCategorie("appareils"));
 		
 		return "produit/appareils";
 	}

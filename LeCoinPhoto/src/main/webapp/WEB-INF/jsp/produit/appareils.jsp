@@ -1,5 +1,7 @@
  <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  
+ <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
@@ -159,11 +161,16 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="produit: ${produits}">
-						<td th:text="${produit.nom}" />
-						<td th:text="${produit.description}" />
-						<td th:text="${produit.prix}" />
-					</tr>
+				
+	
+						<c:forEach items="${produits}" var="entry">
+							<tr>
+								<td>${entry.nom}</td>
+								<td>${entry.description}</td>
+								<td>${entry.prix}</td>
+							</tr>
+						</c:forEach>							                        
+
 				</tbody>
 				
 			</table>
