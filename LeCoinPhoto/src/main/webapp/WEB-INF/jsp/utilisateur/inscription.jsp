@@ -28,6 +28,8 @@
 	                <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs} >
 	                    <div th:if=${success} style="color:green">Inscription réussie </div>
 	            		<div th:if=${fail} style="color:red">Erreur lors de l'inscription </div>
+	            		<div th:if=${dejaPris} style="color:red">Login déjà pris</div>
+	            		
 	                    <fieldset>
 	                        
 	                        <div class="box3">

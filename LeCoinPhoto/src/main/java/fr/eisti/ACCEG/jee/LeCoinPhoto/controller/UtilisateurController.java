@@ -43,21 +43,23 @@ public class UtilisateurController {
 	@PostMapping(value = "/userInscription") 
 	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model) { //Doit correspondre à th:object="${Utilisateurs}"
 		
-		//Rajouter un cryptage de son mdp. + verif que login pas deja pris
+		//Rajouter un cryptage de son mdp.
+		
+		//Verif des données
+		
+			
 		
 		Utilisateurs uTest = uR.findByLogin(u.getLogin());
-		if (uTest==null) {
-			model.addAttribute("success", true);
-		}
-		
-		uR.save(u); //On ajoute un user
-		
-		/*if (true==true) {
+		if (uTest==null) { //Si login libre
+			uR.save(u);
 			model.addAttribute("success", true);//On notifie à l'utilisateur que ça c'est bien passé
+			
+			//Rajouter ligne pour catch une exception
 		}
 		else {
-			model.addAttribute("fail", true);
-		}*/
+			model.addAttribute("dejaPris", true);
+		}
+		
 	
 		return "utilisateur/inscription"; 
 	}
