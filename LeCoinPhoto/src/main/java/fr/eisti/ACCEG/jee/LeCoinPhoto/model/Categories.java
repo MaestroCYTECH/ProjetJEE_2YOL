@@ -1,5 +1,5 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.model;
-// Generated Dec 27, 2021, 3:37:26 PM by Hibernate Tools 5.4.14.Final
+// Generated Dec 29, 2021, 3:03:24 PM by Hibernate Tools 5.4.14.Final
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

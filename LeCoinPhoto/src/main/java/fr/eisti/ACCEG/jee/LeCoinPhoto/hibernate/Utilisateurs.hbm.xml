@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!-- Generated Dec 27, 2021, 3:37:53 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 29, 2021, 3:02:47 PM by Hibernate Tools 5.4.14.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class catalog="lecoinphoto" dynamic-insert="false" dynamic-update="false" mutable="true" name="fr.eisti.ACCEG.jee.LeCoinPhoto.hibernate.Utilisateurs" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="utilisateurs">
         <id name="id" type="java.lang.Integer">

@@ -15,9 +15,7 @@
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
         <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Categories.hbm.xml"/>
-        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Objectifs.hbm.xml"/>
+        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Produits.hbm.xml"/>
         <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Utilisateurs.hbm.xml"/>
-        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Appareils.hbm.xml"/>
-        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Accessoires.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

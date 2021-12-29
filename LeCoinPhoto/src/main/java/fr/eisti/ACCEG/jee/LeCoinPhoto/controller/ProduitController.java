@@ -18,14 +18,7 @@ import fr.eisti.ACCEG.jee.LeCoinPhoto.model.*;
 public class ProduitController {
 
 	@Autowired //Sert à "lier" appR à la BDD
-	AppareilsRepository appR;
-	
-	@Autowired
-	ObjectifsRepository oR;
-	
-	@Autowired
-	AccessoiresRepository accR;
-	//En fct du type de produit qu'on veut, utiliser un de ces 3 repos
+	ProduitsRepository pR;
 	 
 	 
 	@GetMapping(value = "/addToCart")
@@ -46,7 +39,7 @@ public class ProduitController {
 		 
 
 		//Appareils appareil = appR.findById(2);
-		Appareils appareil1 = appR.findByReference("app4");
+		Produits appareil1 = pR.findByReference("app4");
 
 		model.addAttribute("prod", appareil1);
 		model.addAttribute("debug", "peu importe");//Teste la bonne liaison entre le controleur et la vue

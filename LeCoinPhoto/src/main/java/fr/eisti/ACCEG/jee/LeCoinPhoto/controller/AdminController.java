@@ -1,15 +1,29 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+
+import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.*;
+import fr.eisti.ACCEG.jee.LeCoinPhoto.model.*;
 
 
 @Controller
 public class AdminController {
 
+	
+	@Autowired
+	ProduitsRepository pR;
+	
+	@Autowired
+	CategoriesRepository cR;
+	
 	
 	@GetMapping(value = "/adminHome")
 	public String accueilAdmin() {
@@ -18,7 +32,11 @@ public class AdminController {
 	
 	
 	@GetMapping(value = "/adminFormulaireProduit")
-	public String pageAjouterProduit() {
+	public String pageAjouterProduit(Model model) {
+		
+		
+	    model.addAttribute("categories", cR.findAll());
+		
 		return "admin/pages/formAjouterProduit";
 	}
 	
@@ -36,16 +54,24 @@ public class AdminController {
 		return "admin/pages/liste";
 	}
 	
+	
 	@PostMapping(value = "/adminAddProduit")
-	public String addProduit(Model model) {
+	public String addProduit(@ModelAttribute(name = "Produit") Produits p, Model model) {
 		
-		//...
+		//... Verif des données
 		
-		if (true==true) {
-			model.addAttribute("success", true);//On notifie à l'utilisateur que ça c'est bien passé
+		
+		Produits pTest = pR.findByNom(p.getNom());
+		if (pTest==null) { //Si nom libre
+						
+			pR.save(p);
+			model.addAttribute("success", true);
+			
+			
+			//Rajouter ligne pour catch une exception
 		}
 		else {
-			model.addAttribute("fail", true);
+			model.addAttribute("dejaPris", true);
 		}
 		
 		return "admin/pages/formAjouterProduit";
