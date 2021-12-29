@@ -13,7 +13,7 @@ import javax.persistence.Id;
 public class Produits implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String categorie;
 	private String reference;
