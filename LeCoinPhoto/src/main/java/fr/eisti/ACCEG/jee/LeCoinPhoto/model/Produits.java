@@ -22,7 +22,6 @@ public class Produits implements java.io.Serializable {
 	private String description;
 	private float prix;
 	private int stock;
-	private String dtype;
 
 	public Produits() {
 	}
@@ -36,7 +35,6 @@ public class Produits implements java.io.Serializable {
 		this.description = description;
 		this.prix = prix;
 		this.stock = stock;
-		this.dtype = dtype;
 	}
 
 	public Integer getId() {
@@ -101,14 +99,6 @@ public class Produits implements java.io.Serializable {
 
 	public void setStock(int stock) {
 		this.stock = stock;
-	}
-
-	public String getDtype() {
-		return this.dtype;
-	}
-
-	public void setDtype(String dtype) {
-		this.dtype = dtype;
 	}
 
 }
