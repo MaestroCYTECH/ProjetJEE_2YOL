@@ -17,19 +17,6 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 		return "contact/contact";
 	}
 	
-	/* Géré par ProduitController :
-	@GetMapping(value = "/appareils")*/
-	
-	@GetMapping(value = "/objectifs")
-	public String pageObjectifs() {
-		return "produit/objectifs";
-	}
-	
-	@GetMapping(value = "/accessoires")
-	public String pageAccessoires() {
-		return "produit/accessoires";
-	}
-	//Les 2 du dessus devront etre géré par ProduitController aussi, plus logique
 	
 	
 	@GetMapping(value = "/connexion")

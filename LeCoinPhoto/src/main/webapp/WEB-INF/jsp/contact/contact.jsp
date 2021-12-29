@@ -23,7 +23,7 @@
                 <div class="titresection"><p>NOUS CONTACTER</p></div>
                 <div class="texte">
                     
-                    <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="contact">
+                    <form name="Formulaire" method="GET" onsubmit="return envoyer()" action="contact">
                         <fieldset>
                     
                     		<div class="box3">

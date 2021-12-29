@@ -53,4 +53,16 @@ public class ProduitController {
 		
 		return "produit/appareils";
 	}
+	
+	@GetMapping(value = "/objectifs")
+	public String pageObjectifs() {
+		return "produit/objectifs";
+	}
+	
+	@GetMapping(value = "/accessoires")
+	public String pageAccessoires() {
+		return "produit/accessoires";
+	}
+	
+	
 }
