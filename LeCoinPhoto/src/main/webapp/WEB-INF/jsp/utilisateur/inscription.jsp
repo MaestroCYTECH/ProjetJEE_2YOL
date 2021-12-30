@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">    
@@ -26,9 +27,9 @@
 	            <div class="texte">	            	
 	       	
 	                <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs} >
-	                    <div th:if=${success} style="color:green">Inscription réussie </div>
-	            		<div th:if=${fail} style="color:red">Erreur lors de l'inscription </div>
-	            		<div th:if=${dejaPris} style="color:red">Login déjà pris</div>
+	                    
+	            		<span style="color:red"><c:out value="${erreur}"></c:out></span>
+						<span style="color:green"><c:out value="${OK}"></c:out></span>
 	            		
 	                    <fieldset>
 	                        
