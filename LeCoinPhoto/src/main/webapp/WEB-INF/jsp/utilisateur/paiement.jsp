@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">    
+<html>    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -24,18 +25,22 @@
         
             <p> Votre paiement : </p>
            
-            <div class="panier">
-                <div class="nomProduit2">Nom : <strong>FujiFilm X-T4</strong><br></div>
-                <div class="prixProduit2">Prix : <strong>1699 €</strong><br></div>                                   
-            </div>
-
-            <div class="panier">
-                <div class="nomProduit2">Nom : <strong>FujiFilm X-T4 bis</strong><br></div>
-                <div class="prixProduit2">Prix : <strong>1699 €</strong><br></div>                                   
-            </div>
+            <c:forEach items="${panier}" var="entry">
+                <c:choose>
+                    <c:when test="${entry.stock==0}">
+                        <!--On fait rien, le montant n'est pas compté et le produit indisponible n'apparait pas dans le recap de paiement-->
+                    </c:when>
+                    <c:otherwise>  
+                        <div class="panier">
+                            <div class="nomProduit2">Nom : <strong>${entry.nom}</strong><br></div>
+                            <div class="prixProduit2">Prix : <strong>${entry.prix} €</strong><br></div>                                   
+                        </div>
+                    </c:otherwise>
+                </c:choose>
+            </c:forEach>
 
             <br>
-            MONTANT TOTAL : <strong>3398 €</strong> <br><br>
+            MONTANT TOTAL : <strong>${total} €</strong> <br><br>
                     
             <form name="Form" method='POST' onsubmit="return confirmerPaiement()" action='payerPanier'>
                 <input type="hidden" name="login" value="admin">

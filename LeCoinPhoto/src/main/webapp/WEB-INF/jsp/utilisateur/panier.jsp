@@ -38,22 +38,49 @@
                         
                         <c:forEach items="${panier}" var="entry">
 
-                            <div class="panier ${entry.id}">                
-                                <div class="imageAppareil">
-                                    <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
-                                </div>      
-                                                        
-                                <div class="nomProduit1"> 
-                                    Nom : <strong><a class="nomProduit" href="${entry.categorie}">${entry.nom}</a></strong><br>
-                                </div>
-                                                        
-                                <div class="prixProduit">                                         
-                                    Prix : <strong>${entry.prix} €</strong>
-                                </div> <br>
-                                                                                        
-                                <form onsubmit="return confirmerSuppression(${entry.id})">
-                                    <input class="boutonSupprimer" type="submit" value="x"/>
-                                </form><br> 
+                            <div class="panier ${entry.id}">  
+                                <c:choose>
+                                    <c:when test="${entry.stock==0}">
+
+                                        <div class="imageAppareil">
+                                            <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
+                                        </div>      
+                                                                
+                                        <div class="nomProduit1"> 
+                                            Nom : <strong><a class="nomProduit" href="${entry.categorie}">${entry.nom}</a></strong><br>
+                                        </div>
+                                                                
+                                        <div class="prixProduit">                                         
+                                            <strong> INDISPONIBLE</strong>, pour le moment 
+                                        </div> <br>
+                                                                                                
+                                        <form onsubmit="return confirmerSuppression(${entry.id})">
+                                            <input class="boutonSupprimer" type="submit" value="x"/>
+                                        </form><br> 
+
+                                    </c:when>
+                                    <c:otherwise> 
+
+                                        <div class="imageAppareil">
+                                            <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
+                                        </div>      
+                                                                
+                                        <div class="nomProduit1"> 
+                                            Nom : <strong><a class="nomProduit" href="${entry.categorie}">${entry.nom}</a></strong><br>
+                                        </div>
+                                                                
+                                        <div class="prixProduit">                                         
+                                            Prix : <strong>${entry.prix} €</strong>
+                                        </div> <br>
+                                                                                                
+                                        <form onsubmit="return confirmerSuppression(${entry.id})">
+                                            <input class="boutonSupprimer" type="submit" value="x"/>
+                                        </form><br> 
+                                        
+                                    </c:otherwise>
+                                </c:choose>
+
+                               
             
                             </div>
 

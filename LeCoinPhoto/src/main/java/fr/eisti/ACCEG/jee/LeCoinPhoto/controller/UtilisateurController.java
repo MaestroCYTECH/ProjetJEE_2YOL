@@ -227,9 +227,12 @@ public class UtilisateurController {
     			model.addAttribute("pluriel", "s");
     		} 				
     	}
-    	  	
+    	//FAIRE si stock épuisé  	
+    	
 		return "utilisateur/panier";
 	}
+    
+    
 	
 	@PostMapping(value = "/deleteProduitPanier")
 	public String deleteProduitPanier(@RequestParam String id) throws Exception{ //Void parce que appelée par Ajax
@@ -263,8 +266,39 @@ public class UtilisateurController {
 	}
 	
 	
+	
+	
 	@GetMapping(value = "/paiement")
-	public String pagePaiement() {
+	public String pagePaiement(Model model) {
+		
+		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session  	
+    	String panier = u.getPanier();
+    	float total=0;
+    	
+    	if (panier.trim().equals("Vide")) {
+    		return "utlisateur/panier";
+    	}
+    	else { //On convertit le tableau des references, en un tableau ayant toutes les infos du produit voulu
+    		
+    		String[] panierArray = panier.split(",");
+    		ArrayList<Produits> list = new ArrayList<Produits>();
+    		
+    		for (int i = 1; i < panierArray.length; i++) {
+    			
+    			if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { //Si produit non trouvé, on ne l'envoie pas à la vue
+  
+    			}
+    			else {
+    				Produits uTmp=pR.findById(Integer.parseInt(panierArray[i].trim()));
+    				list.add(uTmp);
+    				total=total+uTmp.getPrix();			
+    			}			
+			}
+    		
+    		model.addAttribute("panier", list);	
+    		model.addAttribute("total", total);
+    	}
+		
 		return "utilisateur/paiement";
 	}
 	
