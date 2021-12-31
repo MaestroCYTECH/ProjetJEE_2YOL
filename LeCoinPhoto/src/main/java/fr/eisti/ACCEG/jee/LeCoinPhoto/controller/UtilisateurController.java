@@ -191,7 +191,8 @@ public class UtilisateurController {
     @GetMapping(value = "/panier")
 	public String pagePanier(Model model) {
     	
-    	Utilisateurs u=uR.findByLogin("admin");
+    	Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session
+    	
     	String panier = u.getPanier();
     	String[] panierArray = panier.split(",");
     	
@@ -205,14 +206,15 @@ public class UtilisateurController {
     		
     		for (int i = 1; i < panierArray.length; i++) {
     			
-    			if (pR.findByReference(panierArray[i]) == null) {
-    				float f=0;
+    			if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { //Si produit non trouvé, on ne l'envoie pas à la vue
+    				/*float f=0;
     				Produits p = new Produits("", "", "", "Produit retiré de la vente", "Inconnu", f, 0);
-    				//list.add(p); //Choisir si on veut qd meme l'afficher en tant qu'inconnu, ou alors le supprimer automatiquement du panier (je pense 2eme solution plus simple)
+    				list.add(p);*/ 
+    				//Choisir si on veut qd meme l'afficher en tant qu'inconnu, ou alors le supprimer automatiquement du panier/ne pas l'afficher
     				
     			}
     			else {
-    				list.add(pR.findByReference(panierArray[i]));
+    				list.add(pR.findById(Integer.parseInt(panierArray[i].trim())));
     			}			
 			}
     		
@@ -221,27 +223,29 @@ public class UtilisateurController {
     		
     		if (list.size()>1) {
     			model.addAttribute("pluriel", "s");
-    		}
+    		} 				
     	}
-    	
-    	
+    	  	
 		return "utilisateur/panier";
 	}
+	
+	@PostMapping(value = "/deleteProduitPanier")
+	public void deleteProduitPanier(@RequestParam String id) { //Void parce que appelée par Ajax
+		
+		
+		//...
+		
+		
+		//return "index"; 
+	}
+	
 	
 	@GetMapping(value = "/paiement")
 	public String pagePaiement() {
 		return "utilisateur/paiement";
 	}
 	
-	
-	@PostMapping(value = "/deleteProduitPanier")
-	public String deleteProduitPanier() {//PAYER, puis retourner au panier (ou autre, à decider)
-		
-		//...
-		return "index"; 
-	}
-	
-	@PostMapping(value = "/payerPanier")
+	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier (ou autre, à decider)
 	public String payerPanier() {//VIDER PANIER + MAJ Stocks, puis retourner au panier (ou autre, à decider)
 		
 		//...

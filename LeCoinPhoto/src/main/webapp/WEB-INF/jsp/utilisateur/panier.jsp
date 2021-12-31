@@ -31,7 +31,7 @@
                 
                 <c:forEach items="${panier}" var="entry">
 
-                    <div class="panier ${entry.reference}">                
+                    <div class="panier ${entry.id}">                
                         <div class="imageAppareil">
                             <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
                         </div>      
@@ -44,8 +44,7 @@
                             Prix : <strong>${entry.prix} €</strong>
                         </div> <br>
                                                                                 
-                        <form onsubmit="return confirmerSuppression(document.getElementsByClassName('input${entry.reference}')[0].value)">
-                            <input type="hidden" class="input${entry.reference}" name="ref" value="${entry.reference}">
+                        <form onsubmit="return confirmerSuppression(${entry.id})">
                             <input class="boutonSupprimer" type="submit" value="x"/>
                         </form><br> 
     
