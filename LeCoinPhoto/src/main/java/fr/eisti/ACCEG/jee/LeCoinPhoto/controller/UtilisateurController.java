@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.thymeleaf.util.ArrayUtils;
 
 import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.ProduitsRepository;
@@ -244,7 +245,7 @@ public class UtilisateurController {
     	String[] panierArray = panier.split(",");
     	
    
-    	if(ArrayUtils.contains(panierArray, id)) { //On supprimer l'element du panier, puis on le met à jour dans la BDD
+    	if(ArrayUtils.contains(panierArray, id)) { //On supprime l'element du panier, puis on le met à jour dans la BDD
     		
     		List<String> list = new ArrayList<String>(Arrays.asList(panierArray));
     		int index=list.lastIndexOf(id);
@@ -271,12 +272,16 @@ public class UtilisateurController {
 	@GetMapping(value = "/paiement")
 	public String pagePaiement(Model model) {
 		
-		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session  	
+		model.addAttribute("login", "admin");
+		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session 
+		
     	String panier = u.getPanier();
     	float total=0;
     	
+    	boolean isValid=false;
+    	
     	if (panier.trim().equals("Vide")) {
-    		return "utlisateur/panier";
+    		return "redirect:/panier";
     	}
     	else { //On convertit le tableau des references, en un tableau ayant toutes les infos du produit voulu
     		
@@ -289,11 +294,22 @@ public class UtilisateurController {
   
     			}
     			else {
-    				Produits uTmp=pR.findById(Integer.parseInt(panierArray[i].trim()));
-    				list.add(uTmp);
-    				total=total+uTmp.getPrix();			
+    				if (pR.findById(Integer.parseInt(panierArray[i].trim())).getStock()<=0 ) {
+    					
+    				}
+    				else {
+    					Produits uTmp=pR.findById(Integer.parseInt(panierArray[i].trim()));
+        				list.add(uTmp);
+        				total=total+uTmp.getPrix();	
+        				
+        				isValid=true;//Notifie qu'au moins 1 produit a un stock valide
+    				}			
     			}			
 			}
+    		
+    		if (!isValid) {
+    			return "redirect:/panier";
+    		}
     		
     		model.addAttribute("panier", list);	
     		model.addAttribute("total", total);
@@ -303,10 +319,53 @@ public class UtilisateurController {
 	}
 	
 	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier (ou autre, à decider)
-	public String payerPanier() {//VIDER PANIER + MAJ Stocks, puis retourner au panier (ou autre, à decider)
+	public String payerPanier() throws Exception{//VIDER PANIER acheté+ MAJ Stocks, puis retourner au panier (ou autre, à decider)
 		
-		//...
-		return "utilisateur/panier"; 
+		
+		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session
+		String panier = u.getPanier();
+    	String[] panierArray = panier.split(",");
+    	List<String> list = new ArrayList<String>(Arrays.asList(panierArray));//Pour utiliser certaines fonctions
+    	
+    	int index;
+    	int stockActuel;
+    	
+    	for (String entry : panierArray) {
+    		
+    		if (!(entry.trim().equals("Vide"))) {
+    			
+    			if(pR.findById(Integer.parseInt(entry.trim()))!= null) {
+    				
+    				if(pR.findById(Integer.parseInt(entry.trim())).getStock()<=0) {
+    					//On le laisse dans le panier
+    				}
+    				else {
+    					//Si le produit est éligible à un achat
+        				
+        	    		index=list.lastIndexOf(entry);
+        	    		list.remove(index);	 
+        	    		
+        	    		//On met à jour le stock 1 par 1 pour qu'il détecte si le stock n'est plus suffisant
+        	        	
+        	        	stockActuel=pR.findById(Integer.parseInt(entry.trim())).getStock();
+        	        	pR.findById(Integer.parseInt(entry.trim())).setStock(stockActuel-1);
+    				}
+    				       	
+        		}
+        		else {
+            		throw new Exception("Erreur : ce produit n'est pas dans votre panier");
+            	}   			
+    		}					
+    	}   	
+    	
+    	panierArray = list.toArray(new String[0]);
+		panier = String.join(",", panierArray);
+		
+		Utilisateurs u1=uR.findByLogin("admin");
+    	u1.setPanier(panier);
+    	uR.save(u1);
+		
+    	return "redirect:/panier"; //Redirige vers le controlleur gérant le panier et son affichage
 	}
 	
 	//etc.

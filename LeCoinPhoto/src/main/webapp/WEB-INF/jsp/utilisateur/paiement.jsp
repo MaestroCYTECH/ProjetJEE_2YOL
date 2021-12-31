@@ -43,9 +43,8 @@
             MONTANT TOTAL : <strong>${total} €</strong> <br><br>
                     
             <form name="Form" method='POST' onsubmit="return confirmerPaiement()" action='payerPanier'>
-                <input type="hidden" name="login" value="admin">
-                <input type="hidden" name="total" value="3398">
-                <input type="hidden" name="panierString" value="Vide,app1,app1">
+                <input type="hidden" name="login" value="${login}">
+                <input type="hidden" name="total" value="${total}">
                 <input class="boutonPayer" type="submit" name="payer" value="PAYER"/>
             </form>
             <br><br>
