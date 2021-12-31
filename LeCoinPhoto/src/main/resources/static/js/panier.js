@@ -35,7 +35,7 @@ function ajaxDeleteProduit(id){ //Ajax quand l'utilisateur supprime un article d
         };
 
         xmlhttp.open("POST","deleteProduitPanier",true); //Supprime le produit de la BDD
-        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+        xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded; charset=UTF-8");
         xmlhttp.send("id="+id);
         }
 }

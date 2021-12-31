@@ -2,8 +2,11 @@ package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +18,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.thymeleaf.util.ArrayUtils;
 
 import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.ProduitsRepository;
 import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.UtilisateursRepository;
@@ -191,17 +195,15 @@ public class UtilisateurController {
     @GetMapping(value = "/panier")
 	public String pagePanier(Model model) {
     	
-    	Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session
-    	
+    	Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session  	
     	String panier = u.getPanier();
-    	String[] panierArray = panier.split(",");
     	
-    	
-    	if (panierArray.length==1 && panierArray[0]=="Vide") { //cad panier vide
-    		model.addAttribute("panierVide", "Votre panier est vide pour l'instant");
+    	if (panier.trim().equals("Vide")) {
+    		model.addAttribute("panierVide", true);
     	}
     	else { //On convertit le tableau des references, en un tableau ayant toutes les infos du produit voulu
     		
+    		String[] panierArray = panier.split(",");
     		ArrayList<Produits> list = new ArrayList<Produits>();
     		
     		for (int i = 1; i < panierArray.length; i++) {
@@ -230,13 +232,34 @@ public class UtilisateurController {
 	}
 	
 	@PostMapping(value = "/deleteProduitPanier")
-	public void deleteProduitPanier(@RequestParam String id) { //Void parce que appelée par Ajax
+	public String deleteProduitPanier(@RequestParam String id) throws Exception{ //Void parce que appelée par Ajax
 		
+		//Panier de test : Vide,1,6,9,11
 		
-		//...
+		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session
+		String panier = u.getPanier();
+    	String[] panierArray = panier.split(",");
+    	
+   
+    	if(ArrayUtils.contains(panierArray, id)) { //On supprimer l'element du panier, puis on le met à jour dans la BDD
+    		
+    		List<String> list = new ArrayList<String>(Arrays.asList(panierArray));
+    		int index=list.lastIndexOf(id);
+    		list.remove(index);
+    		
+    		panierArray = list.toArray(new String[0]);
+    		panier = String.join(",", panierArray);
+    		
+    		Utilisateurs u1=uR.findByLogin("admin");
+        	u1.setPanier(panier);
+        	uR.save(u1);
+    		
+    	}
+    	else {
+    		throw new Exception("Erreur : ce produit n'est pas dans votre panier");
+    	}
 		
-		
-		//return "index"; 
+		return "utilisateur/panier";
 	}
 	
 	

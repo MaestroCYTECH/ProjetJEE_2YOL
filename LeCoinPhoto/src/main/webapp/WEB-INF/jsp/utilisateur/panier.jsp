@@ -24,33 +24,44 @@
                     
             <div id="ajaxPanier">
 
-                <a class="boutonPayer" href="paiement"> PAYER </a>	<br>
-                <p>Vous avez <label id="ajaxNbArticles">${nbArticles}</label> <label id="ajaxArticles">article${pluriel}</label></p>
-                <br>
+                <c:choose>
+                    <c:when test="${panierVide}">
+                      <br>  Votre panier est vide pour le moment <br><br><br><br><br><br><br><br><br><br><br><br>
+                    </c:when>
+                    <c:otherwise>  
+
+                        <a class="boutonPayer" href="paiement"> PAYER </a>	<br>
+                  
+                        <p>Vous avez <label id="ajaxNbArticles">${nbArticles}</label> <label id="ajaxArticles">article${pluriel}</label></p>
+                        <br>
+                                
                         
-                
-                <c:forEach items="${panier}" var="entry">
+                        <c:forEach items="${panier}" var="entry">
 
-                    <div class="panier ${entry.id}">                
-                        <div class="imageAppareil">
-                            <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
-                        </div>      
-                                                
-                        <div class="nomProduit1"> 
-                            Nom : <strong><a class="nomProduit" href="${entry.categorie}">${entry.nom}</a></strong><br>
-                        </div>
-                                                
-                        <div class="prixProduit">                                         
-                            Prix : <strong>${entry.prix} €</strong>
-                        </div> <br>
-                                                                                
-                        <form onsubmit="return confirmerSuppression(${entry.id})">
-                            <input class="boutonSupprimer" type="submit" value="x"/>
-                        </form><br> 
-    
-                    </div>
+                            <div class="panier ${entry.id}">                
+                                <div class="imageAppareil">
+                                    <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
+                                </div>      
+                                                        
+                                <div class="nomProduit1"> 
+                                    Nom : <strong><a class="nomProduit" href="${entry.categorie}">${entry.nom}</a></strong><br>
+                                </div>
+                                                        
+                                <div class="prixProduit">                                         
+                                    Prix : <strong>${entry.prix} €</strong>
+                                </div> <br>
+                                                                                        
+                                <form onsubmit="return confirmerSuppression(${entry.id})">
+                                    <input class="boutonSupprimer" type="submit" value="x"/>
+                                </form><br> 
+            
+                            </div>
 
-				</c:forEach>
+                        </c:forEach>
+
+                    </c:otherwise>
+                </c:choose>
+
 
             </div><br>
 
