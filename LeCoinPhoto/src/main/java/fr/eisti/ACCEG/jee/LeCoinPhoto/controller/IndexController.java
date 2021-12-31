@@ -29,15 +29,7 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 		return "utilisateur/inscription";
 	}
 	
-	@GetMapping(value = "/panier")
-	public String pagePanier() {
-		return "utilisateur/panier";
-	}
-	
-	@GetMapping(value = "/paiement")
-	public String pagePaiement() {
-		return "utilisateur/paiement";
-	}
+
 	
 	
 	@GetMapping(value = "/profil")

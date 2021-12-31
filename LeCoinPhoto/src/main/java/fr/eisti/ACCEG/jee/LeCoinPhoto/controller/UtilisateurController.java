@@ -2,6 +2,7 @@ package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -15,7 +16,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.ProduitsRepository;
 import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.UtilisateursRepository;
+import fr.eisti.ACCEG.jee.LeCoinPhoto.model.Produits;
 import fr.eisti.ACCEG.jee.LeCoinPhoto.model.Utilisateurs;
 
 
@@ -24,6 +27,9 @@ public class UtilisateurController {
 
 	@Autowired
 	UtilisateursRepository uR;
+	
+	@Autowired
+	ProduitsRepository pR;
 	
 	
 	@PostMapping(value = "/userConnect")
@@ -182,7 +188,50 @@ public class UtilisateurController {
     
     
     
-    
+    @GetMapping(value = "/panier")
+	public String pagePanier(Model model) {
+    	
+    	Utilisateurs u=uR.findByLogin("admin");
+    	String panier = u.getPanier();
+    	String[] panierArray = panier.split(",");
+    	
+    	
+    	if (panierArray.length==1 && panierArray[0]=="Vide") { //cad panier vide
+    		model.addAttribute("panierVide", "Votre panier est vide pour l'instant");
+    	}
+    	else { //On convertit le tableau des references, en un tableau ayant toutes les infos du produit voulu
+    		
+    		ArrayList<Produits> list = new ArrayList<Produits>();
+    		
+    		for (int i = 1; i < panierArray.length; i++) {
+    			
+    			if (pR.findByReference(panierArray[i]) == null) {
+    				float f=0;
+    				Produits p = new Produits("", "", "", "Produit retiré de la vente", "Inconnu", f, 0);
+    				//list.add(p); //Choisir si on veut qd meme l'afficher en tant qu'inconnu, ou alors le supprimer automatiquement du panier (je pense 2eme solution plus simple)
+    				
+    			}
+    			else {
+    				list.add(pR.findByReference(panierArray[i]));
+    			}			
+			}
+    		
+    		model.addAttribute("panier", list);
+    		model.addAttribute("nbArticles", list.size());
+    		
+    		if (list.size()>1) {
+    			model.addAttribute("pluriel", "s");
+    		}
+    	}
+    	
+    	
+		return "utilisateur/panier";
+	}
+	
+	@GetMapping(value = "/paiement")
+	public String pagePaiement() {
+		return "utilisateur/paiement";
+	}
 	
 	
 	@PostMapping(value = "/deleteProduitPanier")

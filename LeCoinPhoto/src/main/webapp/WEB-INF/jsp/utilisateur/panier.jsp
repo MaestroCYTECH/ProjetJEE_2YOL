@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-  
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">    
+<html>    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -24,52 +25,35 @@
             <div id="ajaxPanier">
 
                 <a class="boutonPayer" href="paiement"> PAYER </a>	<br>
-                <p>Vous avez <label id="ajaxNbArticles">2</label> <label id="ajaxArticles">article</label></p>
+                <p>Vous avez <label id="ajaxNbArticles">${nbArticles}</label> <label id="ajaxArticles">article${pluriel}</label></p>
                 <br>
                         
-                <div class="panier app1">                
-                    <div class="imageAppareil">
-                        <img class="imageAppareil2" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" >
-                    </div>
-            
-                                            
-                    <div class="nomProduit1"> 
-                        Nom : <strong><a class="nomProduit" href="appareils">FujiFilm X-T4</a></strong><br>
-                    </div>
-                                            
-                    <div class="prixProduit">                                         
-                        Prix : <strong>1699 €</strong>
-                    </div> <br>
-                                                                            
-                    <form onsubmit="return confirmerSuppression(document.getElementsByClassName('inputapp1')[0].value)">
-                        <input type="hidden" class="inputapp1" name="ref" value="app1">
-                        <input class="boutonSupprimer" type="submit" value="x"/>
-                	</form><br> 
-
-                </div>
                 
-                <div class="panier app1">                
-                    <div class="imageAppareil">
-                        <img class="imageAppareil2" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" >
-                    </div>
-            
-                                            
-                    <div class="nomProduit1"> 
-                        Nom : <strong><a class="nomProduit" href="appareils">FujiFilm X-T4</a></strong><br>
-                    </div>
-                                            
-                    <div class="prixProduit">                                         
-                        Prix : <strong>1699 €</strong>
-                    </div> <br>
-                                                                            
-                    <form onsubmit="return confirmerSuppression(document.getElementsByClassName('inputapp1')[0].value)">
-                        <input type="hidden" class="inputapp1" name="ref" value="app1">
-                        <input class="boutonSupprimer" type="submit" value="x"/>
-                	</form><br> 
+                <c:forEach items="${panier}" var="entry">
 
-                </div>
+                    <div class="panier ${entry.reference}">                
+                        <div class="imageAppareil">
+                            <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
+                        </div>      
+                                                
+                        <div class="nomProduit1"> 
+                            Nom : <strong><a class="nomProduit" href="${entry.categorie}">${entry.nom}</a></strong><br>
+                        </div>
+                                                
+                        <div class="prixProduit">                                         
+                            Prix : <strong>${entry.prix} €</strong>
+                        </div> <br>
+                                                                                
+                        <form onsubmit="return confirmerSuppression(document.getElementsByClassName('input${entry.reference}')[0].value)">
+                            <input type="hidden" class="input${entry.reference}" name="ref" value="${entry.reference}">
+                            <input class="boutonSupprimer" type="submit" value="x"/>
+                        </form><br> 
+    
+                    </div>
 
-            </div>
+				</c:forEach>
+
+            </div><br>
 
         </div>
     </div>

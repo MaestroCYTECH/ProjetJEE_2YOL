@@ -12,9 +12,8 @@ function ajaxDeleteProduit(ref){ //Ajax quand l'utilisateur supprime un article 
                 
                 var nb=document.getElementById('ajaxNbArticles').textContent;
                 nb=nb-1;
-                var indice=document.getElementsByClassName(ref).length-1; //On cible le dernier et non le premier, utile dans le cas où premiers produits sont considérés en stock et pas les derniers
+                var indice=document.getElementsByClassName(ref).length-1; //Utile si plusieurs fois le meme produit dans le panier. On cible aussi le dernier et non le premier, utile dans le cas où premiers produits sont considérés en stock et pas les derniers
                 document.getElementsByClassName(ref)[indice].remove(); //Supprime le produit de l'affichage du panier (mais pas encore de la BDD)
-
                 //On met aussi à jour l'affichage du nombre d'articles
                 if(nb==0){              
                     document.getElementById('ajaxPanier').innerHTML="Votre panier est vide pour le moment <br><br><br><br><br><br><br><br><br><br><br><br>"; 
@@ -33,9 +32,13 @@ function ajaxDeleteProduit(ref){ //Ajax quand l'utilisateur supprime un article 
             }
         };
 
+       // xmlhttp.open("POST","deleteProduitPanier",true); //Supprime le produit de la BDD
+      //  xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+       // xmlhttp.send("ref="+ref);
+
         xmlhttp.open("POST","deleteProduitPanier",true); //Supprime le produit de la BDD
         xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-        xmlhttp.send("ref="+ref);
+        xmlhttp.send();
         }
 }
 
