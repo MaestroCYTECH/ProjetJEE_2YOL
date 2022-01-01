@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.*;
 import fr.eisti.ACCEG.jee.LeCoinPhoto.model.*;
@@ -47,11 +48,19 @@ public class AdminController {
 	
 	
 	@PostMapping(value = "/adminDeleteProduit")
-	public String deleteProduit() {
+	public String deleteProduit(@RequestParam String id, Model model) {
 		
-		//... Doit récuperer la référence (ou l'ID) du produit puis le supprimer de la BDD
+		//... Doit récuperer la référence (ou l'ID) du produit puis le supprimer de la BDD	
 		
-		return "admin/pages/liste";
+		try {
+			pR.deleteById(Integer.parseInt(id.trim()));
+			model.addAttribute("error", "PRODUIT SUPPRIMÉ");
+		} catch (Exception e) {
+			model.addAttribute("error", e.getMessage());
+		}		
+		
+		return "redirect:/adminListe";
+		//return "admin/pages/liste";
 	}
 	
 	

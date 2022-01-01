@@ -1,7 +1,9 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
   
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">    
+<html>    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -22,7 +24,7 @@
             <a href='adminHome'> Retourner à la section ADMIN </a> <br><br>
             
             <h2>TITRESECTION (Appareils/objectifs/accessoires, en fct de l'URL)</h2> <br>
-                
+            ${error} 
                 
             <div class="panier">
 
@@ -63,8 +65,8 @@
             
         
                 <form method="POST" onsubmit="return deleteConfirm()" action="adminDeleteProduit">
-                    <input type="hidden" name="refSuppr" value="app1">
-                    <input type="hidden" name="catSuppr" value="appareils">
+                    <input type="hidden" name="id" value="0">
+                   <!-- <input type="hidden" name="catSuppr" value="appareils">-->
 
                     <input class="boutonSupprimer" type="submit" value="x"/>
                 </form><br>
