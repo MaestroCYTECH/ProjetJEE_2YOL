@@ -23,7 +23,7 @@
 <div class="backgroundimage">
 <div class="w-full place-content-center p-10">
 <div class="md:w-3/5 sm:w-full m-auto mb-10 bg-neutral-50 bg-opacity-75 backdrop-blur-lg rounded-xl text-neutral-800 shadow-md">
-    <div class="w-full p-5 bg-neutral-50 rounded-t-xl bg-opacity-75	 upppercase font-bold text-left text-xl pb-5">QUI SOMMES NOUS ?</div>
+    <div class="w-full p-5 bg-neutral-100 rounded-t-xl bg-opacity-75	 upppercase font-bold text-left text-xl pb-5">QUI SOMMES NOUS ?</div>
     	<p class="text-justify p-5">Nous sommes une petite équipe de passionnés de la photographie et de la technologie. Nous avons un jour eu l'idée de créer un site de vente de matériel professionnel, et uniquement professionnel. Vous trouverez ici les meilleurs appareils, les meilleurs objectifs et accessoires, et tout cela à des prix qui vous éviteront la banqueroute !<br><br>
     	Nous travaillons en étroite collaboration avec de nombreux photographes pour savoir quels sont les besoins exacts pour exercer la photographie professionnelle et amateure. Ceci nous permet de ne pas polluer le site avec du mauvais matériel, ou du matériel inutile. C'est ainsi que tous les produits que nous vendons ont été testés et recommandés par des photographes confirmés. <br><br>
     	Nous proposons uniquement les meilleures marques de matériel photo, avec lesquelles nous négocions des prix les plus bas possibles. Vous méritez des produits de qualité pour un coût réduit ! Les livraisons sont rapides et nous vous garantissons le service après-vente le plus efficace !</p>
