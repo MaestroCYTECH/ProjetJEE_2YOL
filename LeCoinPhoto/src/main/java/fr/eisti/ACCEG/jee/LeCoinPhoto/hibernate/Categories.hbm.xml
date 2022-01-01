@@ -9,8 +9,5 @@
         <property generated="never" lazy="false" name="categorie" optimistic-lock="true" type="string" unique="false">
             <column length="20" name="categorie" not-null="true" unique="true"/>
         </property>
-        <property generated="never" lazy="false" name="icone" optimistic-lock="true" type="string" unique="false">
-            <column name="icone" not-null="true"/>
-        </property>
     </class>
 </hibernate-mapping>

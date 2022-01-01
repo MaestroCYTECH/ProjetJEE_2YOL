@@ -16,14 +16,12 @@ public class Categories implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String categorie;
-	private String icone;
 
 	public Categories() {
 	}
 
-	public Categories(String categorie, String icone) {
+	public Categories(String categorie) {
 		this.categorie = categorie;
-		this.icone = icone;
 	}
 
 	public Integer getId() {
@@ -40,14 +38,6 @@ public class Categories implements java.io.Serializable {
 
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
-	}
-
-	public String getIcone() {
-		return this.icone;
-	}
-
-	public void setIcone(String icone) {
-		this.icone = icone;
 	}
 
 }
