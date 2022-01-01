@@ -106,8 +106,8 @@ public class PaiementController {
     				}
     				   	
         		}
-        		else {
-            		throw new Exception("Erreur : ce produit n'est pas dans votre panier");
+        		else { //On fait rien
+            		//throw new Exception("Erreur : ce produit n'est pas dans votre panier"); Pour le debug
             	}   			
     		}					
     	}   	
