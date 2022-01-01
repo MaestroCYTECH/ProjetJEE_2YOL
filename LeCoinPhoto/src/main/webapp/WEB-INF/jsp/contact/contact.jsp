@@ -19,7 +19,8 @@
 
    <!-- Zone de navigation sur la droite-->
    <div class="pagedroite">
-		<div class="w-3/5 m-auto p-10 bg-opacity-75 border-neutral-400">
+   <div class="w-full place-content-center p-10">
+		<div class="md:w-3/5 sm:w-full m-auto bg-opacity-75 border-neutral-400">
 		
             <div class="blocContact">
                 <div class="titresectionContact"><p>NOUS CONTACTER</p></div>
@@ -88,6 +89,7 @@
                     </form>
                 </div>
             </div>
+        </div>
         </div>
     </div>
 </div>

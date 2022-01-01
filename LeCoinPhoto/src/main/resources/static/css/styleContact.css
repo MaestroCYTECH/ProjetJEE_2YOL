@@ -59,7 +59,7 @@ input[type=radio] + label:before {
     padding-left: 0.2em;
     padding-bottom: 0.3em;
     margin-right: 0.2em;
-    margin-left: 6em;
+    margin-left: 5em;
     vertical-align: bottom;
     color: transparent;
     transition: .2s;
@@ -127,7 +127,7 @@ input[type=radio]:checked + label:before {
     resize: none;
 }
 ::placeholder {
-    color: black;
+    color: #C0C0C0;
 }
 
 fieldset {
@@ -249,7 +249,7 @@ fieldset {
     padding: 1em;
     font-size: 0.8em;
     margin: auto;
-    border-radius: 1em;
+    border-radius: 0 0 0.5em 0.5em;
     backdrop-filter: blur(15px);
 }
 
