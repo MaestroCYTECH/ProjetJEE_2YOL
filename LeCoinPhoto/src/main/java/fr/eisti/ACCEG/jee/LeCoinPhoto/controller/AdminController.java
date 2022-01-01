@@ -32,15 +32,6 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping(value = "/adminFormulaireProduit")
-	public String pageAjouterProduit(Model model) {
-		
-		
-	    model.addAttribute("categories", cR.findAll());
-		
-		return "admin/pages/formAjouterProduit";
-	}
-	
 	@GetMapping(value = "/adminListe") //Rajouter le parametre catégorie.
 	public String pageListeProduits() {
 		return "admin/pages/liste";
@@ -48,7 +39,7 @@ public class AdminController {
 	
 	
 	@PostMapping(value = "/adminDeleteProduit")
-	public String deleteProduit(@RequestParam String id, Model model) {
+	public String deleteProduit(@RequestParam String id, @RequestParam String cat, Model model) {
 		
 		//... Doit récuperer la référence (ou l'ID) du produit puis le supprimer de la BDD	
 		
@@ -64,37 +55,23 @@ public class AdminController {
 	}
 	
 	
-	@PostMapping(value = "/adminAddProduit")
-	public String addProduit(@ModelAttribute(name = "Produit") Produits p, Model model) {
-		
-		//... Verif des données
-		
-		
-		Produits pTest = pR.findByNom(p.getNom());
-		if (pTest==null) { //Si nom libre
-						
-			pR.save(p);
-			model.addAttribute("success", true);
-			
-			
-			//Rajouter ligne pour catch une exception
-		}
-		else {
-			model.addAttribute("dejaPris", true);
-		}
-		
-		return "admin/pages/formAjouterProduit";
-	}
-	
 	
 	@PostMapping(value = "/adminAddStock")
-	public String addStock() {
-		
-		//...
+	public String addStock(@RequestParam String id, @RequestParam String cat, @RequestParam String quantite) {
 		
 		
-		return "admin/pages/liste";
+		int n=Integer.parseInt(id.trim());
+		int qte=Integer.parseInt(quantite.trim());
+
+		if (qte>0){
+			int newQte=pR.findById(n).getStock()+qte;
+	    	
+			Produits pTmp=pR.findById(n);
+			pTmp.setStock(newQte);
+			pR.save(pTmp);
+		}
+		
+		return "redirect:/adminListe";
+		//return "admin/pages/liste";
 	}
-	
-	
 }

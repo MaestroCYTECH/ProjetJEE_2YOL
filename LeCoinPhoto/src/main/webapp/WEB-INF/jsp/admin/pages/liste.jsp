@@ -46,7 +46,7 @@
                 
 
                 <div class="midCenter">
-                    <form name="Form" class="form" method='GET' action='adminAddStock' onsubmit="return confirmStock(0)">
+                    <form name="Form" class="form" method='POST' action='adminAddStock' onsubmit="return confirmStock(0)">
                         
                         <button class="moins" onclick="moins(0)" type="button"> - </button>
                                             
@@ -54,7 +54,7 @@
                         <input type="number" name="quantite" min="0" value="0" class="form-control">
                         <button class="plus" onclick="plus(0)" type="button"> + </button> <br><br>
 
-                        <input type="hidden" name="ref" value="app1">
+                        <input type="hidden" name="id" value="0">
                         <input type="hidden" name="cat" value="appareils">
 
                         <input class="boutonVert" type="submit" value="AJOUTER DU STOCK"/>
@@ -66,8 +66,7 @@
         
                 <form method="POST" onsubmit="return deleteConfirm()" action="adminDeleteProduit">
                     <input type="hidden" name="id" value="0">
-                   <!-- <input type="hidden" name="catSuppr" value="appareils">-->
-
+                    <input type="hidden" name="cat" value="appareils">
                     <input class="boutonSupprimer" type="submit" value="x"/>
                 </form><br>
 
@@ -103,8 +102,7 @@
                         <input type="number" name="quantite" min="0" value="0" class="form-control">
                         <button class="plus" onclick="plus(1)" type="button"> + </button> <br><br>
 
-                        <input type="hidden" name="ref" value="app2">
-                        <input type="hidden" name="cat" value="appareils">
+                        <input type="hidden" name="id" value="1">
 
                         <input class="boutonVert" type="submit" value="AJOUTER DU STOCK"/>
         
@@ -114,9 +112,7 @@
             
         
                 <form method="POST" onsubmit="return deleteConfirm()" action="adminDeleteProduit">
-                    <input type="hidden" name="refSuppr" value="app2">
-                    <input type="hidden" name="catSuppr" value="appareils">
-
+                    <input type="hidden" name="id" value="1">
                     <input class="boutonSupprimer" type="submit" value="x"/>
                 </form><br>
 
