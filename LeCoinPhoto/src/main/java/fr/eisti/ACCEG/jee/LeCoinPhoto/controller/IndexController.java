@@ -24,13 +24,6 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 		return "utilisateur/connexion";
 	}
 	
-	@GetMapping(value = "/inscription")
-	public String pageInscription() {
-		return "utilisateur/inscription";
-	}
-	
-
-	
 	
 	@GetMapping(value = "/profil")
 	public String pageProfil() {
