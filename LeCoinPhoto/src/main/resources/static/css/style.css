@@ -1,5 +1,5 @@
-/* ------------------- Barre supÃ©rieure ----------------- */
-/* Mise en page de la barre supÃ©rieure (titre et barre de navigation) */
+/* ------------------- Barre supérieure ----------------- */
+/* Mise en page de la barre supérieure (titre et barre de navigation) */
 #titre {
     text-align: center;
     color: #303030;
@@ -12,8 +12,8 @@
     height: 2em;
     padding: 1em;
 }
-/* Barre de navigation supÃ©rieure */
-.navbar {
+/* Barre de navigation supérieure */
+/* .navbar {
     z-index: 3;
     position: sticky;
     text-align: center;
@@ -24,9 +24,10 @@
     box-shadow: 0 -5px 5px -5px #333;
     background-color: #303030;
     overflow: auto;
-}
-/* Bouton de barre de navigation supÃ©rieure */
-.navbar a {
+} */
+
+/* Bouton de barre de navigation supérieure */
+/* .navbar a {
     display: inline-block;
     color: white;
     text-align: center;
@@ -36,11 +37,11 @@
     text-decoration: none;
     background-color: #303030;
     
-}
-/* Hover de bouton de barre de navigation supÃ©rieure */
-.navbar a:hover {
+} */
+/* Hover de bouton de barre de navigation supérieure */
+/* .navbar a:hover {
     background-color: #444444;
-}
+} */
 
 /* --------------- Barre de gauche ------------------ */
 /* Barre de navigation secondaire */
@@ -66,7 +67,7 @@
    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
 
 }
-/* Bouton cliquÃ© */
+/* Bouton cliqué */
 .btnclick {
     -moz-box-shadow:    inset 0 0 10px #00000066;
     -webkit-box-shadow: inset 0 0 10px #00000066;
@@ -83,12 +84,12 @@
 
 /* ------------- Compartimentation de la page ------------- */
 /* Partie principale */
-.box {
+/* .box {
     display: flex;
-}
+} */
 
 /* Partie gauche */
-.pagegauche {
+/* .pagegauche {
     position: relative;
     background-color: #444444;
     z-index: 1;
@@ -96,25 +97,25 @@
     text-align: center;
     padding-top: 1em;;
     box-shadow: 5px 0 5px -5px #333;
-}
+} */
 
 /* Partie droite */
-.pagedroite {
+/* .pagedroite {
     flex: 20 1 0;
     vertical-align: middle;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
-}
+} */
 
 /* ----------------- Bas de page ------------------------- */
 footer {
     overflow: hidden;
-    text-align: center;
+/*     text-align: center;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 1em;
     padding-top: 1%;
-	background-color: #303030;
+	background-color: #303030; */
 
 }
 
@@ -126,18 +127,18 @@ footer a{
 footer a:hover{
     text-decoration:underline;
 }
-#footerAdresses img{
-    width:30%;
-}
+/* #footerAdresses img{
+   width:30%;
+} */
 
-#container{
+/* #container{
     display: flex;
-    margin-left: 2em;
-    margin-right: 2em;
+     margin-left: 2em;
+    margin-right: 2em; 
     font-size: 1em;
     padding-bottom: 1em;
 }
-
+ */
 #container a{
     font-size: 0.75em;
 }
@@ -169,13 +170,13 @@ footer a:hover{
     padding-left: 0.25%;
 }
 
-#mentions{
+/* #mentions{
     margin: 0;
     padding: 1em;
     text-align: center;
     background-color: #444444;
-    width: 100%;
-}
+   	width: 100%;
+} */
 
 /* ----------------------- Contenu de la page ------------ */
 /* Organisation des logos de la page d'accueil */
@@ -231,9 +232,10 @@ body{
 }
 
 .backgroundimage {
-    background-image: url("img/background4.jpg");
+    background-image: url("../img/background4.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .centered {

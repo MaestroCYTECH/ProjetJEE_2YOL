@@ -1,8 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
    
 <!DOCTYPE html>
 <html>
+
+	<script src="https://cdn.tailwindcss.com"></script>
+
+
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -16,11 +19,10 @@
 
    <!-- Zone de navigation sur la droite-->
    <div class="pagedroite">
-        <div class="background">
-
-
-            <div class="bloc">
-                <div class="titresection"><p>NOUS CONTACTER</p></div>
+		<div class="w-3/5 m-auto p-10 bg-opacity-75 border-neutral-400">
+		
+            <div class="blocContact">
+                <div class="titresectionContact"><p>NOUS CONTACTER</p></div>
                 <div class="texte">
                     
                     <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="contact">
@@ -35,7 +37,7 @@
                                       <div id="sexe" class="minibox">
                                            <input type="radio" name="sexe" value="Homme" id="Homme">
                                            <label for="Homme"> Homme </label>&nbsp&nbsp&nbsp
-                                           <input type="radio" name="sexe" value="Femme" id="Femme" >
+                                           <input type="radio" name="sexe" value="Femme" id="Femme">
                                            <label for="Femme"> Femme </label>                                        
                                        </div><br><br>
                                    </div>
@@ -79,8 +81,8 @@
                                 <textarea class="textarea2" name="contenu" id="contenu" wrap="hard" placeholder="Tapez ici votre mail"></textarea><br><br>
                             </div>
                                 
+                            <a class="boutonEffacer" href="contact">Effacer</a>&nbsp&nbsp&nbsp    
                             <input class="boutonEnvoyer" type="submit" value="Envoyer"/>
-                            <a class="boutonEffacer" href="contact">Effacer</a>
 
                         </fieldset>
                     </form>
