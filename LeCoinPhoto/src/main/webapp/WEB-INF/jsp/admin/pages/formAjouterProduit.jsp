@@ -47,9 +47,17 @@
                                     </div>
 
                                     <div class="droite">                           
-                                        <label class="label">Image :</label> <span class="error">*</span> <br><br>
-                                        <input type="text" id="image" name="image" class="forminput" placeholder="Ex: blank.png" value=""/><br><br>
-        
+                                        <label class="label">Image :</label> <span class="error">*</span> <br><br>     
+
+                                        <input class="forminput" list="image" id="image" name="image" value="" placeholder="blank.png">
+                                        <datalist id="image">
+                                                		
+                                            <c:forEach items="${produits}" var="entry">
+                                                <option value="${entry.image}">${entry.image}</option>
+                                            </c:forEach>							                        
+                            
+                                        </datalist>
+
                                     </div>
                                 </div>
 
@@ -67,7 +75,7 @@
                                 <input type="text" id="nom" name="nom" class="forminput" placeholder="Ex: Fujifilm X-T4" value=""/><br><br>
                          
                                 <label class="label" for="desc">Description :</label> <span class="error">*</span> <br><br>
-                                <textarea class="textarea2" name="description" id="desc" wrap="hard" placeholder="Description du produit"></textarea><br><br>
+                                <textarea class="textarea2" name="description" id="description" wrap="hard" placeholder="Description du produit"></textarea><br><br>
                             </div>
                                 
                             <input class="boutonEnvoyer" type="submit" value="Ajouter ce produit"/>

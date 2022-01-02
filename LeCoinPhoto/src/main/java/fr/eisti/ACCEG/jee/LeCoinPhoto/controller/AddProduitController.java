@@ -25,6 +25,7 @@ public class AddProduitController {
 		
 		
 	    model.addAttribute("categories", cR.findAll());
+	    model.addAttribute("produits", pR.findAll());
 		
 		return "admin/pages/formAjouterProduit";
 	}

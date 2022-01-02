@@ -65,107 +65,92 @@ function confirmStock(i){
 
 
 function confirmerAjout(){ //A FIXER, pas les bons name
-    alert('JS à fixer');
             
-        var nom=document.Formulaire.nom.value.trim();//Cible la valeur rentree en saisie
-        var prenom=document.Formulaire.prenom.value.trim();
-        var sexe=document.Formulaire.sexe.value.trim();
-        var date=document.Formulaire.date.value.trim();
-        var mail=document.Formulaire.mailClient.value.trim();
-        var sujet=document.Formulaire.sujet.value.trim();
-        var contenu=document.Formulaire.contenu.value.trim();
     
-        var compteurNom=0;//Compte les erreurs
-        var compteurPrenom=0;
-        var compteurSexe=0;
-        var compteurDate=0;
-        var compteurMail=0;
-        var compteurSujet=0;
-        var compteurContenu=0;
-    
+        var cat=document.Formulaire.categorie.value.trim();//Cible la valeur rentree en saisie
+        var prix=document.Formulaire.prix.value.trim();
+        var image=document.Formulaire.image.value.trim();
+        var stock=document.Formulaire.stock.value.trim();
+        var nom=document.Formulaire.nom.value.trim();
+        var desc=document.Formulaire.description.value.trim();
+
+        var compteur=0;
         var element;
         
     
         //Par défaut, pas de rouge
+        element = document.getElementById("categorie");
+        element.style.border = null;
+    
+        element = document.getElementById("prix");
+        element.style.border = null;
+    
+        element = document.getElementById("image");
+        element.style.border = null;
+    
+        element = document.getElementById("stock");
+        element.style.border = null;
+    
         element = document.getElementById("nom");
         element.style.border = null;
     
-        element = document.getElementById("prenom");
+        element = document.getElementById("description");
         element.style.border = null;
-    
-        element = document.getElementById("sexe");
-        element.style.border = null;
-    
-        element = document.getElementById("date");
-        element.style.border = null;
-    
-        element = document.getElementById("mailClient");
-        element.style.border = null;
-    
-        element = document.getElementById("sujet");
-        element.style.border = null;
-    
-        element = document.getElementById("contenu");
-        element.style.border = null;
+     
     
     
-    
-    
-        
-    
-        
-    
-    
-    
-        if ( (entreeTitre.trim()=="")  )
-        {	
-    
-            alert("Le titre n'a pas été spécifié");
-            element = document.getElementById("titre");
-            element.style.border = "solid red";//Change sa bordure	
-    
-            compteur=compteur+1;
+        if ( (cat.trim()=="")  ){	
+            
+            alert("La catégorie n'a pas été spécifiée");
+            element = document.getElementById("categorie");
+            element.style.border = "solid red";//Entoure la zone de catégorie	
+            compteur++;
         }
     
-        if ( (entreeAuteur.trim()=="")  )
-        {	
-    
-            alert("L'auteur n'a pas été spécifié");
-            element = document.getElementById("auteur");
-            element.style.border = "solid red";//Change sa bordure	
-    
-            compteur=compteur+1;
-        }
-    
-        if ((entreePrix.toString().length)==0)
-        {
+        if (prix.toString().length==0){	
     
             alert("Le prix n'a pas été spécifié");
             element = document.getElementById("prix");
-            element.style.border = "solid red";//Change sa bordure	
+            element.style.border = "solid red";
     
-            compteur=compteur+1;
+            compteur++;
+        }
+    
+        if (image.trim()==""){
+               
+            alert("L'image n'a pas été spécifiée");
+            element = document.getElementById("image");
+            element.style.border = "solid red";
+            compteur++;
         }
         
-        if (entreeEmail.trim()=="")
-        {
+        if (stock.toString().length==0){
     
-            alert("L'email n'a pas été spécifié");
-            element = document.getElementById("email");
-            element.style.border = "solid red";//Change sa bordure	
-    
-            compteur=compteur+1;
+            alert("Le stock de départ n'a pas été spécifié");
+            element = document.getElementById("stock");
+            element.style.border = "solid red";
+            compteur++;
+        }
+
+        if (nom.trim()==""){
+
+            alert("Le nom du produit n'a pas été spécifié");
+            element = document.getElementById("nom");
+            element.style.border = "solid red";
+            compteur++;
         }
     
-        if (entreeDesc.trim()=="")
-        {
-            alert("La description n'a pas été spécifié");
-            compteur=compteur+1;
+        if (desc.trim()==""){
+            alert("La description n'a pas été remplie");
+            element = document.getElementById("description");
+            element.style.border = "solid red";
+            compteur++;
         }
     
     
         if (compteur>0)
         {
+            alert('Formulaire incomplet. Saisies restantes : '+compteur);
             return false;
         }
         else
