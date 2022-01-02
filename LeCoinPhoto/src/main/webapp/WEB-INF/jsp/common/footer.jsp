@@ -1,41 +1,52 @@
-<footer>
-        <div id="container">
-            <div id="footerAdresses" class="colonneFooter">
-                <br><img src="img/leCoinPhoto.png" alt="Le coin photo" title="Le coin photo, vendeur de mat�riel photo">
-                <p style="font-size: 0.8em;"> Avenue du parc<br>95000, Cergy, France
-                </p>
-                <p style="font-size: 0.8em;">Tel : 01 61 61 61 61</p>
-                <p style="font-size: 0.8em;">Mail : lecoinphoto@gmail.com</p>
-            </div>
-
-            <div id="footerLinks" class="colonneFooter">
-                <h5>Liens utiles</h5>
-                <hr size="1" width="100%" color="white">  
-                <a href="/">Accueil</a>
-				<a href="produits?cat=appareils"><p>Nos appareils</p></a>
-            	<a href="produits?cat=objectifs"><p>Nos objectifs</p></a>
-            	<a href="produits?cat=accessoires"><p>Nos accessoires</p></a>
-                <a href="contact"><p>Nous contacter</p></a>
-                
-            </div>
-
-            <div id="footerConditions" class="colonneFooter">
-                <h5>Conditions</h5>
-                <hr size="1" width="100%" color="white"> 
-                <a href="#"><p>Nos formules</p></a>
-                <a href="#"><p>Conditions g�n�rales de vente</p></a>
-                <a href="#"><p>Politique de confidentialit�</p></a>
-                <a href="#"><p>Politique de cookies</p></a>
-                <a href="#"><p>FAQ</p></a>
-                </ul>
-
-            </div>
+<footer class="text-center font-sans w-full place-content-center text-white">
+    <div class="w-full bg-neutral-400 px-10 py-4 flex place-content-center">
+    <div class="lg:w-3/5 sm:w-full">
+    <div class="flex p-1 w-full" id="container">
+        <div id="footerAdresses" class="flex-1 text-left mx-8">
+            <br><img class="w-1/2 pb-2"src="img/leCoinPhoto.png" alt="Le coin photo" title="Le coin photo, vendeur de matériel photo">
+            <p class="text-xs pb-1"> Avenue du parc</p>
+            <p class="text-xs pb-1">95000, Cergy, France</p>
+            <p class="text-xs pb-1">Tel : 01 61 61 61 6<p>
+            <p class="text-xs pb-1">Mail : lecoinphoto@gmail.com</p>
         </div>
-        <div class="mention">
-            <h5 id="mentions">&copy; 2021 Le Coin Photo by 
-            <a href="mailto:agoussalyo@eisti.eu" title="Envoyer un mail">Youssef AGOUSSAL</a> &amp; <a href="mailto:clipetluca@eisti.eu" title="Envoyer un mail">Lucas CLIPET</a> 
-            , Webmasters CY TECH - ING1GI01</h5>
+
+        <div id="footerLinks" class="flex-1 text-left mx-8">
+            <h5>Liens utiles</h5>
+            <hr size="1" width="100%" color="white">  
+            <a href="/">Accueil</a><br>
+            <a href="produits?cat=appareils">Nos appareils</a><br>
+            <a href="produits?cat=objectifs">Nos objectifs</a><br>
+            <a href="produits?cat=accessoires">Nos accessoires</a><br>
+            <a href="contact">Nous contacter</a>
+            
         </div>
-    </footer>
-    
+
+        <div id="footerConditions" class="flex-1 text-left mx-8">
+            <h5>Conditions</h5>
+            <hr size="1" width="100%" color="white"> 
+            <a href="#">Nos formules</a><br>
+            <a href="#">Conditions générales de vente</a><br>
+            <a href="#">Politique de confidentialit�</a><br>
+            <a href="#">Politique de cookies</a><br>
+            <a href="#">FAQ</a>
+
+        </div>
+    </div> 
+    </div>
+    </div>
+    <div class="w-full bg-neutral-500 px-10 flex place-content-center text-sm p-1 text-center">
+        <h5 id="mentions">&copy; 2022 Le Coin Photo by 
+        <a href="mailto:agoussalyo@cy-tech.fr" title="Envoyer un mail">Y.AGOUSSAL</a> 
+        &amp; 
+        <a href="mailto:clipetluca@cy-tech.fr" title="Envoyer un mail">L. CLIPET</a> 
+        &amp;
+        <a href="mailto:gigonoscar@cy-tech.fr" title="Envoyer un mail">O. GIGON</a>
+        &amp;
+        <a href="mailto:elasriyass@cy-tech.fr" title="Envoyer un mail">Y. EL ASRI</a>
+        &amp;
+        <a href="mailto:contrainle@cy-tech.fr" title="Envoyer un mail">L. CONTRAIN</a><br>
+        Webmasters CY TECH - ING2GSI2</h5>
+    </div>
+</footer>
+
 </html> 

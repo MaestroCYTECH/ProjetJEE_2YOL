@@ -11,3 +11,8 @@ Design : Lucas Oscar. Comme design globalement déjà fait, vous pouvez aussi vo
 Rapport et diagramme de classes : Léo
 
 Site : 2 personnes --> une sur les endroits où on doit lire la BDD (Yassine), une autre sur ceux où faut écrire (Youssef) (comme c'est assez indépendant on peut travailler en parallèle)
+
+TODO :
+Connexion à la session
+Tester sur Windows si remplir le formulaire de contact ouvre l'appli courrier
+Verifier les longueurs des descriptions pour que les produits d'une catégorie ont toutes le meme nombre de ligne. Sinon problemes de design
