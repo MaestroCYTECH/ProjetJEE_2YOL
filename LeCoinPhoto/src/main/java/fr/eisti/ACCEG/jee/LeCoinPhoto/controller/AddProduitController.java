@@ -36,19 +36,12 @@ public class AddProduitController {
 		
 		//... Verif des données
 		
-		
-		Produits pTest = pR.findByNom(p.getNom());
-		if (pTest==null) { //Si nom libre
-						
+		try {
 			pR.save(p);
-			model.addAttribute("success", true);
-			
-			
-			//Rajouter ligne pour catch une exception
-		}
-		else {
-			model.addAttribute("dejaPris", true);
-		}
+			model.addAttribute("success", "Ajout réussi");
+		} catch (Exception e) {
+			model.addAttribute("fail", "Erreur lors de l'ajout : "+e.getMessage());
+		}		
 		
 		return "admin/pages/formAjouterProduit";
 	}

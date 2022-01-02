@@ -22,9 +22,8 @@
             <div class="bloc">
                 <div class="titresection"><p>AJOUTER UN PRODUIT</p></div>
                 <div class="texte">
-                    <div th:if=${success} style="color:green">Ajout réussi </div>
-	            	<div th:if=${fail} style="color:red">Erreur lors de l'ajout </div>
-	            	<div th:if=${dejaPris} style="color:red">Produit du même nom déjà existant</div>
+                    <div style="color:green">${success}</div>
+	            	<div style="color:red">${fail}</div>
 
                     <form name="Formulaire" method="POST" onsubmit="return confirmerAjout()" action="adminAddProduit" th:action=@{/adminAddProduit} th:object=${Produits}>
 	            		
