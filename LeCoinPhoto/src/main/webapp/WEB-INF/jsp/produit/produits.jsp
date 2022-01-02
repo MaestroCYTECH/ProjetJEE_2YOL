@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="css/styleProduits.css"/>
 
 <!-- Titre du site dans le navigateur-->
-<title>Le coin photo - Nos appareils</title>
+<title>Le coin photo - Nos ${cat}</title>
 
 <script type="text/javascript" src="js/produits.js"></script>
 
@@ -22,7 +22,7 @@
 	    
 	    <div class="bloc">
 	    
-	        <div class="titresection"><p>NOS APPAREILS</p></div><br> 
+	        <div class="titresection"><p style="text-transform:uppercase;">NOS ${cat}</p></div><br> 
 	        
 	        <div class="blocProduits">
        

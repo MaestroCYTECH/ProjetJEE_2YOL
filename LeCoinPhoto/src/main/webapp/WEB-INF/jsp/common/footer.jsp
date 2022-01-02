@@ -1,7 +1,7 @@
 <footer>
         <div id="container">
             <div id="footerAdresses" class="colonneFooter">
-                <br><img src="img/leCoinPhoto.png" alt="Le coin photo" title="Le coin photo, vendeur de matériel photo">
+                <br><img src="img/leCoinPhoto.png" alt="Le coin photo" title="Le coin photo, vendeur de matï¿½riel photo">
                 <p style="font-size: 0.8em;"> Avenue du parc<br>95000, Cergy, France
                 </p>
                 <p style="font-size: 0.8em;">Tel : 01 61 61 61 61</p>
@@ -12,9 +12,9 @@
                 <h5>Liens utiles</h5>
                 <hr size="1" width="100%" color="white">  
                 <a href="/">Accueil</a>
-				<a href="/appareils"><p>Nos appareils</p></a>
-            	<a href="/objectifs"><p>Nos objectifs</p></a>
-            	<a href="/accessoires"><p>Nos accessoires</p></a>
+				<a href="produits?cat=appareils"><p>Nos appareils</p></a>
+            	<a href="produits?cat=objectifs"><p>Nos objectifs</p></a>
+            	<a href="produits?cat=accessoires"><p>Nos accessoires</p></a>
                 <a href="contact"><p>Nous contacter</p></a>
                 
             </div>
@@ -23,8 +23,8 @@
                 <h5>Conditions</h5>
                 <hr size="1" width="100%" color="white"> 
                 <a href="#"><p>Nos formules</p></a>
-                <a href="#"><p>Conditions générales de vente</p></a>
-                <a href="#"><p>Politique de confidentialité</p></a>
+                <a href="#"><p>Conditions gï¿½nï¿½rales de vente</p></a>
+                <a href="#"><p>Politique de confidentialitï¿½</p></a>
                 <a href="#"><p>Politique de cookies</p></a>
                 <a href="#"><p>FAQ</p></a>
                 </ul>
