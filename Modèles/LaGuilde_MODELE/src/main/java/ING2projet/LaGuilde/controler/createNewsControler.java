@@ -65,7 +65,7 @@ public class createNewsControler {
      */
 
     @PostMapping(value = "/CreationActualité", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String ajouterNews(@RequestParam("file") MultipartFile file, HttpSession session, Model model,
+    public String ajouterNews(@RequestParam("image") MultipartFile file, HttpSession session, Model model,
             @ModelAttribute("news") News news) {
         Map erreurs = new HashMap<String, String>();
         // file

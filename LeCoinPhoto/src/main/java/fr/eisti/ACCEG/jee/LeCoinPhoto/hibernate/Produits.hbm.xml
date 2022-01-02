@@ -9,9 +9,6 @@
         <property generated="never" lazy="false" name="categorie" optimistic-lock="true" type="string" unique="false">
             <column length="20" name="categorie" not-null="true"/>
         </property>
-        <property generated="never" lazy="false" name="reference" optimistic-lock="true" type="string" unique="false">
-            <column name="reference" not-null="true" unique="true"/>
-        </property>
         <property generated="never" lazy="false" name="image" optimistic-lock="true" type="string" unique="false">
             <column name="image" not-null="true"/>
         </property>

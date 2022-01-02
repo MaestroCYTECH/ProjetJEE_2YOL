@@ -11,5 +11,4 @@ public interface UtilisateursRepository extends CrudRepository<Utilisateurs,Inte
 	Utilisateurs findByNom(String nom);
 	
 	Utilisateurs findByLogin(String login);
-	
 }

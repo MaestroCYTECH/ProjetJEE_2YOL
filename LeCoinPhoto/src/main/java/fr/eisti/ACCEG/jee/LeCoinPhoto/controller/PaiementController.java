@@ -37,7 +37,7 @@ public class PaiementController {
     	if (panier.trim().equals("Vide")) {
     		return "redirect:/panier";
     	}
-    	else { //On convertit le tableau des references, en un tableau ayant toutes les infos du produit voulu
+    	else { //On convertit le tableau des ID, en un tableau ayant toutes les infos du produit voulu
     		
     		String[] panierArray = panier.split(",");
     		ArrayList<Produits> list = new ArrayList<Produits>();

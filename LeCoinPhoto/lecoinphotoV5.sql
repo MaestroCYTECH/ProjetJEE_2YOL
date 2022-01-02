@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 01, 2022 at 07:06 PM
+-- Generation Time: Jan 02, 2022 at 07:57 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -57,36 +57,34 @@ DROP TABLE IF EXISTS `produits`;
 CREATE TABLE IF NOT EXISTS `produits` (
   `ID` int NOT NULL AUTO_INCREMENT,
   `categorie` varchar(20) NOT NULL DEFAULT 'appareils',
-  `reference` varchar(255) NOT NULL DEFAULT 'inconnu1',
   `image` varchar(255) NOT NULL DEFAULT 'blank.png',
   `nom` varchar(255) NOT NULL DEFAULT 'INCONNU',
   `description` varchar(6500) NOT NULL DEFAULT 'Inconnue',
   `prix` float NOT NULL DEFAULT '1',
   `stock` int NOT NULL DEFAULT '0',
-  PRIMARY KEY (`ID`),
-  UNIQUE KEY `reference` (`reference`)
+  PRIMARY KEY (`ID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=19 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `produits`
 --
 
-INSERT INTO `produits` (`ID`, `categorie`, `reference`, `image`, `nom`, `description`, `prix`, `stock`) VALUES
-(8, 'objectifs', 'obj4', 'F50140.jpg', 'Fujinon 50-140 F2.8 OIS WR', 'Monture : Fuji X', 1599, 7),
-(9, 'objectifs', 'obj5', 'HB80.jpg', 'Hasselblad XCD 80 F1.9', 'Monture : Hasselblad X', 1599, 7),
-(10, 'accessoires', 'acc1', 'SD128.jpg', 'Sandisk Extreme 128', 'Carte SD Sandisk Extreme 128 Go 150mbps', 24.99, 2),
-(11, 'accessoires', 'acc2', 'PDS.jpg', 'Peak Design Slide (Noir)', 'Courroie Peak Design Slide', 49.99, 3),
-(12, 'accessoires', 'acc3', 'BPM.jpg', 'Tiffen Black Pro Mist', 'Diffuseur Tiffen Black Pro Mist 1\\/4 (77mm)', 139.99, 3),
-(13, 'accessoires', 'acc4', 'VA2PRO.jpg', 'Vanguard Alta 2 Pro', 'Tr\\u00e9pied Vanguard Alta 2 Pro', 149.99, 7),
-(7, 'objectifs', 'obj3', 'Z50.jpg', 'ZEISS Touit 50 F2.8', 'Monture : Sony E', 899, 5),
-(5, 'objectifs', 'obj1', '1855.jpg', 'Fujinon 18-55 F2.8-4 R LM OIS', 'Monture : fuji X', 599, 1),
-(6, 'objectifs', 'obj2', 'NZ50.jpg', 'Nikkor Z 50 F1.8', 'Monture : Nikon Z', 599, 9),
-(4, 'appareils', 'app5', 'FGFX100.jpg', 'Fujifilm GFX 100 (Boitier nu)', 'Capteur Moyen Format de 100Mp, monture Fuji GFX', 9999, 8),
-(3, 'appareils', 'app4', 'HBX1D.jpg', 'Hasselblad X1D (Boitier nu)', 'Capteur Moyen Format de 50Mp, monture Hasselblad X', 5999, 4),
-(2, 'appareils', 'app3', 'SA7RIV.jpg', 'Sony A7RIV (Boitier nu)', 'Capteur Full Frame de 61Mp, monture Sony E', 3499, 3),
-(1, 'appareils', 'app2', 'NZ6II.jpg', 'Nikon Z6 II (Boitier nu)', 'Capteur Full Frame de 24.5Mp, monture Nikkon Z', 1999, 2),
-(0, 'appareils', 'app1', 'FXT4.jpg', 'Fujifilm X-T4 (Boitier nu)', 'Capteur Format APS-C de 26Mp, monture Fuji X', 1699, 0),
-(14, 'accessoires', 'acc5', 'PDEB.jpg', 'Peak Design Everyday Backpack', 'Sac Photo Peak Design Everyday Backpack', 199.99, 8);
+INSERT INTO `produits` (`ID`, `categorie`, `image`, `nom`, `description`, `prix`, `stock`) VALUES
+(8, 'objectifs', 'F50140.jpg', 'Fujinon 50-140 F2.8 OIS WR', 'Monture : Fuji X', 1599, 7),
+(9, 'objectifs', 'HB80.jpg', 'Hasselblad XCD 80 F1.9', 'Monture : Hasselblad X', 1599, 7),
+(10, 'accessoires', 'SD128.jpg', 'Sandisk Extreme 128', 'Carte SD Sandisk Extreme 128 Go 150mbps', 24.99, 2),
+(11, 'accessoires', 'PDS.jpg', 'Peak Design Slide (Noir)', 'Courroie Peak Design Slide', 49.99, 3),
+(12, 'accessoires', 'BPM.jpg', 'Tiffen Black Pro Mist', 'Diffuseur Tiffen Black Pro Mist 1\\/4 (77mm)', 139.99, 3),
+(13, 'accessoires', 'VA2PRO.jpg', 'Vanguard Alta 2 Pro', 'Tr\\u00e9pied Vanguard Alta 2 Pro', 149.99, 7),
+(7, 'objectifs', 'Z50.jpg', 'ZEISS Touit 50 F2.8', 'Monture : Sony E', 899, 5),
+(5, 'objectifs', '1855.jpg', 'Fujinon 18-55 F2.8-4 R LM OIS', 'Monture : fuji X', 599, 1),
+(6, 'objectifs', 'NZ50.jpg', 'Nikkor Z 50 F1.8', 'Monture : Nikon Z', 599, 9),
+(4, 'appareils', 'FGFX100.jpg', 'Fujifilm GFX 100 (Boitier nu)', 'Capteur Moyen Format de 100Mp, monture Fuji GFX', 9999, 11),
+(3, 'appareils', 'HBX1D.jpg', 'Hasselblad X1D (Boitier nu)', 'Capteur Moyen Format de 50Mp, monture Hasselblad X', 5999, 8),
+(2, 'appareils', 'SA7RIV.jpg', 'Sony A7RIV (Boitier nu)', 'Capteur Full Frame de 61Mp, monture Sony E', 3499, 3),
+(1, 'appareils', 'NZ6II.jpg', 'Nikon Z6 II (Boitier nu)', 'Capteur Full Frame de 24.5Mp, monture Nikkon Z', 1999, 2),
+(0, 'appareils', 'FXT4.jpg', 'Fujifilm X-T4 (Boitier nu)', 'Capteur Format APS-C de 26Mp, monture Fuji X', 1699, 2),
+(14, 'accessoires', 'PDEB.jpg', 'Peak Design Everyday Backpack', 'Sac Photo Peak Design Everyday Backpack', 199.99, 8);
 
 -- --------------------------------------------------------
 
@@ -107,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `statut` varchar(10) NOT NULL DEFAULT 'simple',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `utilisateurs`
@@ -115,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `sexe`, `email`, `login`, `pwd`, `panier`, `statut`) VALUES
 (2, 'nouveau', 'nouveau', 'Homme', 'nouveau@nouveau.fr', 'nouveau', '$2y$10$sGI2njwmg2/cRIYS0FYO3OpnEnKMR23nGCHzx272WtHzxy7ejP9VK', 'Vide', 'simple'),
-(1, 'admin', 'admin', 'Homme', 'lecoinphoto@gmail.com', 'admin', '$2y$10$.9Oovd9gWLlUTvT.Vmbw9.UhPLLU5JK0ISh6kOaswjt3e5zLVzpv2', 'Vide,0,1,1,6,1', 'admin');
+(1, 'admin', 'admin', 'Homme', 'lecoinphoto@gmail.com', 'admin', '$2y$10$.9Oovd9gWLlUTvT.Vmbw9.UhPLLU5JK0ISh6kOaswjt3e5zLVzpv2', 'Vide,0,1,1,6,1,8,8,11,11', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

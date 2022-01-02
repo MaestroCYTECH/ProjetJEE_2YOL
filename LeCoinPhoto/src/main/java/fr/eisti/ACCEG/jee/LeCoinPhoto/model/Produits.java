@@ -16,7 +16,6 @@ public class Produits implements java.io.Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String categorie;
-	private String reference;
 	private String image;
 	private String nom;
 	private String description;
@@ -29,7 +28,6 @@ public class Produits implements java.io.Serializable {
 	public Produits(String categorie, String reference, String image, String nom, String description, float prix,
 			int stock) {
 		this.categorie = categorie;
-		this.reference = reference;
 		this.image = image;
 		this.nom = nom;
 		this.description = description;
@@ -51,14 +49,6 @@ public class Produits implements java.io.Serializable {
 
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
-	}
-
-	public String getReference() {
-		return this.reference;
-	}
-
-	public void setReference(String reference) {
-		this.reference = reference;
 	}
 
 	public String getImage() {

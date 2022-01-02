@@ -31,18 +31,6 @@
                         
                                 <div class="box3">
                                     <div class="gauche">
-                                        <label class="label">Référence :</label> <span class="error">*</span> <br><br>
-                                        <input type="text" id="ref" name="reference" class="forminput" placeholder="Ex: app1" value=""/><br><br>
-                                            
-									    <label class="label">Prix :</label> <span class="error">*</span> <br><br>
-                                        <input type="number" step="0.01" name="prix" id="prix" min="0" class="forminput" placeholder="Ex: 1699" value=""/><br><br>
-                                           
-                                    </div>
-
-                                    <div class="droite">                           
-                                        <label class="label">Image : (faire upload d'image ?)</label> <span class="error">*</span> <br><br>
-                                        <input type="text" id="image" name="image" class="forminput" placeholder="Ex: blank.png" value=""/><br><br>
-                                   
                                         <label class="label">Catégorie :</label> <span class="error">*</span> <br><br>
                                         <div class="box2" id="categorie">                                                       
                                                                                                   
@@ -51,12 +39,21 @@
 												    <option value=${entry.categorie}>${entry.categorie}</option>
 												</c:forEach>							                        
 							                </select>
-        
                                         </div><br>
-                                        
+                                            
+									    <label class="label">Prix :</label> <span class="error">*</span> <br><br>
+                                        <input type="number" step="0.01" name="prix" id="prix" min="0" class="forminput" placeholder="Ex: 1699" value=""/><br><br>
+                                           
+                                    </div>
+
+                                    <div class="droite">                           
+                                        <label class="label">Image :</label> <span class="error">*</span> <br><br>
+                                        <input type="text" id="image" name="image" class="forminput" placeholder="Ex: blank.png" value=""/><br><br>
+        
                                     </div>
                                 </div>
 
+                                <br>
                             <div class="box3">
                                 <div class="gauche">
 								<label class="label">Stock de départ :</label> <span class="error">*</span> <br><br>
