@@ -52,11 +52,11 @@ public class InscriptionController {
 			erreurs.put("prenom", e.getMessage());
 		}
 		
-		/*try { //Vérif à fixer
+		try { //Vérif à fixer
 			validationSexe(u.getSexe());
 		} catch (Exception e) {
 			erreurs.put("sexe", e.getMessage());
-		}*/
+		}
 		
 	    try {
 	        validationEmail(u.getEmail());
@@ -117,7 +117,7 @@ public class InscriptionController {
     
     private void validationSexe( String sexe ) throws Exception{
         if ( sexe != null) {
-            if ( sexe !="Homme" && sexe !="Femme" ) {
+            if ( !sexe.equals("Homme") && !sexe.equals("Femme") ) {
                 throw new Exception("Merci de saisir un genre valide.");
             }
         } else {
