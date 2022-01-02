@@ -29,6 +29,26 @@ public class PanierController {
 	ProduitsRepository pR;
 	
 	
+	@PostMapping(value = "/addToCart")
+	public String addToCart(Model model, @RequestParam String ID, @RequestParam String quantite) {
+	
+		int qte=Integer.parseInt(quantite);
+		
+		Utilisateurs u = uR.findByLogin("admin"); // PERSONNALISER : Prendre le login de la personne connectée par session
+		String panier = u.getPanier();
+		String newPanier=panier;
+		
+		for (int i = 0; i < qte; i++) {
+			newPanier=newPanier+","+ID.trim();
+		}	
+		
+		u.setPanier(newPanier);
+		uR.save(u);
+		
+		return "redirect:/panier";
+	}
+	
+	
 	@GetMapping(value = "/panier")
 	public String pagePanier(Model model) {
 
@@ -56,7 +76,7 @@ public class PanierController {
 
 				} else {
 
-					Produits pTest = new Produits();
+					Produits pTest;// = new Produits();
 					pTest = pR.findById(Integer.parseInt(panierArray[i].trim()));
 
 					if (qte.get(Integer.parseInt(panierArray[i].trim())) == null) {// Si c'est la 1ere fois qu'on compte cet article
@@ -73,15 +93,16 @@ public class PanierController {
 
 						if (tmp > pTest.getStock()) {
 							// Stock indisponible pour ces articles seulement
-							pTest.setStock(-1);
+							//pTest.setStock(-1); //A FIXER
 						}
 						qte.put(Integer.parseInt(panierArray[i].trim()), tmp);
-
 					}
 
 					list.add(pTest);
+					
 				}
 			}
+			
 			// qte est donc un tableau qui associe un ID et le nombre de fois qu'il apparait dans le panier
 
 			model.addAttribute("panier", list);

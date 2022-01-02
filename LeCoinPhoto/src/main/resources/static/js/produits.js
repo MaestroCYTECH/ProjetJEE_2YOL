@@ -38,7 +38,9 @@ function envoyer(i){
   var min=element.getAttribute('min');
 
   if (quantite>max || min<quantite){
+    alert('Quantité invalide');
     return false;
   }
+  alert("Ajouté au panier");
   return true;
 }

@@ -32,7 +32,7 @@ public class AdminController {
 	}
 	
 	
-	@GetMapping(value = "/adminListe") //Rajouter le parametre catégorie.
+	@GetMapping(value = "/adminListe") //Rajouter la catégorie en parametre
 	public String pageListeProduits() {
 		return "admin/pages/liste";
 	}
@@ -50,7 +50,7 @@ public class AdminController {
 			model.addAttribute("error", e.getMessage());
 		}		
 		
-		return "redirect:/adminListe";
+		return "redirect:/adminListe";//Rajouter la catégorie en parametre
 		//return "admin/pages/liste";
 	}
 	
@@ -71,7 +71,7 @@ public class AdminController {
 			pR.save(pTmp);
 		}
 		
-		return "redirect:/adminListe";
+		return "redirect:/adminListe";//Rajouter la catégorie en parametre
 		//return "admin/pages/liste";
 	}
 }

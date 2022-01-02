@@ -3,7 +3,7 @@
 
 
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">    
+<html>    
 <jsp:include page="/WEB-INF/jsp/common/header.jsp"/>
 
 <!-- Lien avec le CSS -->
@@ -25,155 +25,61 @@
 	        <div class="titresection"><p>NOS APPAREILS</p></div><br> 
 	        
 	        <div class="blocProduits">
-	                    
-	            <div class="blocProduit">
-	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>Fujifilm X-T4 (Boitier nu)</b></p>
-	                <div class="texteProduit">
-	                    <p>Capteur Format APS-C de 26Mp, monture Fuji X</p>
-	                </div> 
-	             
-					<div class="prixProduit"><p>1699 €</p></div>
-	                <div class=stock>   
-	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(0)" action='addToCart'>
-	    
-	                        <button class="moins" onclick="moins(0)" type="button"> - </button>
-	                        <input type="number" name="quantite" min="1" max="3" value="1" class="form-control" readonly>
-	                        <button class="plus" onclick="plus(0)" type="button"> + </button><br><br>
-	                        <input type="hidden" name="REF" value="app1">
-	                </div>
-	                        <input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
-	                                    
-	                    </form>                   
-	    
-	            </div>
-	            
-	            <div class="blocProduit">
-	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>Fujifilm X-T4 (Boitier nu)</b></p>
-	                <div class="texteProduit">
-	                    <p>Capteur Format APS-C de 26Mp, monture Fuji X</p>
-	                </div> 
-	             
-	             	<div class="prixProduit"><p>1699 €</p></div>
-	                <div class=stock>   
-	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(1)" action='addToCart'>
-	    
-	                        <button class="moins" onclick="moins(1)" type="button"> - </button>
-	                        <input type="number" name="quantite" min="1" max="3" value="1" class="form-control" readonly>
-	                        <button class="plus" onclick="plus(1)" type="button"> + </button><br><br>
-	                        <input type="hidden" name="REF" value="app1">
-	                </div>
-	                        <input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
-	                                    
-	                    </form>                   
-	    
-	            </div>
-	            
-	            <div class="blocProduit">
-	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>Fujifilm X-T4 (Boitier nu)</b></p>
-	                <div class="texteProduit">
-	                    <p>Capteur Format APS-C de 26Mp, monture Fuji X</p>
-	                </div> 
-	             
-	             	<div class="prixProduit"><p>1699 €</p></div>
-	                <div class=stock>   
-	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(2)" action='addToCart'>
-	    
-	                        <button class="moins" onclick="moins(2)" type="button"> - </button>
-	                        <input type="number" name="quantite" min="1" max="3" value="1" class="form-control" readonly>
-	                        <button class="plus" onclick="plus(2)" type="button"> + </button><br><br>
-	                        <input type="hidden" name="REF" value="app1">
-	                </div>
-	                        <input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
-	                                    
-	                    </form>                   
-	    
-	            </div>
-	               
-	        </div><br> 
-	        
-	        <div class="blocProduits">
-	        	
-	        	<div class="blocProduit">
-	                <br><img class="imageProduit" src="img/FXT4.jpg" alt="Fujifilm X-T4" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>Fujifilm X-T4 (Boitier nu)</b></p>
-	                <div class="texteProduit">
-	                    <p>Capteur Format APS-C de 26Mp, monture Fuji X</p>
-	                </div> 
-	             
-	             	<div class="prixProduit"><p>1699 €</p></div>
-	                <div class=stock>   
-	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(3)" action='addToCart'>
-	    
-	                        <button class="moins" onclick="moins(3)" type="button"> - </button>
-	                        <input type="number" name="quantite" min="1" max="3" value="1" class="form-control" readonly>
-	                        <button class="plus" onclick="plus(3)" type="button"> + </button><br><br>
-	                        <input type="hidden" name="REF" value="app1">
-	                </div>
-	                        <input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
-	                                    
-	                    </form>                   
-	            </div>
-	            
-	            <div class="blocProduit">
-	                <br><img class="imageProduit" src="img/${prod.image}" alt="${prod.nom}" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
-	                <p><b>ref=${prod.reference} : ${prod.nom}</b></p>
-	                <div class="texteProduit">
-	                    <p>${prod.description}</p>
-	                </div> 
-	             
-	             	<div class="prixProduit"><p>${prod.prix} €</p></div>
-	                <div class=stock>   
-	                    <form  name="Form" class="form" method='POST' onsubmit="return envoyer(4)" action='addToCart'>
-	    
-	                        <button class="moins" onclick="moins(4)" type="button"> - </button>
-	                        <input type="number" name="quantite" min="1" max="3" value="1" class="form-control" readonly>
-	                        <button class="plus" onclick="plus(4)" type="button"> + </button><br><br>
-	                        <input type="hidden" name="REF" value="REF">
-	                </div>
-	                        <input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
-	                                    
-	                    </form>                   
-	            </div>
-	           <!--<div> Liste de produits : (A fixer)
-		            <tr th:each="produit: ${produits}">
-				        <span th:text="${produit.nom}"></span>
-				        <br/>
-				        <span th:text="${produit.description}"></span>
-				        <br/>
-				        <span th:text="${produit.prix}"></span>
-				        <br/>
-				        <img th:src="@{img/{path}(path=${produit.image})}"/>
-				    </tr>
-	    			<div th:if=${debug} style="color:green">Bien reçu en vert </div>
-	    		</div>-->
-	    		
-	    		
-	    		<table>
-			
-				<thead>
-					<tr>
-						<th>Nom</th>
-						<th>Description</th>
-						<th>Prix</th>
-					</tr>
-				</thead>
-				<tbody>
+       
+				<%int i=0;//Utile pour notre fonction moins et plus, et l'affichage par lignes%>
 				
-	
-						<c:forEach items="${produits}" var="entry">
-							<tr>
-								<td>${entry.nom}</td>
-								<td>${entry.description}</td>
-								<td>${entry.prix}</td>
-							</tr>
-						</c:forEach>							                        
 
-				</tbody>
-				
-			</table>
+				<c:forEach items="${produits}" var="entry">
+					<div class="blocProduit">
+						<br><img class="imageProduit" src="img/${entry.image}" alt="${entry.nom} onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
+						<p><b>${entry.nom}</b></p>
+						<div class="texteProduit">
+							<p>${entry.description}</p>
+						</div> 
+
+						<c:choose>
+                            <c:when test="${entry.stock<=0}">
+
+								<p><strong> INDISPONIBLE</strong>, pour le moment</p>
+								<div style="display:none;" class="affichageStock">
+									Stock : ${entry.stock} <br><br>
+									<input type="hidden" class="form-control">
+								</div>
+                            </c:when>
+                                                
+                        	<c:otherwise>
+ 		
+								<div class="prixProduit">
+									<p>${entry.prix} €</p>		
+								</div>
+
+								<div class=stock>   
+									<form  name="Form" class="form" method='POST' onsubmit="return envoyer(<%=i%>)" action='addToCart'>
+					
+										<button class="moins" onclick="moins(<%=i%>)" type="button"> - </button>
+										<input type="number" name="quantite" min="1" max="${entry.stock}" value="1" class="form-control" readonly>
+										<button class="plus" onclick="plus(<%=i%>)" type="button"> + </button><br><br>
+										<input type="hidden" name="ID" value="${entry.id}">
+								</div>
+										<input class="boutonAcheter" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier")'/>
+													
+									</form>                   
+			
+							</c:otherwise>
+						</c:choose>
+					</div>
+					<%if((i+1)%3==0){ //3 correspond au nb de produits qu'on veut par ligne %>
+
+            </div>
+
+            <div class="blocProduits">      
+
+                    <%
+                    }
+                	i++;%>
+
+	            </c:forEach>
+    
 			
 	        </div><br>
 	        

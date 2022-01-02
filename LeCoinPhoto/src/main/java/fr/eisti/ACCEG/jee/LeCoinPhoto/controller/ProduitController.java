@@ -16,13 +16,6 @@ public class ProduitController {
 	@Autowired //Sert à "lier" appR à la BDD
 	ProduitsRepository pR;
 	 
-	 
-	@GetMapping(value = "/addToCart")
-	public String addToCart() {//AJOUTER au panier, puis renvoyer à ce panier
-		
-		//..
-		return "/utilisateur/panier"; 
-	}
 	
 	//Idem pour afficher produits, etc.
 	
@@ -32,18 +25,6 @@ public class ProduitController {
 
 	@GetMapping(value = "/appareils")
 	public String displayAppareils(Model model) { //Doit envoyer à la vue la liste des appareils
-		 
-
-		//Appareils appareil = appR.findById(2);
-		Produits appareil1 = pR.findByReference("app4");
-
-		model.addAttribute("prod", appareil1);
-		model.addAttribute("debug", "peu importe");//Teste la bonne liaison entre le controleur et la vue
-		
-		/*Iterable<Appareils> news = appR.findAll();
-	    List listNews = new ArrayList();
-	    listNews.add(news);
-	    model.addAttribute("produits", listNews);*/
 		
 		model.addAttribute("produits", pR.findByCategorie("appareils"));
 		
