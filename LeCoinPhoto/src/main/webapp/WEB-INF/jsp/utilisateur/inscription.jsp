@@ -18,59 +18,60 @@
 
 <!-- Zone de navigation sur la droite-->
 	<div class="pagedroite">
-	    <div class="background">
+	    <div class="w-full place-content-center p-10">
 	
-	        <div class="bloc">
-	            <div class="titresection"><p>S'INSCRIRE</p></div>
+	        <div class="md:w-2/5 sm:w-full m-auto mb-10 bg-neutral-100 bg-opacity-60 backdrop-blur-lg rounded-xl text-neutral-800 shadow-xl border border-neutral-200">
+	            <div class="w-full p-5 rounded-t-xl upppercase font-bold text-left text-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>S'INSCRIRE</p></div>
 	            
-	            <div class="texte">	            	
+	            <div class="font-sans m-auto w-full p-5">	            	
 	       	
-	                <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs} >
-	                    <div th:if=${success} style="color:green">Inscription réussie </div>
-	            		<div th:if=${fail} style="color:red">Erreur lors de l'inscription </div>
+	                <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="userInscription" th:action=@{/userInscription} th:object=${Utilisateurs}>
+	                    <div class="mb-8" th:if=${success} style="color:green">Inscription réussie </div>
+	            		<div class="mb-8" th:if=${fail} style="color:red">Erreur lors de l'inscription </div>
 	                    <fieldset>
 	                        
-	                        <div class="box3">
-	                            <div class="gauche">
-	                                <label class="label" id="labelNom">Nom :</label><br><br>
-	                                <input type="text" id="nom" name="nom" class="forminput" placeholder="Ex: NOM" /><br><br>
-	                                    
-	                                <label class="label" id="labelSexe">Sexe :</label><br><br>	
-	                                <div id="sexe" class="minibox">
-	                                    <input type="radio" name="sexe" value="Homme" id="Homme">
-	                                    <label for="Homme"> Homme </label>&nbsp&nbsp&nbsp
-	                                    <input type="radio" name="sexe" value="Femme" id="Femme">
-	                                    <label for="Femme"> Femme </label><br>
-	                                </div><br><br>
-	                            </div>
-	
-	                           <div class="droite">                           
-	                                <label class="label" id="labelPrenom">Prénom :</label><br><br>
-	                                <input type="text" id="prenom" name="prenom" class="forminput" placeholder="Ex: Prénom"/><br><br>
-                 
-	                                <br><br>
-	                            </div>
-	                        </div>
-	
-	                        <div class="leftalign">
-	                            <label class="label" id="labelMail">Adresse email :</label><br><br>
-	                            <input type="email" id="email" name="email" class="forminput" placeholder="Ex: monmail@monsite.org"/><br><br>
-	
-	                            <label class="label" id="labelLogin">Login :</label><br><br>
-	                            <input type="text" id="login" name="login" class="forminput" placeholder="Ex: eisti95" /><br><br>
-	                            
-	                            <label class="label" id="labelPwd">Mot de passe :</label><br><br>
-	                            <input type="password" id="pwd" name="pwd" class="forminput" placeholder="Mot de passe"/><br><br>
-	
-	                            <label class="label" id="labelConfirm">Confirmation du mot de passe :</label><br><br>
-	                            <input type="password" id="pwdConfirm" name="pwdConfirm" class="forminput"/><br><br>
-	                        </div>
-	
-							<input type="hidden" id="panier" name="panier" value="Vide"/>
-							<input type="hidden" id="statut" name="statut" value="simple"/>
+	                        <div class="">
+	                            <div class="w-full items-center justify-center place-content-center">
+	                                <!-- <label class="label" id="labelNom">Nom :</label><br><br> -->
+	                                <input type="text" id="nom" name="nom" class="w-full p-3 rounded-md bg-neutral-100 bg-opacity-50 mb-8" placeholder="Nom" />
+	                                <input type="text" id="prenom" name="prenom" class="w-full p-3 rounded-md bg-neutral-100 bg-opacity-50 mb-8" placeholder="Prénom"/>   
+	                                <div id="sexe" class="w-full block m-auto items-center mb-8">
+	                                	<div class="w-full m-auto text-center block mb-3">
+	                                    <input type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-400 border-neutral-300 m-auto" name="sexe" value="Homme" id="Homme">
+	                                    <label for="Homme" class="text-sm font-sans text-neutral-400"> Homme </label>
+	                                    </div>
+	                                    <div class="w-full block text-center text-neutral-400">
+	                                    <input type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-400 border-neutral-300 m-auto mr-1"  name="sexe" value="Femme" id="Femme">
+	                                    <label for="Femme" class="text-sm font-sans text-neutral-400"> Femme </label>
+	                                    </div>
+	                                </div>
+	                                <input type="email" id="email" name="email" class="w-full p-3 rounded-md bg-neutral-50 bg-opacity-50 mb-8" placeholder="Email"/>
+	                            	<input type="text" id="login" name="login" class="w-full p-3 rounded-md bg-neutral-50 bg-opacity-50 mb-8" placeholder="Login" />
+	                            	<input type="password" id="pwd" name="pwd" class="w-full p-3 rounded-md bg-neutral-50 bg-opacity-50 mb-8" placeholder="Mot de passe"/>
+	                            	<input type="password" id="pwdConfirm" name="pwdConfirm" class="w-full p-3 rounded-md bg-neutral-50 bg-opacity-50 mb-8" placeholder="Confirmer le mot de passe"/>
+	                            	
+	                            	<input type="hidden" id="panier" name="panier" value="Vide"/>
+									<input type="hidden" id="statut" name="statut" value="simple"/>
 							
-	                        <input class="boutonEnvoyer" type="submit" value="M'inscrire"/>
-	                        <input class="boutonEffacer" type="reset" value="Effacer" />
+									<div class="flex gap-4">
+									<input class="flex-1 rounded-md uppercase text-white p-3 bg-neutral-400 hover:bg-neutral-300" type="reset" value="Effacer" />
+	                        		<input class="flex-1 rounded-md uppercase text-white p-3 bg-indigo-500 hover:bg-indigo-400" type="submit" value="M'inscrire"/>
+	                        		</div>
+	                        
+	                            </div>
+	                        </div>
+	
+                          
+	                            </div>
+	                        </div>
+	
+
+	                            
+	
+	                            
+	                        </div>
+	
+							
 	
 	                    </fieldset>
 	                </form>
