@@ -23,103 +23,61 @@
 
             <a href='adminHome'> Retourner à la section ADMIN </a> <br><br>
             
-            <h2>TITRESECTION (Appareils/objectifs/accessoires, en fct de l'URL)</h2> <br>
+            <h2><p style="text-transform:uppercase;">${cat}</p></h2> <br>
             ${error} 
-                
-            <div class="panier">
-
-                <div class="imageAppareil">
-                    <img class="imageAppareil2" src="img/FXT4.jpg" alt="NOM" onerror="this.onerror=null; this.src='img/blank.png'" >
-                </div>
-
-                <div class="nomProduit1">
-                    <strong> NOM </strong>
-                </div>
+               
+            <%int i=0;%>
+            <c:forEach items="${produits}" var="entry">
 
             
-                <div class="prixProduit"> 
-                    Prix : <strong> PRIX € </strong>
-                    Stock : <strong> STOCK </strong>     
-                </div>
+                <div class="panier">
 
-                <br><br>  
+                    <div class="imageAppareil">
+                        <img class="imageAppareil2" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" >
+                    </div>
+
+                    <div class="nomProduit1">
+                        <strong> ${entry.nom}</strong>
+                    </div>
+
                 
+                    <div class="prixProduit"> 
+                        Prix : <strong> ${entry.prix} € </strong>
+                        Stock : <strong class="stock">${entry.stock}</strong>     
+                    </div>
 
-                <div class="midCenter">
-                    <form name="Form" class="form" method='POST' action='adminAddStock' onsubmit="return confirmStock(0)">
-                        
-                        <button class="moins" onclick="moins(0)" type="button"> - </button>
-                                            
-                                            
-                        <input type="number" name="quantite" min="0" value="0" class="form-control">
-                        <button class="plus" onclick="plus(0)" type="button"> + </button> <br><br>
+                    <br><br>  
+                    
 
-                        <input type="hidden" name="id" value="0">
-                        <input type="hidden" name="cat" value="appareils">
+                    <div class="midCenter">
+                        <form name="Form" class="form" method='POST' action='adminAddStock' onsubmit="return confirmStock(<%=i%>)">
+                            
+                            <button class="moins" onclick="moins(<%=i%>)" type="button"> - </button>
+                                                
+                                                
+                            <input type="number" name="quantite" min="0" value="0" class="form-control">
+                            <button class="plus" onclick="plus(<%=i%>)" type="button"> + </button> <br><br>
 
-                        <input class="boutonVert" type="submit" value="AJOUTER DU STOCK"/>
-        
-                    </form>
-                </div>
-                
+                            <input type="hidden" name="id" value="${entry.id}">
+                            <input type="hidden" name="cat" value="${entry.categorie}">
+
+                            <input class="boutonVert" type="submit" value="AJOUTER DU STOCK"/>
             
-        
-                <form method="POST" onsubmit="return deleteConfirm()" action="adminDeleteProduit">
-                    <input type="hidden" name="id" value="0">
-                    <input type="hidden" name="cat" value="appareils">
-                    <input class="boutonSupprimer" type="submit" value="x"/>
-                </form><br>
-
-
-            </div>
-          
-            
-            <div class="panier">
-
-                <div class="imageAppareil">
-                    <img class="imageAppareil2" src="img/FXT4.jpg" alt="NOM" onerror="this.onerror=null; this.src='img/blank.png'" >
-                </div>
-
-                <div class="nomProduit1">
-                    <strong> NOM 2</strong>
-                </div>
-
-            
-                <div class="prixProduit"> 
-                    Prix : <strong> PRIX € </strong>
-                    Stock : <strong> STOCK </strong>     
-                </div>
-
-                <br><br>  
-                
-
-                <div class="midCenter">
-                    <form name="Form" class="form" method='POST' action='adminAddStock' onsubmit="return confirmStock(1)">
-                        
-                        <button class="moins" onclick="moins(1)" type="button"> - </button>
-                                            
-                                            
-                        <input type="number" name="quantite" min="0" value="0" class="form-control">
-                        <button class="plus" onclick="plus(1)" type="button"> + </button> <br><br>
-
-                        <input type="hidden" name="id" value="1">
-
-                        <input class="boutonVert" type="submit" value="AJOUTER DU STOCK"/>
-        
-                    </form>
-                </div>
+                        </form>
+                    </div>
+                    
                 
             
-        
-                <form method="POST" onsubmit="return deleteConfirm()" action="adminDeleteProduit">
-                    <input type="hidden" name="id" value="1">
-                    <input class="boutonSupprimer" type="submit" value="x"/>
-                </form><br>
+                    <form method="POST" onsubmit="return deleteConfirm()" action="adminDeleteProduit">
+                        <input type="hidden" name="id" value="${entry.id}">
+                        <input type="hidden" name="cat" value="${entry.categorie}">
+                        <input class="boutonSupprimer" type="submit" value="x"/>
+                    </form><br>
 
-
-            </div>
-            
-
+                </div>
+                <%i++;%>
+            </c:forEach>
+         
             <br> 
         </div>
     </div>

@@ -1,13 +1,10 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 
-import java.util.ArrayList;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -27,13 +24,24 @@ public class AdminController {
 	
 	
 	@GetMapping(value = "/adminHome")
-	public String accueilAdmin() {
+	public String accueilAdmin(Model model) {
+		
+		model.addAttribute("cat", cR.findAll());
+		
 		return "admin/secured";
 	}
 	
 	
-	@GetMapping(value = "/adminListe") //Rajouter la catégorie en parametre
-	public String pageListeProduits() {
+	@GetMapping(value = "/adminListe")
+	public String pageListeProduits(@RequestParam String cat, Model model) {
+		
+		if (!cat.equals("appareils") && !cat.equals("objectifs") && !cat.equals("accessoires")) {
+			return "redirect:/adminHome";
+		}
+		
+		model.addAttribute("produits", pR.findByCategorie(cat));
+		model.addAttribute("cat", cat);
+		
 		return "admin/pages/liste";
 	}
 	
@@ -50,8 +58,7 @@ public class AdminController {
 			model.addAttribute("error", e.getMessage());
 		}		
 		
-		return "redirect:/adminListe";//Rajouter la catégorie en parametre
-		//return "admin/pages/liste";
+		return "redirect:/adminListe?cat="+cat;
 	}
 	
 	
@@ -71,7 +78,6 @@ public class AdminController {
 			pR.save(pTmp);
 		}
 		
-		return "redirect:/adminListe";//Rajouter la catégorie en parametre
-		//return "admin/pages/liste";
+		return "redirect:/adminListe?cat="+cat;
 	}
 }

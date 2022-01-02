@@ -51,11 +51,10 @@ function confirmStock(i){
     var confirmer= confirm("Augmenter ce stock de "+qte+" ?");
     if (confirmer==true)
     {	
-        alert("Stock augmenté");
+        alert("Stock augmenté");   
         return true;
     }
-    else
-    {
+    else{
         alert("Abandon")
         return false;
     }

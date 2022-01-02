@@ -118,7 +118,7 @@ public class PanierController {
 	    
 		
 	@PostMapping(value = "/deleteProduitPanier")
-	public String deleteProduitPanier(@RequestParam String id) throws Exception {
+	public String deleteProduitPanier(@RequestParam String id) throws Exception { //Appelé par Ajax
 
 		Utilisateurs u = uR.findByLogin("admin"); // PERSONNALISER : Prendre le login de la personne connectée par session
 		String panier = u.getPanier();
@@ -138,7 +138,7 @@ public class PanierController {
 			uR.save(u1);
 
 		} else {
-			throw new Exception("Erreur : ce produit n'est pas dans votre panier");
+			//throw new Exception("Erreur : ce produit n'est pas dans votre panier"); Pour le debug
 		}
 
 		return "utilisateur/panier";
