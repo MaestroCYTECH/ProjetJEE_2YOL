@@ -16,7 +16,7 @@
             <a href="produits?cat=appareils"><p>APPAREILS</p></a>
             <a href="produits?cat=objectifs"><p>OBJECTIFS</p></a>
             <a href="produits?cat=accessoires"><p>ACCESSOIRES</p></a>
-        	<a href="produits?cat=contact"><p>CONTACT</p></a>  
+        	<a href="contact"><p>CONTACT</p></a>  
         	
         	<a href="connexion"><img src="img/user.png" class="icon2" title="SE CONNECTER"></a>
         	<a href="panier"><img src="img/cart.png" class="icon2" title="MON PANIER"></a>
