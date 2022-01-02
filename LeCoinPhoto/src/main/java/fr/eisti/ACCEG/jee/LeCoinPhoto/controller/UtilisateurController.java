@@ -17,9 +17,11 @@ public class UtilisateurController {
 	@Autowired
 	UtilisateursRepository uR;
 	
-	@Autowired
-	ProduitsRepository pR;
 	
+	@GetMapping(value = "/connexion")
+	public String pageConnexion() {
+		return "utilisateur/connexion";
+	}
 	
 	@PostMapping(value = "/userConnect")
 	public String userConnect() {//CONNECTER l'utilisateur, puis l'envoyer à son profil (ou l'accueil, à decider)
@@ -31,6 +33,7 @@ public class UtilisateurController {
 		return "utilisateur/profil"; 
 	}
 	
+	
 	@GetMapping(value = "/userDeconnect")
 	public String userDeconnect() {//DECONNECTER l'utilisateur, puis l'envoyer à l'accueil
 		
@@ -39,6 +42,13 @@ public class UtilisateurController {
 	}
 	   
 
+	@GetMapping(value = "/profil")
+	public String pageProfil(Model model) {
+		
+		Utilisateurs u=uR.findByLogin("admin");
+		model.addAttribute("user", u);
+		
+		return "utilisateur/profil";
+	}
 	
-	//etc.
 }
