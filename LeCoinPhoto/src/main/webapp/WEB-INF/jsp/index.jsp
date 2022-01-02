@@ -53,12 +53,6 @@
         <div class="w-full p-5 bg-neutral-100 rounded-t-xl 	bg-opacity-75 upppercase font-bold text-left text-xl pb-5">ET LE SERVICE APRES-VENTE DANS TOUT CA ?</div>
         <p class="text-justify p-5">Vous vous dites sûrement : "Du bon matos pas cher ça cache forcément quelque chose !"<br><br>
             Eh non ! Même après la vente nous nous occupons toujours de vous ! Nous vous garantissons une expédition dans les 48 heures, mais ce n'est pas tout ! Si le matériel ne vous convient pas vous avez deux semaines pour nous le renvoyer et nous vous rembourserons. De plus, pour chaque produit nous appliquons la garantie de deux ans, donc si vous rencontrez le moindre problème durant ce délai, renvoyez-nous le produit et nous nous occupons de tout.</p>
-    
-    
-    	<%String s="Hello";%>
-    	
-		<br>
-    	Votre age : <%=s %>
     	
     
     
