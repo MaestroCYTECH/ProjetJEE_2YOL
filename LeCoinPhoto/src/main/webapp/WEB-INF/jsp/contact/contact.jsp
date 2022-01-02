@@ -26,7 +26,7 @@
                 <div class="w-full p-5 rounded-t-xl upppercase font-bold text-left text-xl pb-5 border-b border-neutral-200 text-orange-500"><p>NOUS CONTACTER</p></div>
                 <div class="p-1/4 font-sm m-auto rounded-b-xl backdrop-blur-lg">
                     
-                    <form name="Formulaire" method="POST" onsubmit="return envoyer()" action="contact">
+                    <form class="p-5" name="Formulaire" method="POST" onsubmit="return envoyer()" action="contact">
                         <fieldset>
                     
                     		<div class="box3">
@@ -92,8 +92,10 @@
                                 <textarea class="w-full rounded-md p-4 box-border border border-neutral-400 bg-neutral-50 bg-opacity-25 break-all color-neutral-600" name="contenu" id="contenu" wrap="hard" placeholder="Tapez ici votre mail"></textarea><br><br>
                             </div>
                                 
-                            <a class="boutonEffacer font-base rounded-md box-border border-none break-all inline-block decoration-none bg-neutral-400 shadow-md" href="contact">Effacer</a>&nbsp&nbsp&nbsp    
-                            <input class="boutonEnvoyer font-base rounded-md box-border border-none break-all bg-orange-500 shadow-md" type="submit" value="Envoyer"/>
+                            <div class="w-full text-center">    
+                            	<a class="boutonEffacer font-base text-center rounded-md box-border border-none break-all inline-block decoration-none bg-neutral-400 shadow-md" href="contact">Effacer</a>&nbsp&nbsp&nbsp    
+                            	<input class="boutonEnvoyer font-base rounded-md box-border border-none break-all bg-orange-500 shadow-md" type="submit" value="Envoyer"/>
+                            </div>
 
                         </fieldset>
                     </form>

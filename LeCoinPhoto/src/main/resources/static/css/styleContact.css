@@ -37,13 +37,6 @@ input[type=radio] + label:before {
     font-family: 'Roboto', sans-serif;
 }
 
-fieldset {
-    border: none;
-    text-align: center;
-    padding: 2em;
-    border-radius: 1em;
-}
-
 .boutonEnvoyer {
     width: 25%;
     padding: 1%;
