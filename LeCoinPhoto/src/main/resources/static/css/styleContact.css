@@ -45,61 +45,23 @@ fieldset {
 }
 
 .boutonEnvoyer {
-    font-family: 'Roboto', sans-serif;
-    width: 10%;
+    width: 25%;
     padding: 1%;
-    border-radius: 0.25em;
-    box-sizing: border-box;
-    border:none;
-    overflow-wrap: break-word;
-    background-color: #2dcc70;
     color: white;
-    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
-    resize: none;
 }
 
 .boutonEffacer {
-    font-family: 'Roboto', sans-serif;
-    width: 10%;
+    width: 25%;
     padding: 1%;
-    border-radius: 0.25em;
-    display: inline-block;
-    box-sizing: border-box;
-    text-decoration: none;
-    border:none;
-    overflow-wrap: break-word;
-    background-color: #949494;
     color: white;
-    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
-    resize: none;
 }
 
 .boutonEnvoyer:hover {
-    font-family: 'Roboto', sans-serif;
-    width: 10%;
-    padding: 1%;
-    border-radius: 0.25em;
-    box-sizing: border-box;
-    border:none;
-    overflow-wrap: break-word;
-    background-color: #32e77e;
-    color: white;
-    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
-    resize: none;
+    background-color: #f59e0b;
 }
 
 .boutonEffacer:hover {
-    font-family: 'Roboto', sans-serif;
-    width: 10%;
-    padding: 1%;
-    border-radius: 0.25em;
-    box-sizing: border-box;
-    border:none;
-    overflow-wrap: break-word;
     background-color: #aaaaaa;
-    color: white;
-    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
-    resize: none;
 }
 
 .icon {

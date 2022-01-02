@@ -38,13 +38,13 @@
                                       <div id="sexe" class="font-sans w-full p-2 text-base inline-block box-border border-none bg-neutral-50 bg-opacity-0 color-neutral-900">
                                        <div class="flex">
                 						<div class="flex items-center ml-16">
-                  							<input id="Homme" name="sexe" type="radio" value="Homme" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  							<input id="Homme" name="sexe" type="radio" value="Homme" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-neutral-300">
                   							<label for="Homme" class="text-sm font-sans text-neutral-900">
                     							Homme
                   							</label>
                 						</div>
                 						<div class="flex items-center ml-16">
-                  							<input id="Femme" name="sexe" type="radio" value="Femme" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-gray-300">
+                  							<input id="Femme" name="sexe" type="radio" value="Femme" class="focus:ring-indigo-500 h-4 w-4 text-indigo-600 border-neutral-300">
                   							<label for="Femme" class="text-sm font-sans text-neutral-900">
                     							Femme
                   							</label>
@@ -92,8 +92,8 @@
                                 <textarea class="w-full rounded-md p-4 box-border border border-neutral-400 bg-neutral-50 bg-opacity-25 break-all color-neutral-600" name="contenu" id="contenu" wrap="hard" placeholder="Tapez ici votre mail"></textarea><br><br>
                             </div>
                                 
-                            <a class="boutonEffacer" href="contact">Effacer</a>&nbsp&nbsp&nbsp    
-                            <input class="boutonEnvoyer" type="submit" value="Envoyer"/>
+                            <a class="boutonEffacer font-base rounded-md box-border border-none break-all inline-block decoration-none bg-neutral-400 shadow-md" href="contact">Effacer</a>&nbsp&nbsp&nbsp    
+                            <input class="boutonEnvoyer font-base rounded-md box-border border-none break-all bg-orange-500 shadow-md" type="submit" value="Envoyer"/>
 
                         </fieldset>
                     </form>
