@@ -15,7 +15,7 @@
 <!-- Titre du site dans le navigateur-->
 <title>Le coin photo - Paiement</title>
 
-<script type="text/javascript" src="js/panier.js"></script>
+<script type="text/javascript" src="js/paiement.js"></script>
 
 
 <!-- FAIRE VERIF si deja connecté, l'envoyer sur la page de profil. Idem pour panier et inscription-->

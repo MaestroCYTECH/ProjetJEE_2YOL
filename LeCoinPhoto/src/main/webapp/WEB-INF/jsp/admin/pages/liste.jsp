@@ -15,7 +15,7 @@
 <!-- Titre du site dans le navigateur-->
 <title>Le coin photo - section Admin</title>
 
-<script type="text/javascript" src="js/admin.js"></script>
+<script type="text/javascript" src="js/adminListe.js"></script>
 
 
     <!-- Zone de navigation sur la droite-->
