@@ -2,44 +2,6 @@
 
 /* ----------------------- Contenu de la page ------------ */
 
-.moins:hover {
-    flex: 1 1 0;
-    font-size: 1em;
-    font-weight: bolder;
-    border: none;
-    background-color: #bbbbbb;
-}
-
-.plus:hover {
-    flex: 1 1 0;
-    font-size: 1em;
-    font-weight: bolder;
-    border: none;
-    background-color: #bbbbbb;
-}
-
-.grandBoutonSuppr {
-    font-family: 'Roboto', sans-serif;
-    text-decoration: none;
-    padding-top: 0.5em;
-
-    padding-left: 1em;
-    padding-right: 1em;
-    margin-top: 1em;
-    border-radius: 0.25em;
-    box-sizing: border-box;
-    border:none;
-    overflow-wrap: break-word;
-    background-color: #666666;
-    color: white;
-    box-shadow: 0 4px 8px 0 #00000033, 0 6px 20px 0 #00000033;
-    resize: none;
-}
-
-.grandBoutonSuppr:hover {
-    background-color: #444444;
-}
-
 .boutonSupprCategorie {
     font-family: 'Roboto', sans-serif;
     height: 1.5em;

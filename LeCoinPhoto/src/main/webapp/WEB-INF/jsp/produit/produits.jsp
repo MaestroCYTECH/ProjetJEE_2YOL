@@ -30,18 +30,18 @@
 				
 				<c:forEach items="${produits}" var="entry">					
 
-<<<<<<< HEAD
+					
 					<div class="rounded-lg border border-indigo-500 bg-white place-content-center text-center relative hover:ring-2 hover:ring-indigo-500">
 						<div class="w-full p-1 shadow-b shadow-md"><p class="font-bold my-2">Stock : ${entry.stock} </p></div><!--Faire un design sympa ou bien comme ça c'est bon ?-->
-=======
-					<div class="rounded-lg border border-indigo-500 bg-white place-content-center text-center relative">
+
+					<div class="rounded-lg bg-white place-content-center text-center relative">
 						<c:choose>
 							<c:when test="${user.statut=='admin'}">
 						Stock : ${entry.stock} <br> <!--Faire un design sympa ou bien comme ça c'est bon ?-->
 							</c:when>
 						</c:choose>
 						
->>>>>>> Back+UX
+
 						<br><img class="m-auto h-32" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
 						<p class="truncate m-4"><b>${entry.nom}</b></p>
 						<div class="truncate m-4 text-sm text-neutral-500">
@@ -55,8 +55,6 @@
 
 							</c:when>
 							<c:otherwise>
-
-								<div class="prixProduit"><p>${entry.prix} €</p></div>
 								
 								<c:choose>
                 					<c:when test="${user!=null}">
@@ -80,6 +78,7 @@
 							</c:otherwise>
 						</c:choose>
 					</div>
+					</div>
 
 
 					<%i++;%>
@@ -91,7 +90,8 @@
 			
 
 	        </div>
-	        		
+	        		</div>
+	        		</div>
 	        </div><br>
 	        
 	    </div>

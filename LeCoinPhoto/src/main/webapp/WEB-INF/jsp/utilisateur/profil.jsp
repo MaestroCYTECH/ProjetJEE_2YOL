@@ -20,10 +20,6 @@
             <div class="max-w-full p-5 rounded-t-xl upppercase font-bold text-lefttext-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>MON PROFIL</p></div>
             <div class="w-full p-5"> 
             	<p class="mb-4">Bonjour, ${user.nom} !</p>  
-                
-<<<<<<< Updated upstream
-                
-    
             
             <!--Affichage du profil-->
             <div id="Profil" class="my-4"> Mes informations personnelles :
@@ -47,24 +43,10 @@
         </div> 
 	</div>
     </div>
-=======
-            	<!--Affichage du profil-->
-            	<div id="Profil" class="my-4"> Mes informations personnelles :
-                	<div class="w-full p-10 mt-5 text-left grid grid-cols-1 divide-y divide-neutral-400 rounded-md bg-neutral-100 shadow-inner">
-                		<div class="py-3">Login :  ${user.login}</div>
-                		<div class="py-3">Email :  ${user.email}</div>
-                		<div class="py-3">Nom :  ${user.nom}</div>
-                		<div class="py-3">Prenom :  ${user.prenom}</div>
-                		<div class="py-3">Sexe :  ${user.sexe}</div>
-                	</div>
-        		</div>
-        		<div class="flex gap-4">
-        			<a class="flex-1 rounded-md uppercase text-white p-3 bg-neutral-400 hover:bg-neutral-300" href="userDeconnect">Me déconnecter</a>
-        			<a class="flex-1 rounded-md uppercase text-white p-3 bg-indigo-500 hover:bg-neutral-400" href="adminHome">Section ADMIN</a>
-        		</div> 
-			</div>
+
+            	
     	</div>
->>>>>>> Stashed changes
+
     </div>
 
 </body>
