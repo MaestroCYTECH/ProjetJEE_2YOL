@@ -40,12 +40,12 @@
 	                                <input type="text" id="prenom" name="prenom" class="w-full p-3 rounded-md bg-neutral-100 bg-opacity-50 mb-8" placeholder="Prénom"/>   
 	                                <div id="sexe" class="w-full block m-auto items-center mb-8">
 	                                	<div class="w-full m-auto text-center block mb-3">
-	                                    <input type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-400 border-neutral-300 m-auto" name="sexe" value="Homme" id="Homme">
-	                                    <label for="Homme" class="text-sm font-sans text-neutral-400"> Homme </label>
+	                                    	<input type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-400 border-neutral-300 m-auto" name="sexe" value="Homme" id="Homme">
+	                                    	<label for="Homme" class="text-sm font-sans text-neutral-400"> Homme </label>
 	                                    </div>
 	                                    <div class="w-full block text-center text-neutral-400">
-	                                    <input type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-400 border-neutral-300 m-auto mr-1"  name="sexe" value="Femme" id="Femme">
-	                                    <label for="Femme" class="text-sm font-sans text-neutral-400"> Femme </label>
+	                                    	<input type="radio" class="focus:ring-indigo-500 h-4 w-4 text-indigo-400 border-neutral-300 m-auto mr-1"  name="sexe" value="Femme" id="Femme">
+	                                    	<label for="Femme" class="text-sm font-sans text-neutral-400"> Femme </label>
 	                                    </div>
 	                                </div>
 	                                <input type="email" id="email" name="email" class="w-full p-3 rounded-md bg-neutral-50 bg-opacity-50 mb-8" placeholder="Email"/>
@@ -57,27 +57,23 @@
 									<input type="hidden" id="statut" name="statut" value="simple"/>
 							
 									<div class="flex gap-4">
-									<input class="flex-1 rounded-md uppercase text-white p-3 bg-neutral-400 hover:bg-neutral-300" type="reset" value="Effacer" />
-	                        		<input class="flex-1 rounded-md uppercase text-white p-3 bg-indigo-500 hover:bg-indigo-400" type="submit" value="M'inscrire"/>
+										<input class="flex-1 rounded-md uppercase text-white p-3 bg-neutral-400 hover:bg-neutral-300" type="reset" value="Effacer" />
+	                        			<input class="flex-1 rounded-md uppercase text-white p-3 bg-indigo-500 hover:bg-indigo-400" type="submit" value="M'inscrire"/>
 	                        		</div>
 	                        
 	                            </div>
 	                        </div>
 	
                           
-	                            </div>
-	                        </div>
-							</div>
+	                </div>
+	          </div>
+		</div>
 	
 							
 	
 	                    </fieldset>
 	                </form>
-	            </div>
-	        </div>
-	    </div>
 	</div>
-</div>
 
 </body>
 

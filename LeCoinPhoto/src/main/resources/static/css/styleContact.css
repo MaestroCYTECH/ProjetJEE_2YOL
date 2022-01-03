@@ -24,8 +24,7 @@ input[type=radio] + label:before {
     border-radius: 0.25em;
     padding: 0.5em;
     box-sizing: border-box;
-    border: 1px solid #a3a3a3;
-    background-color: rgba(250,250,250,0.25);
+    background-color: rgba(250,250,250,0.5);
     resize: none;
     color: #A9A9A9;
 }
@@ -33,52 +32,9 @@ input[type=radio] + label:before {
 .box2 select option {
     padding: 30px;
     color: #A9A9A9;
-    background-color: rgba(250,250,250,0.25);
+    background-color: rgba(250,250,250,0.5);
+    border: none;
     font-family: 'Roboto', sans-serif;
-}
-
-.boutonEnvoyer {
-    width: 25%;
-    padding: 1%;
-    color: white;
-}
-
-.boutonEffacer {
-    width: 25%;
-    padding: 1%;
-    color: white;
-}
-
-.boutonEnvoyer:hover {
-    background-color: #f59e0b;
-}
-
-.boutonEffacer:hover {
-    background-color: #aaaaaa;
-}
-
-.icon {
-    width: 70%;
-}
-
-.box3 {
-    display: flex;
-}
-
-.gauche {
-    flex : 1 1 0;
-    text-align: left;
-    margin-right: 1em;
-}
-
-.droite {
-    flex: 1 1 0;
-    text-align: left;
-    margin-left: 1em;
-}
-
-.leftalign {
-    text-align: left;
 }
 
 .pagedroite {

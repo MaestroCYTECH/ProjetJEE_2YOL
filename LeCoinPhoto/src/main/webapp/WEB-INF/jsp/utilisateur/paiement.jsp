@@ -21,8 +21,7 @@
 <!-- FAIRE VERIF si deja connecté, l'envoyer sur la page de profil. Idem pour panier et inscription-->
 
 
-<!-- Zone de navigation sur la droite-->
-<div class="pagedroite">     
+<!-- Zone de navigation sur la droite-->  
     <div class="w-full place-content-center p-10">
 		<div class="md:w-2/5 sm:w-full m-auto border-neutral-400">
 
@@ -55,16 +54,10 @@
                 <input class="boutonPayer w-20 h-10 text-center decoration-none block py-2 my-3 mx-auto rounded-md box-border border-none break-all bg-indigo-500 hover:bg-indigo-400 text-white shadow-xl" type="submit" name="payer" value="PAYER"/>
             </form>  
             
-            </div>      
-        
-        </div>
-
-
-
-
-        </div>
+        </div>      
     </div>
 </div>
+
 
 </body>
 
