@@ -31,7 +31,12 @@
 				<c:forEach items="${produits}" var="entry">					
 
 					<div class="rounded-lg border border-indigo-500 bg-white place-content-center text-center relative">
+						<c:choose>
+							<c:when test="${user.statut=='admin'}">
 						Stock : ${entry.stock} <br> <!--Faire un design sympa ou bien comme ça c'est bon ?-->
+							</c:when>
+						</c:choose>
+						
 						<br><img class="m-auto h-32" src="img/${entry.image}" alt="${entry.nom}" onerror="this.onerror=null; this.src='img/blank.png'" ><br><br>
 						<p class="truncate m-4"><b>${entry.nom}</b></p>
 						<div class="truncate m-4 text-sm text-neutral-500">
@@ -60,7 +65,7 @@
 										<input class="bottom-0 left-0 bg-indigo-500 w-full rounded-b-md p-2 hover:bg-indigo-400 text-white" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
 													
 									</form>
-									
+
 									</c:when>
 								</c:choose> <!--Pour l'instant indentation pourrie pour pas que Git voit tout ça comme des changements, et donc fasse des conflits avec la team UX-->
 							</c:otherwise>
