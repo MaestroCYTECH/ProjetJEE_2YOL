@@ -15,19 +15,6 @@ function moins(i){
   if(input[i].value>1) input[i].value = value - 1;
 }
 
-function showDiv() {
-  var i;
-  var x = document.getElementsByClassName('affichageStock');
-  for (i = 0; i < x.length; i++) {
-      if (x[i].style.display === "none") {
-          x[i].style.display = "block";
-      } 
-      else {
-          x[i].style.display = "none";
-      }
-  }
-}
-
 
 function envoyer(i){
   var element=document.getElementsByClassName('quantite')[i];
@@ -38,7 +25,9 @@ function envoyer(i){
   var min=element.getAttribute('min');
 
   if (quantite>max || min<quantite){
+    alert('Quantité invalide');
     return false;
   }
+  alert("Ajouté au panier");
   return true;
 }

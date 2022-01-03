@@ -1,5 +1,5 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.model;
-// Generated Dec 27, 2021, 3:37:26 PM by Hibernate Tools 5.4.14.Final
+// Generated Dec 29, 2021, 3:03:24 PM by Hibernate Tools 5.4.14.Final
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,17 +13,15 @@ import javax.persistence.Id;
 public class Categories implements java.io.Serializable {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
 	private String categorie;
-	private String icone;
 
 	public Categories() {
 	}
 
-	public Categories(String categorie, String icone) {
+	public Categories(String categorie) {
 		this.categorie = categorie;
-		this.icone = icone;
 	}
 
 	public Integer getId() {
@@ -40,14 +38,6 @@ public class Categories implements java.io.Serializable {
 
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
-	}
-
-	public String getIcone() {
-		return this.icone;
-	}
-
-	public void setIcone(String icone) {
-		this.icone = icone;
 	}
 
 }

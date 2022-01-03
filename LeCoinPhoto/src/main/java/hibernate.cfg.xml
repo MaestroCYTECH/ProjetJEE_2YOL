@@ -4,20 +4,18 @@
     <session-factory>
         <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.password">eisti0001</property>
+        <property name="hibernate.connection.password"></property>
         <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/lecoinphoto</property>
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
         <property name="hibernate.format_sql">true</property>
-        <property name="hibernate.hbm2ddl.auto">validate</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
         <property name="hibernate.search.autoregister_listeners">true</property>
         <property name="hibernate.show_sql">true</property>
         <property name="hibernate.validator.apply_to_ddl">false</property>
         <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Categories.hbm.xml"/>
-        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Objectifs.hbm.xml"/>
+        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Produits.hbm.xml"/>
         <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Utilisateurs.hbm.xml"/>
-        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Appareils.hbm.xml"/>
-        <mapping resource="fr/eisti/ACCEG/jee/LeCoinPhoto/Accessoires.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>

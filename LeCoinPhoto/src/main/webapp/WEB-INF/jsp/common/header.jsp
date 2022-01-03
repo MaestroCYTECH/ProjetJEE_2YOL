@@ -1,43 +1,37 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-    <head>
-        <!-- Icone du site dans le navigateur -->
-        <link rel="icon" type="image/png" href="img/lcpLogo.png"/>
-        <meta charset="utf-8"/>       
+<head>
+    <!-- Icone du site dans le navigateur -->
+    <link rel="icon" type="image/png" href="img/lcpLogo.png"/>
+      <script src="https://cdn.tailwindcss.com"></script>
         
-        <div id="titre">
-            <img src="img/lcpLogo2.png" alt="Le coin photo" title="Le coin photo, vendeur de mat�riel photo" onclick="location.href='/'">
-        </div>
+    <meta charset="utf-8"/>       
+        
+    <div class="bg-neutral-300 p-2 h-16 place-content-center flex">
+        <img src="img/lcpLogo2.png" class="h-full" alt="Le coin photo" title="Le coin photo, vendeur de matériel photo" onclick="location.href='/'">
+    </div>
 
-
-
-        <!-- Barre de navigation -->
-        <div class="navbar">
-            <a href="/"><p>ACCUEIL</p></a>
-            <a href="appareils"><p>APPAREILS</p></a>
-            <a href="objectifs"><p>OBJECTIFS</p></a>
-            <a href="accessoires"><p>ACCESSOIRES</p></a>
-        	<a href="contact"><p>CONTACT</p></a>  
+    <!-- Barre de navigation -->
+    <div class="bg-neutral-400 flex font-sans place-content-center sticky top-0 z-10 shadow-lg">
+        <a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="/"><p>ACCUEIL</p></a>
+        <a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="produits?cat=appareils"><p>APPAREILS</p></a>
+        <a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="produits?cat=objectifs"><p>OBJECTIFS</p></a>
+        <a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="produits?cat=accessoires"><p>ACCESSOIRES</p></a>
+        <a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="contact"><p>CONTACT</p></a>  
         	
-        	<a href="connexion"><img src="img/user.png" class="icon2" title="SE CONNECTER"></a>
-        	<a href="panier"><img src="img/cart.png" class="icon2" title="MON PANIER"></a>
-            <a href="profil"><img src="img/user.png" class="icon2" title="MON PROFIL"></a> 
-              
-        </div>
-    </head>
+        <c:choose>
+            <c:when test="${user!=null}">
+        	    <a class="p-3 h-full hover:bg-neutral-300" href="panier"><img src="img/cart.png" class="h-4" title="MON PANIER"></a>
+                <a class="p-3 h-full hover:bg-neutral-300" href="profil"><img src="img/user.png" class="h-4" title="MON PROFIL"></a> 
+            </c:when>
 
+            <c:otherwise>
+                <a class="p-3 h-full hover:bg-neutral-300" href="connexion"><img src="img/user.png" class="h-4" title="SE CONNECTER"></a>
+            </c:otherwise>
+        </c:choose>  
+	
+    </div>
+        
+</head>
 
-
-    <body>
-
-		<div class="box">
-
-            <!-- Zone de navigation sur la gauche -->
-            <div class="pagegauche">
-                <div class="navbar2">
-                    <a href="/"><img src="img/home.png" class="icon" alt="accueil" title="accueil"><br></a><br>
-                   	<a href="/appareils"><img src="img/camera.png" class="icon" alt="appareils" title="appareils"><br></a><br>
-					<a href="/objectifs"><img src="img/lens.png" class="icon" alt="objectifs" title="objectifs"><br></a><br>
-					<a href="/accessoires"><img src="img/bag.png" class="icon" alt="accessoires" title="accessoires"><br></a><br>
-                    <a href="contact"><img src="img/mail.png" class="icon" alt="contact" title="contact"><br></a>
-                </div>
-            </div>
+<body class="m-0">

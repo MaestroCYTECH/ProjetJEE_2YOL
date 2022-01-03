@@ -6,7 +6,7 @@ function envoyer() {
     var sexe=document.Formulaire.sexe.value.trim();
     var date=document.Formulaire.date.value.trim();
 	var mail=document.Formulaire.mailClient.value.trim();
-	var mail=document.Formulaire.metier.value.trim();
+	var metier=document.Formulaire.metier.value.trim();
     var sujet=document.Formulaire.sujet.value.trim();
     var contenu=document.Formulaire.contenu.value.trim();
 
@@ -128,8 +128,9 @@ function envoyer() {
 	
 	if(compteur==0)//Si aucune erreur
 	{
+        location.href = "mailto:lecoinphoto@gmail.com?subject="+sujet+"&body= Expéditeur : "+mail+"%0d%0aNom : "+nom+"%0d%0a Prenom : "+prenom+"%0d%0a Date de naissance : "+date+"%0d%0a Sexe : "+sexe+"%0d%0a Métier : "+metier+"%0d%0a Contenu : "+contenu;
+
 		return true;//Permet alors l'envoi des donnees
 	}
 	
 }
-
