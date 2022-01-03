@@ -22,6 +22,8 @@
             <div class="-translate-y-1/4 md:w-1/5 sm:w-full mx-auto bg-neutral-100 bg-opacity-60 backdrop-blur-lg rounded-xl text-neutral-800 shadow-xl border border-neutral-200">
                 <div class="max-w-full p-5 rounded-t-xl upppercase font-bold text-left text-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>SE CONNECTER</p></div>
                 
+                <span class="mb-8" style="color:red">${error}</span>
+
                 <div class="p-5">
                     <form name="Formulaire" onsubmit="return envoyer()" method="POST" action="userConnect">
                         <fieldset>                        

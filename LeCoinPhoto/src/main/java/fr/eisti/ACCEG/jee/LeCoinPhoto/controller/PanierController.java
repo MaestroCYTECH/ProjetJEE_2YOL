@@ -6,6 +6,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,11 +33,18 @@ public class PanierController {
 	
 	
 	@PostMapping(value = "/addToCart")
-	public String addToCart(Model model, @RequestParam String ID, @RequestParam String quantite) {
+	public String addToCart(Model model, @RequestParam String ID, @RequestParam String quantite, HttpServletRequest request) {
 	
 		int qte=Integer.parseInt(quantite);
+			
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			model.addAttribute("error", "Veuillez vous connecter");
+			return "utilisateur/connexion";
+		}
+		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
 		
-		Utilisateurs u = uR.findByLogin("admin"); // PERSONNALISER : Prendre le login de la personne connectée par session
 		String panier = u.getPanier();
 		String newPanier=panier;
 		
@@ -49,12 +59,22 @@ public class PanierController {
 	}
 	
 	
+	
 	@GetMapping(value = "/panier")
-	public String pagePanier(Model model) {
+	public String pagePanier(Model model, HttpServletRequest request) {
 
-		Utilisateurs u = uR.findByLogin("admin"); // PERSONNALISER : Prendre le login de la personne connectée par session
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			model.addAttribute("error", "Veuillez vous connecter");
+			return "utilisateur/connexion";
+		}	
+		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
 		String panier = u.getPanier();
 
+		
+		
 		if (panier.trim().equals("Vide")) {
 			model.addAttribute("panierVide", true);
 		} else { // On convertit le tableau des ID, en un tableau ayant toutes les infos du produit voulu
@@ -69,10 +89,10 @@ public class PanierController {
 
 				if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { // Si produit non trouvé, on ne l'envoie pas à la vue
 					/*
-					 * float f=0; Produits p = new Produits("", "", "",
-					 * "Produit retiré de la vente", "Inconnu", f, 0); list.add(p);
+					 * float f=0; Produits p = new Produits("", "", "","Produit retiré de la vente", "Inconnu", f, 0); 
+					 * list.add(p);
 					 */
-					//Choisir si on veut qd meme l'afficher en tant qu'inconnu, ou alors le supprimer automatiquement du panier/ne pas l'afficher
+					//On ne l'affiche pas
 
 				} else {
 
@@ -118,9 +138,16 @@ public class PanierController {
 	    
 		
 	@PostMapping(value = "/deleteProduitPanier")
-	public String deleteProduitPanier(@RequestParam String id) throws Exception { //Appelé par Ajax
+	public String deleteProduitPanier(@RequestParam String id, HttpServletRequest request) throws Exception { //Appelé par Ajax
 
-		Utilisateurs u = uR.findByLogin("admin"); // PERSONNALISER : Prendre le login de la personne connectée par session
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			return "redirect:/connexion";
+		}	
+		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		
+		
 		String panier = u.getPanier();
 		String[] panierArray = panier.split(",");
 

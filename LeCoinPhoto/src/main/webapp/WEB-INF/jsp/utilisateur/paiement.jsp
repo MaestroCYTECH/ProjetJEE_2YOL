@@ -30,11 +30,6 @@
             <div class="w-full p-5 rounded-t-xl upppercase font-bold text-left text-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>PAIEMENT</p></div><br>
         
             <p class="flex font-bold text-left ml-4 mb-8"> Vos articles : </p>
-           
-            <div class="flex p-4 m-4 bg-white border border-neutral-300 rounded-lg text-center hover:border-indigo-400 hover:shadow-lg">
-                <div class="flex-auto ">Nom :</div><div class="flex-auto font-bold">FujiFilm X-T4</div>
-                <div class="flex-auto">Prix :</div><div class="flex-auto font-bold">1699 €</div>                                   
-            </div>
 
             <c:forEach items="${panier}" var="entry">
                 <c:choose>
@@ -56,7 +51,6 @@
             </div>     
                     
             <form class="w-full p-5" name="Form" method='POST' onsubmit="return confirmerPaiement()" action='payerPanier'>
-                <input type="hidden" name="login" value="${login}">
                 <input type="hidden" name="total" value="${total}">
                 <input class="boutonPayer w-20 h-10 text-center decoration-none block py-2 my-3 mx-auto rounded-md box-border border-none break-all bg-indigo-500 hover:bg-indigo-400 text-white shadow-xl" type="submit" name="payer" value="PAYER"/>
             </form>  

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,10 +27,19 @@ public class PaiementController {
 	
 	
 	@GetMapping(value = "/paiement")
-	public String pagePaiement(Model model) {
+	public String pagePaiement(Model model, HttpServletRequest request) {
 		
-		model.addAttribute("login", "admin");
-		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session 
+	
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			model.addAttribute("error", "Veuillez vous connecter");
+			return "utilisateur/connexion";
+		}
+		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		
+		model.addAttribute("login", u.getLogin());
+		
 		
     	String panier = u.getPanier();
     	float total=0;
@@ -72,11 +84,19 @@ public class PaiementController {
 		return "utilisateur/paiement";
 	}
 	
-	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier (ou autre, à decider)
-	public String payerPanier() throws Exception{//VIDER PANIER acheté+ MAJ Stocks, puis retourner au panier (ou autre, à decider)
+	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier
+	public String payerPanier(HttpServletRequest request, Model model) throws Exception{
 		
 		
-		Utilisateurs u=uR.findByLogin("admin"); //PERSONNALISER : Prendre le login de la personne connectée par session
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			model.addAttribute("error", "Veuillez vous connecter");
+			return "utilisateur/connexion";
+		}
+		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		
+		
 		String panier = u.getPanier();
     	String[] panierArray = panier.split(",");
     	List<String> list = new ArrayList<String>(Arrays.asList(panierArray));//Pour utiliser certaines fonctions
@@ -115,9 +135,9 @@ public class PaiementController {
     	panierArray = list.toArray(new String[0]);
 		panier = String.join(",", panierArray);
 		
-		Utilisateurs u1=uR.findByLogin("admin");
-    	u1.setPanier(panier);
-    	uR.save(u1);
+		
+    	u.setPanier(panier);
+    	uR.save(u);
 		
     	return "redirect:/panier"; //Redirige vers le controlleur gérant le panier et son affichage
 	}
