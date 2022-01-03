@@ -47,7 +47,7 @@
 							<c:otherwise>
 								<div class="prixProduit"><p>${entry.prix} €</p></div>
 								<div class="bottom-10 w-full">   
-									<form  name="Form" class="form" method='POST' onsubmit="return envoyer(0)" action='addToCart'>
+									<form  name="Form" class="form" method='POST' onsubmit="return envoyer(<%=i%>)" action='addToCart'>
 					
 										<button class="moins" onclick="moins(<%=i%>)" type="button"> - </button>
 										<input type="number" name="quantite" min="1" max="${entry.stock}" value="1" class="form-control" readonly>
