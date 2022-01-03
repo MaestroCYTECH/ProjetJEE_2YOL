@@ -48,7 +48,7 @@
                                            
                                                               
                                         <label class="label">Image :</label> <span class="error">*</span> <br><br>
-                                        <input class="w-full p-3 rounded-md bg-neutral-100 bg-opacity-50 mb-8" list="image" id="image" name="image" value="" placeholder="blank.png">
+                                        <input class="w-full p-3 rounded-md bg-neutral-100 bg-opacity-50 mb-8" list="image" name="image" value="" placeholder="blank.png">
                                         <datalist id="image">
                                                 		
                                             <c:forEach items="${produits}" var="entry">
