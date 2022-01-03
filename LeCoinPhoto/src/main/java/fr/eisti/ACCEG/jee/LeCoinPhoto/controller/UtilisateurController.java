@@ -1,6 +1,9 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -50,20 +53,50 @@ public class UtilisateurController {
 		if (u==null) {
 			model.addAttribute("error", "Login introuvable");
 			return "utilisateur/connexion";
-		}
+		}	
 		
-		String pwdTmp=u.getPwd();
+		String hashPwdBDD=u.getPwd();
+		String hashPwd = hashPwd(pwd); 
 		
-		if (!pwdTmp.equals(pwd)) {
+		//On compare le mdp rentré une fois haché avec celui de la BDD
+     
+		System.out.println(hashPwd);
+		System.out.println(hashPwdBDD);
+		
+		if (!hashPwd.equals(hashPwdBDD)) {
 			model.addAttribute("error", "Login ou mot de passe erroné");
 			return "utilisateur/connexion";
-		}
+		} 
 		
 		session.setAttribute("user", u);//On stocke les infos de l'utilisateur connecté. Sera utilisé à plusieurs autres endroits
 		
 		return "redirect:/profil"; 
 	}
 	
+	public static String hashPwd(String pwd) {
+		
+		String hashPwd=null;
+		
+		try {
+
+			MessageDigest m = MessageDigest.getInstance("MD5");
+			m.update(pwd.getBytes());
+
+			byte[] bytes = m.digest();
+
+			StringBuilder s = new StringBuilder();
+			for (int i = 0; i < bytes.length; i++) {
+				s.append(Integer.toString((bytes[i] & 0xff) + 0x100, 16).substring(1));
+			}
+
+			hashPwd = s.toString();
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+		}
+     	
+		return hashPwd;
+	}
+		
 	
 	@GetMapping(value = "/userDeconnect")
 	public String userDeconnect(HttpServletRequest request) {
@@ -80,6 +113,8 @@ public class UtilisateurController {
 		
 		return "redirect:/"; 
 	}
+	
+	
 	   
 
 	@GetMapping(value = "/profil")

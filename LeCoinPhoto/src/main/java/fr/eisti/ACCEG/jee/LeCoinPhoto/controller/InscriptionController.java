@@ -35,6 +35,11 @@ public class InscriptionController {
 		
 		//Rajouter un cryptage de son mdp.
 		
+		String hashPwd=UtilisateurController.hashPwd(u.getPwd());
+		String confirmationHash=UtilisateurController.hashPwd(confirmation);
+		
+		u.setPwd(hashPwd);
+		
 		
 		//Verif des données
 		Map<String,String> erreurs = new HashMap<String,String>();	
@@ -72,12 +77,10 @@ public class InscriptionController {
 		}
 	    
 		try {
-			validationMotsDePasse(u.getPwd(), confirmation);
+			validationMotsDePasse(u.getPwd(), confirmationHash);
 		} catch (Exception e) {
 			erreurs.put("password", e.getMessage());
 		}
-
-
 		
 	
 		if (erreurs.isEmpty()) {		
