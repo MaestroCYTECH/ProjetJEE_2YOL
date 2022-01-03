@@ -1,4 +1,3 @@
-
 function envoyer() {
 
 	var nom=document.Formulaire.nom.value.trim();//Cible la valeur rentree en saisie
@@ -9,15 +8,7 @@ function envoyer() {
     var pwd=document.Formulaire.pwd.value.trim();
 	var pwdConfirm=document.Formulaire.pwdConfirm.value.trim();
 	
-	var compteurNom=0;//Compte les erreurs
-	var compteurPrenom=0;
-    var compteurSexe=0;
-	var compteurMail=0;
-    var compteurLogin=0;
-    var compteurPwd=0;
-    var compteurPwdConfirm=0;
-
-	var compteur=0;
+	var compteur=0;//Compte les erreurs
 	var element;
 	
 
@@ -151,5 +142,5 @@ function envoyer() {
 		return true;//Permet alors l'envoi des donnees
 	}
 	
-		
+	
 }

@@ -1,5 +1,3 @@
-
-
 function envoyer() {
     
 	var login=document.Formulaire.login.value.trim();//Cible la valeur rentree en saisie
@@ -49,6 +47,3 @@ function envoyer() {
 	
 		
 }
-
-
-

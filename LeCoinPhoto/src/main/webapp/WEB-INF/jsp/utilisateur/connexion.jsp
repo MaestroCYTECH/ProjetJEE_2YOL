@@ -12,10 +12,8 @@
 
 <script type="text/javascript" src="js/connexion.js"></script>
 
-<!-- FAIRE VERIF si deja connectÃ©, l'envoyer sur la page de profil. Idem pour panier et inscription-->
 
-
-    <!-- Zone de navigation sur la droite-->
+    <!-- Zone principale -->
     <div class="pagedroite">
         <div class="w-full place-content-center px-10 py-5 flex h-screen justify-center items-center">
         
@@ -33,7 +31,7 @@
                             <input class="w-full bg-indigo-500 rounded-md text-white p-3 uppercase hover:bg-indigo-400" type="submit" value="Connexion"/>                  
                         </fieldset>
                     </form>
-                    <h3 class="text-sm bold pt-3">Pas encore inscrit ? <a href="inscription">Inscrivez-vous</a> </h3>
+                    <h3 class="text-sm bold pt-3">Pas encore inscrit ? <a href="inscription">Inscrivez-vous</a></h3>
                 </div>
             </div>
             
@@ -41,5 +39,4 @@
     </div>
 
 </body>
-
 <jsp:include page="/WEB-INF/jsp/common/footer.jsp"/>

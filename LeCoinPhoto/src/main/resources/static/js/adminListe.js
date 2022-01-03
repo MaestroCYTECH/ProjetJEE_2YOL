@@ -5,10 +5,8 @@ function deleteConfirm() /*Pour la suppression de produit */
 {
 
     var confirm = prompt("Supprimer ce PRODUIT ? Action IRREVERSIBLE. Rentrez 'OUI' pour continuer");
-    var confirm2="OUI";/*Pour les produits on ne demande pas de 2eme validation*/
-   
     
-    if (confirm=="OUI" && confirm2=="OUI")
+    if (confirm=="OUI")
     {	
         alert("Produit supprimé");
         return true;     
