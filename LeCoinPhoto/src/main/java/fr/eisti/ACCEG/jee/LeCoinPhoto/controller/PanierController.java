@@ -160,9 +160,8 @@ public class PanierController {
 			panierArray = list.toArray(new String[0]);
 			panier = String.join(",", panierArray);
 
-			Utilisateurs u1 = uR.findByLogin("admin");
-			u1.setPanier(panier);
-			uR.save(u1);
+			u.setPanier(panier);
+			uR.save(u);
 
 		} else {
 			//throw new Exception("Erreur : ce produit n'est pas dans votre panier"); Pour le debug
