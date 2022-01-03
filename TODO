@@ -2,16 +2,15 @@ Utiliser Spring session pour faire les sessions comme en Php (connexion d'un uti
 
 
 Adapter en jsp tous les algos de php, qui servaient à factoriser le code.
-Adapter en JEE tous les endroits où on doit lire depuis la BDD (produits, page admin, connexion, page profil, etc.) : Yassine
+Adapter en JEE tous les endroits où on doit lire depuis la BDD (produits, page admin, connexion, page profil, etc.) : Youssef
 Adapter en JEE tous les endroits où on doit écrire dans la BDD (inscription, ajouter un produit depuis la section admin, ) : Youssef 
 
 
-Design : Lucas Oscar.  Comme design globalement déjà fait, vous pouvez aussi vous occuper des scripts JS des formulaires, qui doivent mettre en rouge si il manque des trucs
+Rapport et diagramme de classes : Léo et Yassine
 
-Rapport et diagramme de classes : Léo 
-
-Site : 2 personnes --> une sur les endroits où on doit lire la BDD (Yassine), une autre sur ceux où faut écrire (Youssef) (comme c'est assez indépendant on peut travailler en parallèle)
+Site : 2 personnes --> une sur les endroits où on doit lire la BDD (Youssef), une autre sur ceux où faut écrire (Youssef) (comme c'est assez indépendant on peut travailler en parallèle)
 
 TODO :
 Tester sur Windows si remplir le formulaire de contact ouvre l'appli courrier
-Verifier les longueurs des descriptions pour que les produits d'une catégorie ont toutes le meme nombre de ligne. Sinon problemes de design
+ C'est pas tres grave puisque c'est juste symbolisé par un chiffre. 
+Par ex "Vide, 3,6,8,8" est un panier qui contient les produits d'ID 3 , 6, et 8 deux fois

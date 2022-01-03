@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jan 03, 2022 at 06:41 PM
+-- Generation Time: Jan 03, 2022 at 09:06 PM
 -- Server version: 8.0.27-0ubuntu0.20.04.1
 -- PHP Version: 7.4.3
 
@@ -75,13 +75,13 @@ INSERT INTO `produits` (`ID`, `categorie`, `image`, `nom`, `description`, `prix`
 (10, 'accessoires', 'SD128.jpg', 'Sandisk Extreme 128', 'Carte SD Sandisk Extreme 128 Go 150mbps', 24.99, 2),
 (11, 'accessoires', 'PDS.jpg', 'Peak Design Slide (Noir)', 'Courroie Peak Design Slide', 49.99, 5),
 (12, 'accessoires', 'BPM.jpg', 'Tiffen Black Pro Mist', 'Diffuseur Tiffen Black Pro Mist 1\\/4 (77mm)', 139.99, 3),
-(13, 'accessoires', 'VA2PRO.jpg', 'Vanguard Alta 2 Pro', 'Tr\\u00e9pied Vanguard Alta 2 Pro', 149.99, 7),
+(13, 'accessoires', 'VA2PRO.jpg', 'Vanguard Alta 2 Pro', 'Trépied Vanguard Alta 2 Pro', 149.99, 7),
 (7, 'objectifs', 'Z50.jpg', 'ZEISS Touit 50 F2.8', 'Monture : Sony E', 899, 5),
 (5, 'objectifs', '1855.jpg', 'Fujinon 18-55 F2.8-4 R LM OIS', 'Monture : fuji X', 599, 1),
 (6, 'objectifs', 'NZ50.jpg', 'Nikkor Z 50 F1.8', 'Monture : Nikon Z', 599, 9),
 (4, 'appareils', 'FGFX100.jpg', 'Fujifilm GFX 100 (Boitier nu)', 'Capteur Moyen Format de 100Mp, monture Fuji GFX', 9999, 6),
 (3, 'appareils', 'HBX1D.jpg', 'Hasselblad X1D (Boitier nu)', 'Capteur Moyen Format de 50Mp, monture Hasselblad X', 5999, 8),
-(2, 'appareils', 'SA7RIV.jpg', 'Sony A7RIV (Boitier nu)', 'Capteur Full Frame de 61Mp, monture Sony E', 3499, 3),
+(2, 'appareils', 'SA7RIV.jpg', 'Sony A7RIV (Boitier nu)', 'Capteur Full Frame de 61Mp, monture Sony E', 3499, 1),
 (1, 'appareils', 'NZ6II.jpg', 'Nikon Z6 II (Boitier nu)', 'Capteur Full Frame de 24.5Mp, monture Nikkon Z', 1999, 2),
 (0, 'appareils', 'FXT4.jpg', 'Fujifilm X-T4 (Boitier nu)', 'Capteur Format APS-C de 26Mp, monture Fuji X', 1699, 0),
 (14, 'accessoires', 'PDEB.jpg', 'Peak Design Everyday Backpack', 'Sac Photo Peak Design Everyday Backpack', 199.99, 8);
@@ -105,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `statut` varchar(10) NOT NULL DEFAULT 'simple',
   PRIMARY KEY (`ID`),
   UNIQUE KEY `login` (`login`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `utilisateurs`
@@ -113,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
 
 INSERT INTO `utilisateurs` (`ID`, `nom`, `prenom`, `sexe`, `email`, `login`, `pwd`, `panier`, `statut`) VALUES
 (2, 'nouveau', 'nouveau', 'Homme', 'nouveau@nouveau.fr', 'nouveau', 'b7ede464fdac97e896bb72c67369be17', 'Vide', 'simple'),
-(1, 'admin', 'admin', 'Homme', 'lecoinphoto@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Vide,2,2,2,2,2,0', 'admin');
+(1, 'admin', 'admin', 'Homme', 'lecoinphoto@gmail.com', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'Vide,2,2,2,8,0', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

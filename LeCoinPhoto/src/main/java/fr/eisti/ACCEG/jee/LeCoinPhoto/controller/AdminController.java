@@ -20,10 +20,10 @@ public class AdminController {
 
 	
 	@Autowired
-	ProduitsRepository pR;
-	
+	ProduitsRepository pR;	
 	@Autowired
 	CategoriesRepository cR;
+	
 	
 	
 	@GetMapping(value = "/adminHome")
@@ -46,6 +46,7 @@ public class AdminController {
 	}
 	
 	
+	
 	@GetMapping(value = "/adminListe")
 	public String pageListeProduits(@RequestParam String cat, Model model, HttpServletRequest request) {
 		
@@ -55,7 +56,7 @@ public class AdminController {
 			return "redirect:/connexion";
 		}
 		Utilisateurs u= (Utilisateurs) session.getAttribute("user");
-		if ( !u.getStatut().equals("admin") ) { //L'accès à la section Admin est reservée aux admins
+		if ( !u.getStatut().equals("admin") ) { //L'accès à la section Admin est reservée aux statuts admin
 			
 			return "redirect:/profil";
 		}

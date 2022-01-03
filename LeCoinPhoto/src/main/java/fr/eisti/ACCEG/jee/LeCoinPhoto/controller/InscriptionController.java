@@ -4,6 +4,9 @@ package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,14 +28,26 @@ public class InscriptionController {
 	
 	
 	@GetMapping(value = "/inscription")
-	public String pageInscription() {
+	public String pageInscription(HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")!=null) { //Si on s'est déjà connecté
+			
+			return "redirect:/profil";
+		}
+		
 		return "utilisateur/inscription";
 	}
 	
 	
 	@PostMapping(value = "/userInscription") 
-	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model, @RequestParam("pwdConfirm") String confirmation) { //Doit correspondre à th:object="${Utilisateurs}"
+	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model, @RequestParam("pwdConfirm") String confirmation, HttpServletRequest request) { //Doit correspondre à th:object="${Utilisateurs}"
 	
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")!=null) { //Si on s'est déjà connecté
+			
+			return "redirect:/profil";
+		}
 		
 		String hashPwd=ConnectController.hashPwd(u.getPwd());
 		String confirmationHash=ConnectController.hashPwd(confirmation);
@@ -56,7 +71,7 @@ public class InscriptionController {
 			erreurs.put("prenom", e.getMessage());
 		}
 		
-		try { //Vérif à fixer
+		try {
 			validationSexe(u.getSexe());
 		} catch (Exception e) {
 			erreurs.put("sexe", e.getMessage());
@@ -84,15 +99,19 @@ public class InscriptionController {
 	
 		if (erreurs.isEmpty()) {		
 			uR.save(u);
-			model.addAttribute("OK", "inscription réussie");
+			session.setAttribute("OK", "inscription réussie");
 		}
 		else {
-			model.addAttribute("erreur", "Erreur lors de l'inscription : "+erreurs);	
+			session.setAttribute("user", "Erreur lors de l'inscription : "+erreurs);	
 		}
+		//Utiliser les sessions permet de pouvoir rediriger le message vers le controller d'inscription, et donc d'éviter le renvoi du formulaire en rechargeant la page
 		
 	
-		return "utilisateur/inscription"; 
+		return "redirect:/inscription"; 
 	}
+	
+	
+	
 	
 	
 	//Fcts de vérif d'inscription :

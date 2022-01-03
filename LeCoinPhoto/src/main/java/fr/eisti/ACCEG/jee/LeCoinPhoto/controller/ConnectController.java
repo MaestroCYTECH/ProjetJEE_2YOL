@@ -37,11 +37,13 @@ public class ConnectController {
 		return "utilisateur/connexion";
 	}
 	
+	
+	
+	
 	@PostMapping(value = "/userConnect")
 	public String userConnect(@RequestParam String login, @RequestParam String pwd, Model model, HttpServletRequest request) {
 		
-		//... Créer Session. Pour l'instant en considérant que le mdp n'est pas chiffré dans la BDD
-		
+
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user")!=null) { //Si on s'est déjà connecté
 			
@@ -58,17 +60,17 @@ public class ConnectController {
 		String hashPwdBDD=u.getPwd();
 		String hashPwd = hashPwd(pwd); 
 		
-		//On compare le mdp rentré une fois haché avec celui de la BDD
 		
+		//On compare le mdp rentré une fois haché avec celui de la BDD	
 		if (!hashPwd.equals(hashPwdBDD)) {
 			model.addAttribute("error", "Login ou mot de passe erroné");
 			return "utilisateur/connexion";
 		} 
 		
-		session.setAttribute("user", u);//On stocke les infos de l'utilisateur connecté. Sera utilisé à plusieurs autres endroits
-		
+		session.setAttribute("user", u);//On stocke les infos de l'utilisateur connecté. Sera utilisé à plusieurs autres endroits		
 		return "redirect:/profil"; 
 	}
+	
 	
 	public static String hashPwd(String pwd) {
 		
@@ -95,6 +97,8 @@ public class ConnectController {
 	}
 		
 	
+	
+	
 	@GetMapping(value = "/userDeconnect")
 	public String userDeconnect(HttpServletRequest request) {
 		
@@ -106,14 +110,13 @@ public class ConnectController {
 			return "redirect:/connexion";
 		}
 
-		session.removeAttribute("user");
-		
+		session.removeAttribute("user");	
 		return "redirect:/"; 
 	}
 	
 	
-	   
 
+	
 	@GetMapping(value = "/profil")
 	public String pageProfil(Model model, HttpServletRequest request) {	
 		
@@ -125,7 +128,6 @@ public class ConnectController {
 		}
 		
 		model.addAttribute("user", session.getAttribute("user"));
-		
 		return "utilisateur/profil";
 	}
 	

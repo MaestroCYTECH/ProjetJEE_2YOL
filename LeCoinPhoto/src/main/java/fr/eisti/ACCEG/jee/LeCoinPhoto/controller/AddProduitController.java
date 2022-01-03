@@ -37,14 +37,14 @@ public class AddProduitController {
 			
 			return "redirect:/profil";
 		}
-		
-		
+			
 		
 	    model.addAttribute("categories", cR.findAll());
 	    model.addAttribute("produits", pR.findAll());
 		
 		return "admin/pages/formAjouterProduit";
 	}
+	
 	
 	
 

@@ -17,7 +17,4 @@ public class IndexController { //Controleur gerant l'accès aux pages principale
 		return "contact/contact";
 	}
 	
-	
-	
-	
 }

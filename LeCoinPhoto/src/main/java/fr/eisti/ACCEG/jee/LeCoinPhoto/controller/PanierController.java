@@ -18,16 +18,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.thymeleaf.util.ArrayUtils;
 
 import fr.eisti.ACCEG.jee.LeCoinPhoto.dao.*;
-import fr.eisti.ACCEG.jee.LeCoinPhoto.model.Produits;
-import fr.eisti.ACCEG.jee.LeCoinPhoto.model.Utilisateurs;
+import fr.eisti.ACCEG.jee.LeCoinPhoto.model.*;
 
 @Controller
 public class PanierController {
-
 	
 	@Autowired
 	UtilisateursRepository uR;
-	
 	@Autowired
 	ProduitsRepository pR;
 	
@@ -49,7 +46,7 @@ public class PanierController {
 		String newPanier=panier;
 		
 		for (int i = 0; i < qte; i++) {
-			newPanier=newPanier+","+ID.trim();
+			newPanier=newPanier+","+ID.trim();//On ajoute l'ID du nouveau produit au panier
 		}	
 		
 		u.setPanier(newPanier);
@@ -70,38 +67,36 @@ public class PanierController {
 			model.addAttribute("error", "Veuillez vous connecter");
 			return "utilisateur/connexion";
 		}	
+		
 		Utilisateurs uTmp=(Utilisateurs) session.getAttribute("user");
 		int id=uTmp.getId();
 		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier a été modifié depuis la BDD après la dernière connexion à la session
 		String panier = u.getPanier();
 		
 		
-		
-		
+				
 		
 		if (panier.trim().equals("Vide")) {
 			model.addAttribute("panierVide", true);
-		} else { // On convertit le tableau des ID, en un tableau ayant toutes les infos du produit voulu
-
+		} 
+		else { 
+			// On convertit le tableau des ID, en un tableau ayant toutes les infos du produit voulu
 			String[] panierArray = panier.split(",");
 			ArrayList<Produits> list = new ArrayList<Produits>();
 
 			Map<Integer, Integer> qte = new HashMap<Integer, Integer>();// Va compter les quantités présentes dans le panier
 			int tmp;
-			Produits pTest = new Produits();
-			
-			
+			Produits pTest = new Produits();//Servira à vérifier que les quantités d'un meme produit ne dépasse pas le stock total
+			Produits pTest2= new Produits();
 			
 			for (int i = 1; i < panierArray.length; i++) {
 
-				if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { // Si produit non trouvé, on ne l'envoie pas à la vue
-					/*
-					 * float f=0; Produits p = new Produits("", "", "","Produit retiré de la vente", "Inconnu", f, 0); 
-					 * list.add(p);
-					 */
-					//On ne l'affiche pas
+				if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { 
+					
+					// Si produit non trouvé, on ne l'envoie pas à la vue
 
-				} else {
+				} 
+				else {
 
 			
 					pTest=pR.findById(Integer.parseInt(panierArray[i].trim()));
@@ -110,26 +105,29 @@ public class PanierController {
 
 						if (pTest.getStock() <= 0) {
 
-						} // Si l'article est hors stock, tous ceux du panier seront hors stock aussi, on augmente pas le compteur (mais le produit est quand meme envoyé à la vue)
+						}// Si l'article est hors stock, tous ceux du panier seront hors stock aussi, on augmente pas le compteur (mais le produit est quand meme envoyé à la vue)
 						else {
 							qte.put(Integer.parseInt(panierArray[i].trim()), 1);
 						}
+						list.add(pTest);
 					} 
 					else {
 						tmp = qte.get(Integer.parseInt(panierArray[i].trim()));
 						tmp++;
 						
-						pTest= new Produits(pTest.getCategorie(), pTest.getImage(), pTest.getNom(), pTest.getDescription(), pTest.getPrix(), pTest.getStock());
+						pTest2= new Produits(pTest.getCategorie(), pTest.getImage(), pTest.getNom(), pTest.getDescription(), pTest.getPrix(), pTest.getStock());
+						pTest2.setId(pTest.getId()); //Car l'ID ne peut pas se déclarer dans le constructeur
 						//Copie profonde. Sinon le changement de stock plus bas affectait tous les exemplaires du meme produit
 						
-						if (tmp > pTest.getStock()) {
-							// Stock indisponible pour ces articles seulement
-							pTest.setStock(-1); //Sera affiché hors stock par la vue (Note : N'affecte pas le stock de la BDD si on appelle pas pR.save(pTest)
+						
+						if (tmp > pTest2.getStock()) {
+							pTest2.setStock(0); //Seulement ce produit sera affiché hors stock par la vue (Note : N'affecte pas le stock de la BDD si on appelle pas pR.save(pTest)
 						}
 						qte.put(Integer.parseInt(panierArray[i].trim()), tmp);
+						list.add(pTest2);
 					}
 
-					list.add(pTest);
+					
 					
 				}
 			}
@@ -156,7 +154,9 @@ public class PanierController {
 			
 			return "redirect:/connexion";
 		}	
-		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		Utilisateurs uTmp=(Utilisateurs) session.getAttribute("user");
+		int idTmp=uTmp.getId();
+		Utilisateurs u=uR.findById(idTmp);//Sert à actualiser depuis la BDD. Sert si le panier a été modifié depuis la BDD après la dernière connexion à la session
 		
 		
 		String panier = u.getPanier();

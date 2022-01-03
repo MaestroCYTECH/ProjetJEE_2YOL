@@ -23,7 +23,6 @@ public class PaiementController {
 
 	@Autowired
 	UtilisateursRepository uR;
-	
 	@Autowired
 	ProduitsRepository pR;
 	
@@ -31,7 +30,7 @@ public class PaiementController {
 	@GetMapping(value = "/paiement")
 	public String pagePaiement(Model model, HttpServletRequest request) {
 		
-	
+		
 		HttpSession session = request.getSession();
 		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
 			
@@ -48,7 +47,7 @@ public class PaiementController {
     	String panier = u.getPanier();
     	float total=0;
     	
-    	boolean isValid=false;
+    	boolean isValid=false; //Indique si au moins un produit valide a été trouvé
     	
     	if (panier.trim().equals("Vide")) {
     		return "redirect:/panier";
@@ -60,7 +59,7 @@ public class PaiementController {
     		
     		Map<Integer, Integer> qte = new HashMap<Integer, Integer>();// Va compter les quantités présentes dans le panier
 			int tmp=0;
-			Produits pTest = new Produits();
+			Produits pTest = new Produits();//Servira à vérifier que les quantités d'un meme produit ne dépasse pas le stock total
 			
 			
     		
@@ -113,7 +112,7 @@ public class PaiementController {
 	
 	
 	
-	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier
+	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier (paiement factice)
 	public String payerPanier(HttpServletRequest request, Model model) throws Exception{
 		
 		
@@ -130,10 +129,12 @@ public class PaiementController {
 		
 		String panier = u.getPanier();
     	String[] panierArray = panier.split(",");
-    	List<String> list = new ArrayList<String>(Arrays.asList(panierArray));//Pour utiliser certaines fonctions
+    	List<String> list = new ArrayList<String>(Arrays.asList(panierArray));//Pour utiliser certaines fonctions sur la listev
     	
     	int index;
     	int stockActuel;
+    	
+    	//Si désiré, on pourrait insérer un vrai paiement ici
     	
     	for (String entry : panierArray) {
     		
