@@ -23,11 +23,11 @@
     <div class="w-full place-content-center p-10">
 		<div class="md:w-3/5 sm:w-full m-auto border-neutral-400">
 
-        <div class="m-1/2 pb-2 font-sans text-center bg-neutral-50 bg-opacity-75 rounded-xl shadow-md">
+        <div class="m-1/2 pb-2 font-sans text-center bg-neutral-100 rounded-xl shadow-md">
             <div class="w-full p-5 rounded-t-xl upppercase font-bold text-left text-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>LISTE DES PRODUITS</p></div>
 			
-			<div class="w-full pl-8 mt-4">
-            	<a class="w-2/5 h-10 decoration-none block py-2 px-4 bg-indigo-500 rounded-md box-border break-all hover:bg-indigo-400 text-white shadow-xl" href='adminHome'> Retourner à la section ADMIN </a>
+			<div class="w-full px-8 mt-4">
+            	<a class="w-2/5 h-10 m-auto decoration-none block py-2 px-4 bg-indigo-500 rounded-md box-border break-all hover:bg-indigo-400 text-white" href='adminHome'> Retourner à la section ADMIN </a>
             </div>
             
             <h2 class="m-8 pt-4 font-bold"><p style="text-transform:uppercase;">${cat}</p></h2>
@@ -55,17 +55,17 @@
                     Stock : <strong>${entry.stock}</strong>   
                 </div>
                 
-                <div class="flex-auto ">
+                <div class="flex-auto">
                 	<form  name="Form" class="form mt-2" method='POST' action='adminAddStock' onsubmit="return confirmStock(<%=i%>)">
-	    
-	                        <button class="moins flex-1 px-2 border-none bg-neutral-400 color-neutral-900 rounded-xl" onclick="moins(<%=i%>)" type="button"> - </button>
-	                        <input type="number" name="quantite" min="1" value="1" class="form-control flex-1 text-center border-none bg-neutral-400 color-neutral-900 rounded-xl" readonly>
-	                        <button class="plus flex-1 px-1.5 border-none bg-neutral-400 color-neutral-900 rounded-xl" onclick="plus(<%=i%>)" type="button"> + </button><br>
-	                        
+	    					<div class="flex items-right">
+	                        <button class="moins flex-1 px-2 border-none bg-neutral-200 color-neutral-900 rounded-l-xl" onclick="moins(<%=i%>)" type="button"> - </button>
+	                        <input type="number" name="quantite" min="1" value="1" class="form-control flex-1 text-center border-none bg-neutral-200 color-neutral-900" readonly>
+	                        <button class="plus flex-1 px-2 border-none bg-neutral-200 color-neutral-900 rounded-r-xl" onclick="plus(<%=i%>)" type="button"> + </button><br>
+	                        </div>
                             <input type="hidden" name="id" value="${entry.id}">
                             <input type="hidden" name="cat" value="${entry.categorie}">
 	                        
-                        	<input class="boutonVert p-1 mt-2 rounded-xl box-border border-none break-all text-white shadow-md" type="submit" value="AJOUTER DU STOCK"/>       
+                        	<input class="boutonVert py-1 px-5 mt-2 rounded-full box-border border-none break-all text-white bg-indigo-500 hover:bg-indigo-400 text-sm" type="submit" value="AJOUTER DU STOCK"/>       
 	            	</form> 
                 </div>             
             
@@ -74,7 +74,7 @@
                     	<input type="hidden" name="id" value="${entry.id}">
                         <input type="hidden" name="cat" value="${entry.categorie}">
 
-                    	<input class="h-6 w-6 m-auto rounded-xl box-border break-all border-none hover:shadow-xl hover:shadow-red-500" type="submit" value="&#x274C;"/>
+                    	<input class="h-6 w-6  m-auto rounded-xl box-border break-all hover:shadow-xl ring-offset-3 ring-2 ring-white  border-white hover:ring-red-500" type="submit" value="&#x274C;"/>
                 	</form>
                 </div>
 

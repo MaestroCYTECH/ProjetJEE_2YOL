@@ -28,9 +28,13 @@
 	            
 				<%int i=0;//Utile pour notre fonction moins et plus, et l'affichage par lignes%>
 				
-				<c:forEach items="${produits}" var="entry">					
+				<c:forEach items="${produits}" var="entry">			
+					
+					<div class="rounded-lg border border-indigo-500 bg-white place-content-center text-center relative hover:ring-2 hover:ring-indigo-500">
+						<div class="w-full p-1 shadow-b shadow-md"><p class="font-bold my-2">Stock : ${entry.stock} </p></div><!--Faire un design sympa ou bien comme ça c'est bon ?-->
 
-					<div class="rounded-lg border border-indigo-500 bg-white place-content-center text-center relative">
+					<div class="rounded-lg bg-white place-content-center text-center relative">
+
 						<c:choose>
 							<c:when test="${user.statut=='admin'}">
 						Stock : ${entry.stock} <br> <!--Faire un design sympa ou bien comme ça c'est bon ?-->
@@ -50,7 +54,6 @@
 
 							</c:when>
 							<c:otherwise>
-
 								
 								<c:choose>
                 					<c:when test="${user!=null}">
@@ -74,6 +77,7 @@
 							</c:otherwise>
 						</c:choose>
 					</div>
+					</div>
 
 
 					<%i++;%>
@@ -85,7 +89,8 @@
 			
 
 	        </div>
-	        		
+	        		</div>
+	        		</div>
 	        </div><br>
 	        
 	    </div>

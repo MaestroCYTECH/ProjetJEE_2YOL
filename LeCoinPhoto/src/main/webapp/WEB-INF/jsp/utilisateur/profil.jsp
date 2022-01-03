@@ -20,8 +20,6 @@
             <div class="max-w-full p-5 rounded-t-xl upppercase font-bold text-lefttext-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>MON PROFIL</p></div>
             <div class="w-full p-5"> 
             	<p class="mb-4">Bonjour, ${user.nom} !</p>  
-                
-    
             
             <!--Affichage du profil-->
             <div id="Profil" class="my-4"> Mes informations personnelles :
@@ -43,9 +41,8 @@
         </c:choose>
 
         </div> 
-	</div>
-    </div>
-
+			</div>
+    	</div>
     </div>
 
 </body>

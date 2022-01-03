@@ -64,7 +64,7 @@
                                 </div> <br>
                                                                                         
                                 <form class="flex-auto my-auto" onsubmit="return confirmerSuppression(${entry.id})">
-                                    <input class="h-6 w-6 m-auto rounded-xl box-border break-all border-none hover:shadow-xl hover:shadow-red-500" type="submit" value="&#x274C;"/>
+                                    <input class="h-6 w-6  m-auto rounded-xl box-border break-all hover:shadow-xl ring-offset-3 ring-2 ring-white  border-white hover:ring-red-500" type="submit" value="&#x274C;"/>
                                 </form><br> 
 
                             </div>
