@@ -46,6 +46,9 @@
 							</c:when>
 							<c:otherwise>
 								<div class="prixProduit"><p>${entry.prix} €</p></div>
+								
+								<c:choose>
+                					<c:when test="${user!=null}">
 								<div class="bottom-10 w-full">   
 									<form  name="Form" class="form" method='POST' onsubmit="return envoyer(<%=i%>)" action='addToCart'>
 					
@@ -56,7 +59,10 @@
 								</div>
 										<input class="bottom-0 left-0 bg-indigo-500 w-full rounded-b-md p-2 hover:bg-indigo-400 text-white" type="submit" name="addProduit" value="Ajouter au panier" onclick='alert("Ajouté au panier");'/>
 													
-									</form>                   
+									</form>
+									
+									</c:when>
+								</c:choose> <!--Pour l'instant indentation pourrie pour pas que Git voit tout ça comme des changements, et donc fasse des conflits avec la team UX-->
 							</c:otherwise>
 						</c:choose>
 					</div>
