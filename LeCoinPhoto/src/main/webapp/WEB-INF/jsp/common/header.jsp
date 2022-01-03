@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
     <head>
         <!-- Icone du site dans le navigateur -->
@@ -20,10 +21,16 @@
             <a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="produits?cat=accessoires"><p>ACCESSOIRES</p></a>
         	<a class="px-4 py-2 h-full text-white hover:bg-neutral-300" href="contact"><p>CONTACT</p></a>  
         	
-        	<a class="p-3 h-full hover:bg-neutral-300" href="connexion"><img src="img/user.png" class="icon2" title="SE CONNECTER"></a>
-        	<a class="p-3 h-full hover:bg-neutral-300" href="panier"><img src="img/cart.png" class="icon2" title="MON PANIER"></a>
-            <a class="p-3 h-full hover:bg-neutral-300" href="profil"><img src="img/user.png" class="icon2" title="MON PROFIL"></a> 
-              
+            <c:choose>
+                <c:when test="${user!=null}">
+        	        <a class="p-3 h-full hover:bg-neutral-300" href="panier"><img src="img/cart.png" class="icon2" title="MON PANIER"></a>
+                    <a class="p-3 h-full hover:bg-neutral-300" href="profil"><img src="img/user.png" class="icon2" title="MON PROFIL"></a> 
+                </c:when>
+
+                <c:otherwise>
+                    <a class="p-3 h-full hover:bg-neutral-300" href="connexion"><img src="img/user.png" class="icon2" title="SE CONNECTER"></a>
+                </c:otherwise>
+            </c:choose>
         </div>
     </head>
 
