@@ -64,7 +64,7 @@ function confirmStock(i){
                                                                                 /*Page AJOUT */
 
 
-function confirmerAjout(){ //A FIXER, pas les bons name
+function confirmerAjout(){ 
             
     
         var cat=document.Formulaire.categorie.value.trim();//Cible la valeur rentree en saisie

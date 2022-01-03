@@ -45,6 +45,7 @@ public class AddProduitController {
 		}		
 		
 		return "admin/pages/formAjouterProduit";
+		//return "redirect:/adminFormulaireProduit"; n'affiche pas les messages de succès
 	}
 	
 }

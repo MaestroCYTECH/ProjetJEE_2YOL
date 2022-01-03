@@ -18,31 +18,30 @@
     
     <!-- Zone de navigation sur la droite-->
     <div class="pagedroite">
+	<div class="w-full place-content-center p-10">
+        <div class="md:w-3/5 sm:w-full m-auto mb-10 bg-neutral-100 backdrop-blur-lg rounded-xl text-neutral-800 shadow-xl border border-neutral-200">
+            <div class="w-full p-5 rounded-t-xl upppercase font-bold text-left text-xl pb-5 border-b border-neutral-200 text-indigo-500"><p>ESPACE ADMIN</p></div><br>
+                <div class="w-full p-5 text-center">
 
-        <div class="bloc">
-            <div class="titresection"><p>ESPACE ADMIN</p></div><br>
-                
-                Ici vous pouvez ajouter ou supprimer un produit, et aussi en augmenter le stock. 
+                Ici vous pouvez ajouter ou supprimer un produit, et aussi en augmenter le stock. </p>
              
-                <br><br> <a href='adminFormulaireProduit'> AJOUTER UN PRODUIT </a>
+                <a class="w-52 m-auto mt-8 p-3 block rounded-md text-white bg-neutral-400 hover:bg-neutral-300" href='adminFormulaireProduit'> AJOUTER UN PRODUIT </a>
 
-                <br><br><br> <h2> LISTE DES CATEGORIES : </h2><br> 
+                <h2 class="bold mt-8"> LISTE DES CATEGORIES : </h2><br> 
 
-                <!--Faire un while pour automatiser l'affichage des catégories-->
             
-                <div class="panier">
+                <div class="w-full bg-neutral-100 flex">
 
                     <c:forEach items="${cat}" var="entry">
-                        <div class="midCenter">                        
-                            <a href="adminListe?cat=${entry.categorie}"><strong style="text-transform:uppercase;">NOS ${entry.categorie}</strong></a> <br>
-                        </div>  
-                    </c:forEach>                
-                    
+                        <div class="text-center flex-1">                        
+                            <a class="block rounded-l-md bg-neutral-400 text-white p-3 w-full hover:bg-neutral-300" href="adminListe?cat=${entry.categorie}"><strong style="text-transform:uppercase;">NOS ${entry.categorie}</strong></a> <br>
+                        </div>   
+                    </c:forEach>
+
+                    </div>
                 </div>           
 
-                <br><br><br><br><br><br><br>
-
-        
+        </div>
         </div>
     </div>
 </div>
