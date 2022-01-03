@@ -61,6 +61,7 @@
 						</c:choose>
 					</div>
 
+					<%i++;%>
 				</c:forEach>
 	           
 			
