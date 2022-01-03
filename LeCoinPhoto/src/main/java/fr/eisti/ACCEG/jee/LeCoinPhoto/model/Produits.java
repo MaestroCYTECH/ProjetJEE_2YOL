@@ -25,7 +25,7 @@ public class Produits implements java.io.Serializable {
 	public Produits() {
 	}
 
-	public Produits(String categorie, String reference, String image, String nom, String description, float prix,
+	public Produits(String categorie, String image, String nom, String description, float prix,
 			int stock) {
 		this.categorie = categorie;
 		this.image = image;

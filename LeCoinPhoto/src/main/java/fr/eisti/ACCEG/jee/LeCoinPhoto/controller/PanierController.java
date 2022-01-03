@@ -70,10 +70,12 @@ public class PanierController {
 			model.addAttribute("error", "Veuillez vous connecter");
 			return "utilisateur/connexion";
 		}	
-		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		Utilisateurs uTest=(Utilisateurs) session.getAttribute("user");
+		int id=uTest.getId();
+		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier  a été modifié
 		String panier = u.getPanier();
-
 		
+		Produits pTest = new Produits();
 		
 		if (panier.trim().equals("Vide")) {
 			model.addAttribute("panierVide", true);
@@ -84,7 +86,7 @@ public class PanierController {
 
 			Map<Integer, Integer> qte = new HashMap<Integer, Integer>();// Va compter les quantités présentes dans le panier
 			int tmp;
-
+			
 			for (int i = 1; i < panierArray.length; i++) {
 
 				if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { // Si produit non trouvé, on ne l'envoie pas à la vue
@@ -96,26 +98,31 @@ public class PanierController {
 
 				} else {
 
-					Produits pTest;// = new Produits();
-					pTest = pR.findById(Integer.parseInt(panierArray[i].trim()));
+			
+					pTest=pR.findById(Integer.parseInt(panierArray[i].trim()));
 
 					if (qte.get(Integer.parseInt(panierArray[i].trim())) == null) {// Si c'est la 1ere fois qu'on compte cet article
 
 						if (pTest.getStock() <= 0) {
 
-						} // Si l'article est hors stock, tous ceux du panier seront hors stock aussi
+						} // Si l'article est hors stock, tous ceux du panier seront hors stock aussi, on augmente pas le compteur (mais le produit est quand meme envoyé à la vue)
 						else {
 							qte.put(Integer.parseInt(panierArray[i].trim()), 1);
 						}
-					} else {
+					} 
+					else {
 						tmp = qte.get(Integer.parseInt(panierArray[i].trim()));
 						tmp++;
-
+						
+						pTest= new Produits(pTest.getCategorie(), pTest.getImage(), pTest.getNom(), pTest.getDescription(), pTest.getPrix(), pTest.getStock());
+						//Copie profonde. Sinon le changement de stock plus bas affectait tous les exemplaires du meme produit
+						
 						if (tmp > pTest.getStock()) {
 							// Stock indisponible pour ces articles seulement
-							//pTest.setStock(-1); //A FIXER
+							pTest.setStock(-1); //Sera affiché hors stock par la vue (Note : N'affecte pas le stock de la BDD si on appelle pas pR.save(pTest)
 						}
 						qte.put(Integer.parseInt(panierArray[i].trim()), tmp);
+						System.out.println(pTest.getStock());
 					}
 
 					list.add(pTest);
