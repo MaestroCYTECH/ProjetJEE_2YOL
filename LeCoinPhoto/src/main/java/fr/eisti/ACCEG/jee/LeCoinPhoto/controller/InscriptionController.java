@@ -32,8 +32,7 @@ public class InscriptionController {
 	
 	@PostMapping(value = "/userInscription") 
 	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model, @RequestParam("pwdConfirm") String confirmation) { //Doit correspondre à th:object="${Utilisateurs}"
-		
-		//Rajouter un cryptage de son mdp.
+	
 		
 		String hashPwd=UtilisateurController.hashPwd(u.getPwd());
 		String confirmationHash=UtilisateurController.hashPwd(confirmation);

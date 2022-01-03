@@ -37,7 +37,13 @@
         </div>
         <div class="flex gap-4">
         <a class="flex-1 rounded-md uppercase text-white p-3 bg-neutral-400 hover:bg-neutral-300" href="userDeconnect">Me déconnecter</a>
-        <a class="flex-1 rounded-md uppercase text-white p-3 bg-indigo-500 hover:bg-neutral-400" href="adminHome">Section ADMIN</a>
+        
+        <c:choose>
+            <c:when test="${user.statut=='admin'}">      
+            <a class="flex-1 rounded-md uppercase text-white p-3 bg-indigo-500 hover:bg-neutral-400" href="adminHome">Section ADMIN</a>
+            </c:when>
+        </c:choose>
+
         </div> 
 	</div>
     </div>

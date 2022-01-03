@@ -59,9 +59,6 @@ public class UtilisateurController {
 		String hashPwd = hashPwd(pwd); 
 		
 		//On compare le mdp rentré une fois haché avec celui de la BDD
-     
-		System.out.println(hashPwd);
-		System.out.println(hashPwdBDD);
 		
 		if (!hashPwd.equals(hashPwdBDD)) {
 			model.addAttribute("error", "Login ou mot de passe erroné");

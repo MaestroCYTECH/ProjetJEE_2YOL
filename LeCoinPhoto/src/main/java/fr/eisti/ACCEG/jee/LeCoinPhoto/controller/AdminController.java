@@ -1,6 +1,9 @@
 package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +27,18 @@ public class AdminController {
 	
 	
 	@GetMapping(value = "/adminHome")
-	public String accueilAdmin(Model model) {
+	public String accueilAdmin(Model model, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			return "redirect:/connexion";
+		}
+		Utilisateurs u= (Utilisateurs) session.getAttribute("user");
+		if ( !u.getStatut().equals("admin") ) { //L'accès à la section Admin est reservée aux admins
+			
+			return "redirect:/profil";
+		}
 		
 		model.addAttribute("cat", cR.findAll());
 		
@@ -33,7 +47,20 @@ public class AdminController {
 	
 	
 	@GetMapping(value = "/adminListe")
-	public String pageListeProduits(@RequestParam String cat, Model model) {
+	public String pageListeProduits(@RequestParam String cat, Model model, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			return "redirect:/connexion";
+		}
+		Utilisateurs u= (Utilisateurs) session.getAttribute("user");
+		if ( !u.getStatut().equals("admin") ) { //L'accès à la section Admin est reservée aux admins
+			
+			return "redirect:/profil";
+		}
+		
+		
 		
 		if (!cat.equals("appareils") && !cat.equals("objectifs") && !cat.equals("accessoires")) {
 			return "redirect:/adminHome";
@@ -47,9 +74,20 @@ public class AdminController {
 	
 	
 	@PostMapping(value = "/adminDeleteProduit")
-	public String deleteProduit(@RequestParam String id, @RequestParam String cat, Model model) {
+	public String deleteProduit(@RequestParam String id, @RequestParam String cat, Model model, HttpServletRequest request) {
 		
-		//... Doit récuperer la référence (ou l'ID) du produit puis le supprimer de la BDD	
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			return "redirect:/connexion";
+		}
+		Utilisateurs u= (Utilisateurs) session.getAttribute("user");
+		if ( !u.getStatut().equals("admin") ) { //L'accès à la section Admin est reservée aux admins
+			
+			return "redirect:/profil";
+		}
+		
+		
 		
 		try {
 			pR.deleteById(Integer.parseInt(id.trim()));
@@ -64,7 +102,19 @@ public class AdminController {
 	
 	
 	@PostMapping(value = "/adminAddStock")
-	public String addStock(@RequestParam String id, @RequestParam String cat, @RequestParam String quantite) {
+	public String addStock(@RequestParam String id, @RequestParam String cat, @RequestParam String quantite, HttpServletRequest request) {
+		
+		HttpSession session = request.getSession();
+		if (session.getAttribute("user")==null) { //Si on ne s'est pas connecté
+			
+			return "redirect:/connexion";
+		}
+		Utilisateurs u= (Utilisateurs) session.getAttribute("user");
+		if ( !u.getStatut().equals("admin") ) { //L'accès à la section Admin est reservée aux admins
+			
+			return "redirect:/profil";
+		}
+		
 		
 		
 		int n=Integer.parseInt(id.trim());
