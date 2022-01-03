@@ -73,7 +73,7 @@ public class PanierController {
 		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier a été modifié depuis la BDD après la dernière connexion à la session
 		String panier = u.getPanier();
 		
-		
+		boolean isValid=false; //Indique si au moins un produit valide a été trouvé
 				
 		
 		if (panier.trim().equals("Vide")) {
@@ -87,7 +87,8 @@ public class PanierController {
 			Map<Integer, Integer> qte = new HashMap<Integer, Integer>();// Va compter les quantités présentes dans le panier
 			int tmp;
 			Produits pTest = new Produits();//Servira à vérifier que les quantités d'un meme produit ne dépasse pas le stock total
-			Produits pTest2= new Produits();
+			Produits pTest2= new Produits();	
+			
 			
 			for (int i = 1; i < panierArray.length; i++) {
 
@@ -110,6 +111,7 @@ public class PanierController {
 							qte.put(Integer.parseInt(panierArray[i].trim()), 1);
 						}
 						list.add(pTest);
+						isValid=true;
 					} 
 					else {
 						tmp = qte.get(Integer.parseInt(panierArray[i].trim()));
@@ -125,6 +127,7 @@ public class PanierController {
 						}
 						qte.put(Integer.parseInt(panierArray[i].trim()), tmp);
 						list.add(pTest2);
+						isValid=true;
 					}
 
 					
@@ -140,6 +143,10 @@ public class PanierController {
 			if (list.size() > 1) {
 				model.addAttribute("pluriel", "s");
 			}
+		}
+		
+		if (!isValid) {	
+			model.addAttribute("panierVide", true);
 		}
 
 		return "utilisateur/panier";
