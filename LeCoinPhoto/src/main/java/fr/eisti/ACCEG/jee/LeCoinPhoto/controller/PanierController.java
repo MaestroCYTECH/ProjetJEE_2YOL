@@ -70,12 +70,14 @@ public class PanierController {
 			model.addAttribute("error", "Veuillez vous connecter");
 			return "utilisateur/connexion";
 		}	
-		Utilisateurs uTest=(Utilisateurs) session.getAttribute("user");
-		int id=uTest.getId();
-		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier  a été modifié
+		Utilisateurs uTmp=(Utilisateurs) session.getAttribute("user");
+		int id=uTmp.getId();
+		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier a été modifié depuis la BDD après la dernière connexion à la session
 		String panier = u.getPanier();
 		
-		Produits pTest = new Produits();
+		
+		
+		
 		
 		if (panier.trim().equals("Vide")) {
 			model.addAttribute("panierVide", true);
@@ -86,6 +88,9 @@ public class PanierController {
 
 			Map<Integer, Integer> qte = new HashMap<Integer, Integer>();// Va compter les quantités présentes dans le panier
 			int tmp;
+			Produits pTest = new Produits();
+			
+			
 			
 			for (int i = 1; i < panierArray.length; i++) {
 
@@ -122,7 +127,6 @@ public class PanierController {
 							pTest.setStock(-1); //Sera affiché hors stock par la vue (Note : N'affecte pas le stock de la BDD si on appelle pas pR.save(pTest)
 						}
 						qte.put(Integer.parseInt(panierArray[i].trim()), tmp);
-						System.out.println(pTest.getStock());
 					}
 
 					list.add(pTest);

@@ -34,8 +34,8 @@ public class InscriptionController {
 	public String addUser(@ModelAttribute(name = "Utilisateurs") Utilisateurs u, Model model, @RequestParam("pwdConfirm") String confirmation) { //Doit correspondre à th:object="${Utilisateurs}"
 	
 		
-		String hashPwd=UtilisateurController.hashPwd(u.getPwd());
-		String confirmationHash=UtilisateurController.hashPwd(confirmation);
+		String hashPwd=ConnectController.hashPwd(u.getPwd());
+		String confirmationHash=ConnectController.hashPwd(confirmation);
 		
 		u.setPwd(hashPwd);
 		

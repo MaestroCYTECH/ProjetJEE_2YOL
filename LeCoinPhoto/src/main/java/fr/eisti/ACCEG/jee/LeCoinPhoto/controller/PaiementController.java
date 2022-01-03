@@ -2,7 +2,9 @@ package fr.eisti.ACCEG.jee.LeCoinPhoto.controller;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -36,7 +38,9 @@ public class PaiementController {
 			model.addAttribute("error", "Veuillez vous connecter");
 			return "utilisateur/connexion";
 		}
-		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		Utilisateurs uTmp=(Utilisateurs) session.getAttribute("user");
+		int id=uTmp.getId();
+		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier a été modifié depuis la BDD après la dernière connexion à la session
 		
 		model.addAttribute("login", u.getLogin());
 		
@@ -54,6 +58,12 @@ public class PaiementController {
     		String[] panierArray = panier.split(",");
     		ArrayList<Produits> list = new ArrayList<Produits>();
     		
+    		Map<Integer, Integer> qte = new HashMap<Integer, Integer>();// Va compter les quantités présentes dans le panier
+			int tmp=0;
+			Produits pTest = new Produits();
+			
+			
+    		
     		for (int i = 1; i < panierArray.length; i++) {
     			
     			if (pR.findById(Integer.parseInt(panierArray[i].trim())) == null) { //Si produit non trouvé, on ne l'envoie pas à la vue
@@ -64,11 +74,28 @@ public class PaiementController {
     					
     				}
     				else {
-    					Produits uTmp=pR.findById(Integer.parseInt(panierArray[i].trim()));
-        				list.add(uTmp);
-        				total=total+uTmp.getPrix();	
-        				
-        				isValid=true;//Notifie qu'au moins 1 produit a un stock valide
+    					if (qte.get(Integer.parseInt(panierArray[i].trim())) == null) {// Si c'est la 1ere fois qu'on compte cet article
+    						qte.put(Integer.parseInt(panierArray[i].trim()), 1);
+    						tmp = 1;
+    					}
+    					else {
+    						tmp = qte.get(Integer.parseInt(panierArray[i].trim()));
+    						tmp++;
+    						qte.put(Integer.parseInt(panierArray[i].trim()), tmp);
+    					}
+    					
+	    					
+    					pTest=pR.findById(Integer.parseInt(panierArray[i].trim()));							
+						if (tmp > pTest.getStock()) {//Si il y a plus d'exemplaires dans le panier que dans le stock, on n'affiche pas les exemplaires en trop
+							
+						}
+						else {
+		
+		        			list.add(pTest);				
+		        			total=total+pTest.getPrix();			        				
+		        			isValid=true;//Notifie qu'au moins 1 produit a un stock valide
+						}	
+    					
     				}			
     			}			
 			}
@@ -84,6 +111,8 @@ public class PaiementController {
 		return "utilisateur/paiement";
 	}
 	
+	
+	
 	@PostMapping(value = "/payerPanier")//PAYER, puis retourner au panier
 	public String payerPanier(HttpServletRequest request, Model model) throws Exception{
 		
@@ -94,7 +123,9 @@ public class PaiementController {
 			model.addAttribute("error", "Veuillez vous connecter");
 			return "utilisateur/connexion";
 		}
-		Utilisateurs u=(Utilisateurs) session.getAttribute("user");
+		Utilisateurs uTmp=(Utilisateurs) session.getAttribute("user");
+		int id=uTmp.getId();
+		Utilisateurs u=uR.findById(id);//Sert à actualiser depuis la BDD. Sert si le panier a été modifié depuis la BDD après la dernière connexion à la session
 		
 		
 		String panier = u.getPanier();

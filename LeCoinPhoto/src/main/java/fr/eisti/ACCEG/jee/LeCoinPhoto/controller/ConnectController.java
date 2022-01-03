@@ -19,7 +19,7 @@ import fr.eisti.ACCEG.jee.LeCoinPhoto.model.*;
 
 
 @Controller
-public class UtilisateurController {
+public class ConnectController {
 
 	@Autowired
 	UtilisateursRepository uR;
